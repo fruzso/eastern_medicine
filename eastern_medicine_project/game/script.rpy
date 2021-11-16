@@ -3,8 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define janos = Character("Eileen")
-image background_video_rakpart = Movie(play = "video/movie_rakpart.webm", mask = None)
+define janos = Character('Janos')
+image background_video_rakpart = Movie(play = 'video/movie_rakpart.webm', mask = None)
 
 
 # The game starts here.
@@ -16,12 +16,14 @@ label start:
     # images directory to show it.
 
     scene background_video_rakpart
+    # Start scenne
+    # Janos enters and ponders the crimes of the PC
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show janos idle
 
     # These display lines of dialogue.
 
