@@ -11,8 +11,6 @@ image background_video_rakpart = Movie(play = "video/movie_rakpart.webm", mask =
 image background_video_black_wheel_filled = Movie(play = "video/movie_character_selection_filled.webm")
 image background_video_black_wheel_empty = Movie(play = "video/moive_character_seelction_empty.webm", mask = None)
 
-
-
 # The game starts here.
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
@@ -75,14 +73,16 @@ label character_selection:
     menu choose_character:
         "Choose your character"
         "Almos":
-            "something"
+            "Almos"
             python:
-                import character_creation
-                character_creation.something()
-            #block of code to run
+                import game_functions # Note: Tried and unfortunately it seems, that before callling a function the game_functions.py has to be balled in the same "python: " unit every time
+                game_functions.create_character("Almos") #Note: the functions console.log is visible in the game engine, click at the bottom to console
+        
         "Cayanne":
-            "something2"
-            #block of code to run
+            "Cayanne"
+            python:
+                import game_functions
+                game_functions.create_character("Cayanne")
 
     return
         

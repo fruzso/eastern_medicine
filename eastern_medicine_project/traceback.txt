@@ -1,7 +1,7 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 24, in script call
+  File "game/script.rpy", line 22, in script call
     call defeat_mid_interogation
   File "game/script.rpy", line 112, in script
     with dissolve(3.0) #TODO for some reasion this here is not callable
@@ -10,7 +10,7 @@ TypeError: 'Dissolve' object is not callable
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 24, in script call
+  File "game/script.rpy", line 22, in script call
     call defeat_mid_interogation
   File "game/script.rpy", line 112, in script
     with dissolve(3.0) #TODO for some reasion this here is not callable
@@ -29,4 +29,4 @@ TypeError: 'Dissolve' object is not callable
 Darwin-20.4.0-x86_64-i386-64bit
 Ren'Py 7.4.10.2178
 eastern_medicine_project 1.0
-Wed Nov 17 11:41:00 2021
+Wed Nov 17 11:55:00 2021
