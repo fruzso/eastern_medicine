@@ -12,7 +12,6 @@ label  rakpart_begining:
     show janos idle
 
     # These display lines of dialogue.
-
     janos "Ominous shit"
 
     janos "Choose one"

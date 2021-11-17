@@ -19,6 +19,7 @@ image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask =
 # The game starts here.
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
+    call variables
 
     call rakpart_begining
 
@@ -41,3 +42,6 @@ label start:
     call epilogue
 
     return    
+
+label variables:
+    $ pc_sheet = None
