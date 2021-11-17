@@ -3,7 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define janos = Character("janos")
+define janos = Character("Janos")
+define cecila = Character("Cecilia") # not used yet
+define si_agent = Character("SI_agent") # not used yet
 
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 
