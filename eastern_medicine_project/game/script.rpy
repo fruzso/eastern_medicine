@@ -21,7 +21,7 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     call variables
 
-    call rakpart_begining
+    call rakpart
 
     call character_selection
 
