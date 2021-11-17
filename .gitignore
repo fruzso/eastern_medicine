@@ -1,9 +1,8 @@
 # Game engine files to ignore
-# TODO
-# everything that ends in .save in the saves folder
-# errors.txt
-# log.txt
-# traceback.txt
+errors.txt
+traceback.txt
+*.rpyc
+*.save
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
