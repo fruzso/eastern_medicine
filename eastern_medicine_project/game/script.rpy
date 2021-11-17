@@ -5,6 +5,7 @@
 
 define janos = Character("janos")
 image background_video_rakpart = Movie(play = "video/movie_rakpart.webm", mask = None)
+define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 
 
 # The game starts here.
@@ -14,7 +15,7 @@ label start:
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
-
+    play music background_music_rakpart volume 0.5 loop
     scene background_video_rakpart
     with Dissolve(3.0)
     # Start scenne
