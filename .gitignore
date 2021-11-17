@@ -1,8 +1,11 @@
 # Game engine files to ignore
 errors.txt
 traceback.txt
+log.txt
 *.rpyc
 *.save
+*.rpyb
+eastern_medicine_project/game/cache/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -8,15 +8,9 @@ label character_selection:
     menu choose_character:
         "Choose your character"
         "Almos":
-            "Almos"
-            python:
-                import game_functions # Note: Tried and unfortunately it seems, that before callling a function the game_functions.py has to be balled in the same "python: " unit every time
-                game_functions.create_character("Almos") #Note: the functions console.log is visible in the game engine, click at the bottom to console
-        
+            $ pc_sheet = Almos()
+            "My name is [pc_sheet.NAME], I am a [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
         "Cayanne":
-            "Cayanne"
-            python:
-                import game_functions
-                game_functions.create_character("Cayanne")
-
+            $ pc_sheet = Cayenne()
+            "My name is [pc_sheet.NAME], I am a [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
     return
