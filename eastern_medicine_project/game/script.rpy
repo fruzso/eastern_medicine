@@ -87,6 +87,11 @@ label character_selection:
     return
         
 
+label inerogation:
+    # The main scene of the game, where the player returns many times
+    # PLOTPOINTS: 
+    
+
 label hospital:
     # A memmory of the Hospital
     # PLOTPOINTS: We learn about the stolen blood and the PC's relation to Cecila
@@ -117,3 +122,12 @@ label defeat_mid_interogation:
     
     # This ends the game.
     return
+
+label victory:
+    # Game over - Victory
+    # Only accessible at the end
+
+    centered "You won"
+
+    return
+    
