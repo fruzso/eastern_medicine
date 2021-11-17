@@ -87,8 +87,8 @@ define gui.title_text_size = 75
 ## The images used for the main and game menus.
 # define gui.main_menu_background = "gui/main_menu.png" ## Origianl code
 # define gui.game_menu_background = "gui/game_menu.png" ## Origianl code
-define gui.main_menu_background = Movie(play = "video/movie_interogation.webm", mask = None) ## Origianl code
-define gui.game_menu_background = Movie(play = "video/movie_interogation.webm", mask = None) ## Origianl code
+define gui.main_menu_background = Movie(play = "video/movie_interogation.webm", mask = None) ## Custom code
+define gui.game_menu_background = Movie(play = "video/movie_interogation.webm", mask = None) ## Custom code
 
 
 ## Dialogue ####################################################################
