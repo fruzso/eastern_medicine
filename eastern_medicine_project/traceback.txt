@@ -1,15 +1,19 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 20, in script
-    with Dissolve(3.0)
-IOError: Couldn't find file 'background_music_rakpart.mp3'.
+  File "game/script.rpy", line 24, in script call
+    call defeat_mid_interogation
+  File "game/script.rpy", line 112, in script
+    with dissolve(3.0) #TODO for some reasion this here is not callable
+TypeError: 'Dissolve' object is not callable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 20, in script
-    with Dissolve(3.0)
+  File "game/script.rpy", line 24, in script call
+    call defeat_mid_interogation
+  File "game/script.rpy", line 112, in script
+    with dissolve(3.0) #TODO for some reasion this here is not callable
   File "renpy/ast.py", line 1443, in execute
     renpy.exports.with_statement(trans, paired)
   File "renpy/exports.py", line 1682, in with_statement
@@ -18,23 +22,11 @@ Full traceback:
     clear=clear)
   File "renpy/display/core.py", line 3315, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "renpy/display/core.py", line 4020, in interact_core
-    renpy.audio.audio.periodic()
-  File "renpy/audio/audio.py", line 1162, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "renpy/audio/audio.py", line 1140, in periodic_thread_main
-    periodic_pass()
-  File "renpy/audio/audio.py", line 1082, in periodic_pass
-    c.periodic()
-  File "renpy/audio/audio.py", line 518, in periodic
-    topf = load(filename)
-  File "renpy/audio/audio.py", line 69, in load
-    rv = renpy.loader.load(fn)
-  File "renpy/loader.py", line 798, in load
-    raise IOError("Couldn't find file '%s'." % name)
-IOError: Couldn't find file 'background_music_rakpart.mp3'.
+  File "renpy/display/core.py", line 3674, in interact_core
+    new_widget=layers_root)
+TypeError: 'Dissolve' object is not callable
 
 Windows-10-10.0.19041
 Ren'Py 7.4.10.2178
 eastern_medicine_project 1.0
-Wed Nov 17 01:30:25 2021
+Wed Nov 17 11:15:53 2021

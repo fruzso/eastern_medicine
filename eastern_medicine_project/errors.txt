@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 18: expected statement.
-    add background_video_rakpart
-                                ^
+File "game/script.rpy", line 12: unexpected EOF while parsing
+    Movie(play = "video/moive_character_seelction_empty.webm"))
+                                                               ^
 
 Ren'Py Version: Ren'Py 7.4.10.2178
-Wed Nov 17 00:25:19 2021
+Wed Nov 17 11:05:41 2021
