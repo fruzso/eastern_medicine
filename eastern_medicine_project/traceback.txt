@@ -14,19 +14,19 @@ Full traceback:
     call defeat_mid_interogation
   File "game/script.rpy", line 112, in script
     with dissolve(3.0) #TODO for some reasion this here is not callable
-  File "renpy/ast.py", line 1443, in execute
+  File "/Applications/renpy-7.4.10-sdk/renpy/ast.py", line 1443, in execute
     renpy.exports.with_statement(trans, paired)
-  File "renpy/exports.py", line 1682, in with_statement
+  File "/Applications/renpy-7.4.10-sdk/renpy/exports.py", line 1682, in with_statement
     return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "renpy/display/core.py", line 2752, in do_with
+  File "/Applications/renpy-7.4.10-sdk/renpy/display/core.py", line 2752, in do_with
     clear=clear)
-  File "renpy/display/core.py", line 3315, in interact
+  File "/Applications/renpy-7.4.10-sdk/renpy/display/core.py", line 3315, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs)
-  File "renpy/display/core.py", line 3674, in interact_core
+  File "/Applications/renpy-7.4.10-sdk/renpy/display/core.py", line 3674, in interact_core
     new_widget=layers_root)
 TypeError: 'Dissolve' object is not callable
 
-Windows-10-10.0.19041
+Darwin-20.4.0-x86_64-i386-64bit
 Ren'Py 7.4.10.2178
 eastern_medicine_project 1.0
-Wed Nov 17 11:15:53 2021
+Wed Nov 17 11:41:00 2021
