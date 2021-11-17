@@ -26,7 +26,7 @@ label start:
 
     call hospital
 
-    call interogation_3
+    call interogation_2
 
     call heaven
 
@@ -36,7 +36,7 @@ label start:
 
     call interogation_4
 
-    call defeat_mid_interogation
+    call epilogue
 
     return
 
@@ -177,11 +177,11 @@ label defeat_mid_interogation:
     # This ends the game.
     return
 
-label victory:
+label epilogue:
     # Game over - Victory
     # Only accessible at the end
 
-    centered "You won"
+    centered "The end of the game"
 
     return
     
