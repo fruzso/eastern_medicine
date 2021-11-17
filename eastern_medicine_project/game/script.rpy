@@ -3,8 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define janos = Character('Janos')
-image background_video_rakpart = Movie(play = 'video/movie_rakpart.webm', mask = None)
+define janos = Character("janos")
+image background_video_rakpart = Movie(play = "video/movie_rakpart.webm", mask = None)
 
 
 # The game starts here.
@@ -16,6 +16,7 @@ label start:
     # images directory to show it.
 
     scene background_video_rakpart
+    with Dissolve(3.0)
     # Start scenne
     # Janos enters and ponders the crimes of the PC
 
@@ -27,9 +28,28 @@ label start:
 
     # These display lines of dialogue.
 
-    janos "You've created a new Ren'Py game."
+    janos "Ominous shit"
 
-    janos "Once you add a story, pictures, and music, you can release it to the world!"
+    janos "Choose one"
+
+    menu pick_a_drug:
+        "Pick a drug, my darling PC!"
+        "Now!"
+        "I said, now"
+        "Cocaine":
+            "You choose cocaine"
+            $ high_on_cocaine = True
+        "Weed":
+            "You choose weed"
+            $ high_on_cocaine = False
+
+    menu what_next:
+        "What now"
+        "lose money":
+            "you lost money"
+        "go to party" if high_on_cocaine:
+            "Having FUUUUN"
+          
 
     # This ends the game.
 
