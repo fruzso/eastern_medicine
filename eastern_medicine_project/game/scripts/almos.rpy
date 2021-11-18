@@ -12,7 +12,7 @@ init python:
             self.DEXTERITY = 1
             self.STAMINA = 1
 
-            self.CHARISMA = 1
+            self.CHARISMA = 4
             self.MANIPULATION = 1
             self.COMPOSURE = 1
             
@@ -58,7 +58,7 @@ init python:
 
             # Other disciplines
             self.OBFUSCATE = 0
-            self.DOMINATE = 0
+            self.DOMINATE = 4
             self.FORTITUDE = 0
             self.POTENCE = 0
 
