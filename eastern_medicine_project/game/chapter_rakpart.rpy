@@ -4,35 +4,60 @@ label  rakpart:
 
     play music background_music_rakpart volume 0.5 loop
 
-    $ renpy.pause(2.0)
+    pause(2.0)
 
     scene background_video_rakpart
     with Dissolve(3.0)
 
-    $ renpy.pause(2.0)
+    pause(2.0)
 
     show janos idle at left
     with Dissolve(2.0)
 
     # These display lines of dialogue.
 
-    janos "Work. Work never ends. Not for the living and certainly not for the everlasting."
+    janos """
+    What an ungodly hour to work. Not for the living, and certainly not for the everlasting.
+    
+    Nor for the undying, whatever you will call us.
 
-    janos "Nor for the undying, whatever you will call us."
+    Magistrates in the dark.
 
-    janos "Nevertheless, not the worst of places to suffer, through."
+    Fiends of the night.
 
-    janos "Not much everylasting waits us, if a few imps come knocking on the door come daylight."
+    Leeches.
 
-    janos "But who set them on us? - there's the rub!"
+    Illuminati - that's a good one.
 
-    # TODO: queue footstep sound here
-    "Footsteps approach in the mist, thumping the ground with a growing determination of volume."
+    Nevertheless, not the worst places to suffer through a laborius night.
 
-    $ renpy.pause(2.0)
+    Eventually dawn comes anyway.
 
-    janos "To work, then!"
+    Of course, there is a bit more danger to it, if it's accompanied by a handfull of initiated agents, 
+    
+    armed to the teeth - even if it's nnot sharpest nature can give - with wooden bullets and similarly lethal gadets.
 
-    janos "Who comes here?"
+    Naturally someone must have invited them.
+    """
+
+    #TODO:AUDIO queue footstep sound here
+    "/Footsteps approach in the mist, thumping the ground with a growing determination of volume./"
+
+    pause(2.0)
+
+    janos """
+    Can it be the gracious party host?
+
+    or
+
+    just another kindred, whose ignore puts them to the screws.
+
+    Wouldn't be the first.
+
+    And certainly not the last of its kind.
+    """
+
+    scene black
+    with fade
 
     return

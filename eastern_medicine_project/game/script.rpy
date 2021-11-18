@@ -19,7 +19,8 @@ image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask =
 # The game starts here.
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
-    # call variables
+    
+    call variables # Non-story label
 
     # call rakpart
 
@@ -44,4 +45,5 @@ label start:
     return    
 
 label variables:
-    $ pc_sheet = None
+    # $ pc_sheet = None
+    # $ pc_seated = True
