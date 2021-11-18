@@ -15,31 +15,6 @@ label  rakpart:
     with Dissolve(2.0)
 
     # These display lines of dialogue.
-<<<<<<< HEAD
-    janos "Ominous shit"
-
-    janos "Choose one"
-
-    menu pick_a_drug:
-        "Pick a drug, my darling PC!"
-        "Now!"
-        "I said, now"
-        "Cocaine":
-            "You choose cocaine"
-            $ high_on_cocaine = True
-        "Weed":
-            "You choose weed"
-            $ high_on_cocaine = False
-
-    menu what_next:
-        "What now"
-        "lose money":
-            "you lost money"
-        "go to party" if high_on_cocaine:
-            "Having FUUUUN"
-
-    return
-=======
 
     janos "Work. Work never ends. Not for the living and certainly not for the everlasting."
 
@@ -61,4 +36,3 @@ label  rakpart:
     janos "Who comes here?"
 
     return
->>>>>>> FIX-0001 Brought back all the dialog and wrote some more.
