@@ -8,7 +8,7 @@ log.txt
 *.rpyb
 
 eastern_medicine_project/game/cache/
-eastern_medicine_project/game/saves
+eastern_medicine_project/game/saves/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
