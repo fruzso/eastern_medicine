@@ -50,4 +50,6 @@ label hospital:
     $ roll.roll()
     "Margin of success is [roll.margin_of_success]."
 
+    "/The memory of St. Margit's hospital comes back, maybe even more clearly than you would like/"
+
     return

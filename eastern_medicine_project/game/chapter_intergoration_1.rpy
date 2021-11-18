@@ -88,9 +88,11 @@ label interogation_1:
     show pc idle at right
 
     janos """
-    When would reveal a bit more, perhaps. Yet again, you are not here to ask questions.
+    -When- would reveal a bit more, perhaps.
+    
+    Yet again, you are not here to ask questions.
 
-    Not the smart ones anyway.
+    Not the smart ones, anyway.
     """
 
     hide janos
@@ -103,12 +105,51 @@ label interogation_1:
 
     show janos idle at left
 
-    janos """
-    You would know, I assure you. In any case there is a point to your persistence.
-    
-    Where were you on the 20th of August?
-    """
+    janos "You would know if we did, I assure you. In any case, there is a point to your persistence, I confess."
 
+    if pc_sheet.CLAN == "Malkavian":
+        hide Janos
+
+        show pc idle at right
+
+        pc """
+        Dead ladies and gentlemen of the jury,
+
+        the prosecution rests.
+
+        Job fuckin' well done.
+        """
+
+        hide pc
+
+        show janos idle at left
+
+        janos "Are you finished?"
+
+        hide janos
+
+        show pc idle at right
+
+        pc "Eternally."
+
+        hide pc
+
+        show janos idle
+
+        janos "That will be enough."
+
+        hide janos
+
+        show pc idle at right
+
+        pc "..."
+
+        hide pc
+
+    show janos idle at left
+    
+    janos "Where were you on the 20th of August?"
+    
     hide janos
 
     menu august_20:
@@ -172,5 +213,8 @@ label interogation_1:
             pc "yes."
 
             hide pc
+
+            scene black
+            with fade
 
             return

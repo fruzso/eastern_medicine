@@ -2,6 +2,9 @@ label  rakpart:
     # Start scenne
     # Janos enters and ponders the crimes of the PC
 
+    scene black
+    with fade
+
     play music background_music_rakpart volume 0.5 loop
 
     pause(2.0)

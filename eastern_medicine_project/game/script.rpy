@@ -15,6 +15,7 @@ image background_video_black_wheel_filled = Movie(play = "video/movie_character_
 image background_video_black_wheel_empty = Movie(play = "video/moive_character_seelction_empty.webm", mask = None)
 image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask = None)
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
+image background_video_heaven = Movie(play = "video/movie_heaven.webm", mask = None)
 
 # The game starts here.
 label start:
@@ -42,8 +43,10 @@ label start:
 
     call epilogue
 
+    scene black
+    with fade
     return    
 
-label variables:
+# label variables:
     # $ pc_sheet = None
     # $ pc_seated = True
