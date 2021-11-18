@@ -19,13 +19,13 @@ image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask =
 # The game starts here.
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
-    call variables
+    # call variables
 
-    call rakpart
+    # call rakpart
 
-    call character_selection
+    # call character_selection
 
-    call interogation_1
+    # call interogation_1
 
     call hospital
 

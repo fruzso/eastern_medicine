@@ -10,5 +10,44 @@ label hospital:
     $ roll = Roll(compel_pool, 4, 4)
     $ roll.roll()
     "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
 
     return

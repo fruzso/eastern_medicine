@@ -1,8 +1,4 @@
-$ compel_pool = pc_sheet.CHARISMA + pc_sheet.DOMINATE
-
 init python:
-    import random
-
     class Roll(object):
         def __init__(self, dice_pool, difficulty, n_hunger_dice):
             self.dice_pool = dice_pool
@@ -34,7 +30,7 @@ init python:
                     # until we reach the number of hunger dice 
                     denominator = self.dice_pool
                     for hunger_die in range(self.n_hunger_dice):
-                        if random.randint(1,denominator) == 1:
+                        if renpy.random.randint(1,denominator) == 1:
                             self.is_bestial_failure = True 
                             break
                         denominator -= 1
@@ -48,7 +44,7 @@ init python:
 
         def roll(self):
             for die in range(self.dice_pool):
-                single_roll = random.randint(1,10)
+                single_roll = renpy.random.randint(1,10)
                 if single_roll > 5:
                     if single_roll == 10:
                         self.n_success_critical += 1
