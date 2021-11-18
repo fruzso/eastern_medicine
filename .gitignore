@@ -2,10 +2,13 @@
 errors.txt
 traceback.txt
 log.txt
+
 *.rpyc
 *.save
 *.rpyb
+
 eastern_medicine_project/game/cache/
+eastern_medicine_project/game/saves/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

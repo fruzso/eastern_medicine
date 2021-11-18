@@ -19,4 +19,9 @@ label character_selection:
         "Cayanne":
             $ pc_sheet = Cayenne()
             "My name is [pc_sheet.NAME], I am a [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
+    
+    define pc = Character("[pc_sheet.NAME]")
+    image pc idle = "[pc_sheet.NAME] idle.png"
+    show pc idle at right
+    
     return
