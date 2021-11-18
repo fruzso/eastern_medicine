@@ -21,4 +21,5 @@ label character_selection:
             "My name is [pc_sheet.NAME], I am a [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
     
     define pc = Character("[pc_sheet.NAME]")
+    show pc idle at right
     return
