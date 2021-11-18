@@ -76,6 +76,4 @@ label hospital:
 
     pc "illuminates the salient points..."
 
-
-
     return
