@@ -21,7 +21,7 @@ image background_video_heaven = Movie(play = "video/movie_heaven.webm", mask = N
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
-    call variables # Non-story label
+    # call variables # Non-story label
 
     # call rakpart
 

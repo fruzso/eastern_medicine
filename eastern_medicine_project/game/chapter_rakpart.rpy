@@ -15,14 +15,10 @@ label  rakpart:
     pause(2.0)
 
     show janos idle at left
-    with Dissolve(2.0)
-
-    # These display lines of dialogue.
-
     janos """
-    What an ungodly hour to work. Not for the living, and certainly not for the everlasting.
+    What an ungodly hour to work for the living, and most certainly for the everlasting.
     
-    Nor for the undying, whatever you will call us.
+    or for the undying, or whatever you will call us.
 
     Magistrates in the dark.
 
@@ -38,7 +34,7 @@ label  rakpart:
 
     Of course, there is a bit more danger to it, if it's accompanied by a handfull of initiated agents, 
     
-    armed to the teeth - even if it's nnot sharpest nature can give - with wooden bullets and similarly lethal gadets.
+    armed to the teeth - even if it's not the sharpest nature can provide - with wooden bullets and similarly lethal whatnots.
 
     Naturally someone must have invited them.
     """
@@ -49,18 +45,17 @@ label  rakpart:
     pause(2.0)
 
     janos """
-    Can it be the gracious party host?
+    Can it be our gracious party host?
 
     or
 
-    just another kindred, whose ignore puts them to the screws.
+    just another kindred, whose ignorance puts them to the screws.
 
-    Wouldn't be the first.
+    Wouldn't be the first of its kind.
 
-    And certainly not the last of its kind.
+    Certainly not the last.
     """
 
     scene black
     with fade
-
     return

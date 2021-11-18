@@ -13,17 +13,16 @@ label character_selection:
         "Choose your character"
         "Almos":
             $ pc_sheet = Almos()
-            "[pc_sheet.NAME], of [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
         "Cayanne":
             $ pc_sheet = Cayenne()
-            "[pc_sheet.NAME], of [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
-    
+          
     define pc = Character("[pc_sheet.NAME]") # The player character is defined, and can be reffered to as pc from hereon
     image pc idle = "[pc_sheet.NAME] idle.png"
 
     show pc idle at center
+
+    "[pc_sheet.NAME], of clan [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
     
     scene black
     with fade
-
     return
