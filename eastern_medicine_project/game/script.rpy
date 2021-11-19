@@ -22,6 +22,7 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     # call variables # Non-story label
+    # call test
 
     call rakpart
 

@@ -68,23 +68,38 @@ init python:
             self.hunger = 1
 
             # Other
-            self.BLOOD_POTENCY = 1
-            self.MAX_HUNGER = 5
-
+            self.BLOOD_POTENCY = 1 # actual dicepool for rouse check
+        
         def lose_health(self, damage):
             self.health -= damage
+        
+        def heal(self, health_points_gained):
+            self.health += health_points_gained
 
         def lose_willpower(self, willpower_lost):
             self.willpower -= willpower_lost
         
-        def _is_too_hungry(self):
-            if self.hunger >= self.MAX_HUNGER:
-                return True
-            return False
+        def gain_willpower(self, willpower_gained):
+            self.willpower += willpower_gained
 
         def get_hungry(self, plus_hunger_points):
             self.hunger += plus_hunger_points
-            return self._is_too_hungry()
 
         def feed(self, blood_points):
             self.hunger -= blood_points
+        
+        def rouse_check(self):
+            hunger_success = False
+            for die in range(self.BLOOD_POTENCY):
+                single_roll = renpy.random.randint(1,10)
+                if single_roll > 5:
+                    hunger_success = True
+                    break
+            
+            if not hunger_success:
+                self.get_hungry(1)
+        
+        def set_hunger_to_zero(self):
+            self.hunger = 0
+
+
