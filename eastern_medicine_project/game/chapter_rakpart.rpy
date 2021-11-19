@@ -15,6 +15,10 @@ label  rakpart:
     pause(2.0)
 
     show janos idle at left
+    
+    # Create Janos' character sheet
+    $ janos_sheet = Janos()
+
     janos """
     What an ungodly hour to work for the living, and most certainly for the everlasting.
     

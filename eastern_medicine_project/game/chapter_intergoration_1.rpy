@@ -11,15 +11,17 @@ label interogation_1:
 
     pause(3.0)
 
-    $ roll = Roll(compel_pool, 4, 4)
-    $ roll.roll()
-    "Margin of success is [roll.margin_of_success]."
+
 
     show janos idle at left
     janos "Take a seat!"
+    hide janos
 
-    "/You take the only chair singled out in the middle of the damp room./"
-    hide pc
+    "/Your eyes easily find the only chair singled out in the middle of the damp room./"
+
+    $ roll = Roll(pc_sheet.WITTS + pc_sheet.INSIGHT, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
 
     menu seating_choice:
 

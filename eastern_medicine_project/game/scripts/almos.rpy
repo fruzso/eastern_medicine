@@ -3,63 +3,63 @@ init python:
         def __init__(self):
             # Basic
             self.NAME = "Almos"
-            self.AGE = 250
+            self.AGE = 179
             self.CLAN = "Toreador"
             self.QUOTE = "It’s not what you look at that matters, it’s what you see."
+            self.GENERATION = 10
 
             # Attributes
-            self.STRENGTH = 1
-            self.DEXTERITY = 1
-            self.STAMINA = 1
+            self.STRENGTH = 3
+            self.DEXTERITY = 3
+            self.STAMINA = 3
 
             self.CHARISMA = 4
-            self.MANIPULATION = 1
-            self.COMPOSURE = 1
+            self.MANIPULATION = 3
+            self.COMPOSURE = 3
             
-            self.INTELLIGENCE = 1
-            self.WITS = 1
-            self.RESOLVE = 1
+            self.INTELLIGENCE = 3
+            self.WITS = 2
+            self.RESOLVE = 3
 
             # Skills
-            self.ATHLETICS = 1
-            self.BRAWL = 1
+            self.ATHLETICS = 3
+            self.BRAWL = 2
             self.CRAFT = 1
-            self.DRIVE = 1
-            self.FIREARMS = 1
-            self.MELEE = 1
-            self.LARCENY = 1
-            self.STEALTH = 1
-            self.SURVIVAL = 1
+            self.DRIVE = 2
+            self.FIREARMS = 2
+            self.MELEE = 2
+            self.LARCENY = 0
+            self.STEALTH = 0
+            self.SURVIVAL = 2
 
             self.ANIMAL_KEN = 1
-            self.ETIQUETTE = 1
-            self.INSIGHT = 1
-            self.INTIMIDATION = 1
-            self.LEADERSHIP = 1
-            self.PERFORMANCE = 1
-            self.PERSUASION = 1
-            self.STREETWISE = 1
-            self.SUBTERFUGE = 1
+            self.ETIQUETTE = 3
+            self.INSIGHT = 3
+            self.INTIMIDATION = 2
+            self.LEADERSHIP = 3
+            self.PERFORMANCE = 3
+            self.PERSUASION = 4
+            self.STREETWISE = 2
+            self.SUBTERFUGE = 2
 
-            self.ACADEMICS = 1
-            self.AWARENESS = 1
+            self.ACADEMICS = 3
+            self.AWARENESS = 3
             self.FINANCE = 1
-            self.INVESTIGATION = 1
-            self.MEDICINE = 1
-            self.OCCULT = 1
+            self.INVESTIGATION = 2
+            self.MEDICINE = 0
+            self.OCCULT = 0
             self.POLITICS = 1
-            self.SCIENCE = 1
-            self.TECHNOLOGY = 1
+            self.SCIENCE = 2
+            self.TECHNOLOGY = 3
 
-            # Almos Disciplines
-            self.AUSPEX = 1
-            self.CELERITY = 1
-            self.PRESENCE = 1
-
-            # Other disciplines
+            # Disciplines
+            self.ANIMALISM = 2
+            self.AUSPEX = 3
+            self.CELERITY = 3
+            self.DOMINATE = 0
+            self.FORTITUDE = 1
             self.OBFUSCATE = 0
-            self.DOMINATE = 4
-            self.FORTITUDE = 0
+            self.PRESENCE = 3
             self.POTENCE = 0
 
             # Dynamic
