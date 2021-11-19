@@ -11,8 +11,6 @@ label interogation_1:
 
     pause(3.0)
 
-    # $ pc_sheet = Almos()
-    $ compel_pool = pc_sheet.CHARISMA + pc_sheet.DOMINATE
     $ roll = Roll(compel_pool, 4, 4)
     $ roll.roll()
     "Margin of success is [roll.margin_of_success]."
@@ -21,7 +19,7 @@ label interogation_1:
     janos "Take a seat!"
 
     "/You take the only chair singled out in the middle of the damp room./"
-    hide janos
+    hide pc
 
     menu seating_choice:
 
@@ -36,7 +34,7 @@ label interogation_1:
             pc "Never mind the squeks and the wait."
             hide pc
 
-            show Janos idle at left
+            show janos idle at left
             janos "Are you sitting comfortably?"
             hide janos
 
@@ -92,7 +90,7 @@ label interogation_1:
     janos "You would know if we did, I assure you. In any case, there is a point to your persistence, I confess."
 
     if pc_sheet.CLAN == "Malkavian":
-        hide Janos
+        hide janos
 
         show pc idle at right
         pc """
@@ -130,7 +128,6 @@ label interogation_1:
             #TODO:AUDIO que in fireworks
 
             show pc idle at right
-
             pc """
             It was a particulary bright evening, I remember it well.
             
