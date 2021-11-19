@@ -2,37 +2,60 @@ label  rakpart:
     # Start scenne
     # Janos enters and ponders the crimes of the PC
 
+    scene black
+    with fade
+
     play music background_music_rakpart volume 0.5 loop
 
-    $ renpy.pause(2.0)
+    pause(2.0)
 
     scene background_video_rakpart
     with Dissolve(3.0)
 
-    $ renpy.pause(2.0)
+    pause(2.0)
 
     show janos idle at left
-    with Dissolve(2.0)
+    janos """
+    What an ungodly hour to work for the living, and most certainly for the everlasting.
+    
+    or for the undying, or whatever you will call us.
 
-    # These display lines of dialogue.
+    Magistrates in the dark.
 
-    janos "Work. Work never ends. Not for the living and certainly not for the everlasting."
+    Fiends of the night.
 
-    janos "Nor for the undying, whatever you will call us."
+    Leeches.
 
-    janos "Nevertheless, not the worst of places to suffer, through."
+    Illuminati - that's a good one.
 
-    janos "Not much everylasting waits us, if a few imps come knocking on the door come daylight."
+    Nevertheless, not the worst places to suffer through a laborius night.
 
-    janos "But who set them on us? - there's the rub!"
+    Eventually dawn comes anyway.
 
-    # TODO: queue footstep sound here
-    "Footsteps approach in the mist, thumping the ground with a growing determination of volume."
+    Of course, there is a bit more danger to it, if it's accompanied by a handfull of initiated agents, 
+    
+    armed to the teeth - even if it's not the sharpest nature can provide - with wooden bullets and similarly lethal whatnots.
 
-    $ renpy.pause(2.0)
+    Naturally someone must have invited them.
+    """
 
-    janos "To work, then!"
+    #TODO:AUDIO queue footstep sound here
+    "/Footsteps approach in the mist, thumping the ground with a growing determination of volume./"
 
-    janos "Who comes here?"
+    pause(2.0)
 
+    janos """
+    Can it be our gracious party host?
+
+    or
+
+    just another kindred, whose ignorance puts them to the screws.
+
+    Wouldn't be the first of its kind.
+
+    Certainly not the last.
+    """
+
+    scene black
+    with fade
     return

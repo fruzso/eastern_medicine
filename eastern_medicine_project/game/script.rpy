@@ -15,11 +15,13 @@ image background_video_black_wheel_filled = Movie(play = "video/movie_character_
 image background_video_black_wheel_empty = Movie(play = "video/moive_character_seelction_empty.webm", mask = None)
 image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask = None)
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
+image background_video_heaven = Movie(play = "video/movie_heaven.webm", mask = None)
 
 # The game starts here.
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
-    # call variables
+    
+    # call variables # Non-story label
 
     # call rakpart
 
@@ -41,7 +43,10 @@ label start:
 
     call epilogue
 
+    scene black
+    with fade
     return    
 
-label variables:
-    $ pc_sheet = None
+# label variables:
+    # $ pc_sheet = None
+    # $ pc_seated = True
