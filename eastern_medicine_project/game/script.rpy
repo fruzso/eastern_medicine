@@ -23,11 +23,11 @@ label start:
     
     # call variables # Non-story label
 
-    # call rakpart
+    call rakpart
 
-    # call character_selection
+    call character_selection
 
-    # call interogation_1
+    call interogation_1
 
     call hospital
 

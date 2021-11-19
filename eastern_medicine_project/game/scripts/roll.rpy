@@ -1,3 +1,5 @@
+$ compel_pool = pc_sheet.CHARISMA + pc_sheet.DOMINATE
+
 init python:
     class Roll(object):
         def __init__(self, dice_pool, difficulty, n_hunger_dice):

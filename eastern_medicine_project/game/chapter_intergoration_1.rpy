@@ -11,6 +11,12 @@ label interogation_1:
 
     pause(3.0)
 
+    # $ pc_sheet = Almos()
+    $ compel_pool = pc_sheet.CHARISMA + pc_sheet.DOMINATE
+    $ roll = Roll(compel_pool, 4, 4)
+    $ roll.roll()
+    "Margin of success is [roll.margin_of_success]."
+
     show janos idle at left
     janos "Take a seat!"
 
