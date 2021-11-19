@@ -11,17 +11,30 @@ label interogation_1:
 
     pause(3.0)
 
-
-
     show janos idle at left
     janos "Take a seat!"
     hide janos
 
-    "/Your eyes easily find the only chair singled out in the middle of the damp room./"
+    "/Your eyes easily find the only chair singled out in the middle of the damp room, but you hesitate./"
 
-    $ roll = Roll(pc_sheet.WITTS + pc_sheet.INSIGHT, 4, 4)
-    $ roll.roll()
-    "Margin of success is [roll.margin_of_success]."
+    "/The nosferatu's pale figure draws away your attention./"
+
+    menu emotiona_reading:
+        "Study his emotions":
+            "/In a split second you catalogue his features, mannerisms and faint flickers of emotion in his eyes./"
+
+            $ roll = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
+            $ roll.roll()
+
+            if roll.margin_of_success > -1:
+                "/He is an open book to you./"
+
+                "/He may be playing the tough guy, but you sense that something else is bothering him inside/"
+            else:
+                "/He is hard to read. However hard you try to figure out what is going on behind his deformed features, it is to no avail./"
+
+        "Who gives a fuck":
+            jump seating_choice
 
     menu seating_choice:
 

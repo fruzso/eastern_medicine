@@ -1,9 +1,9 @@
 init python:
     class Roll(object):
-        def __init__(self, dice_pool, difficulty, n_hunger_dice):
+        def __init__(self, dice_pool, n_hunger_dice, difficulty):
             self.dice_pool = dice_pool
             self.difficulty = difficulty
-            self.n_hunger_dice = n_hunger_dice
+            self.n_hunger_dice = n_hunger_dice if n_hunger_dice <= dice_pool else dice_pool
 
             self.n_success_simple = 0
             self.n_success_critical = 0
