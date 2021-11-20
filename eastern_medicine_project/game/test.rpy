@@ -1,6 +1,7 @@
 label test:
     # Game over
-
+    # hover_color = u'#264e60'
+    
     scene background_video_black_wheel_empty
     with Dissolve(3.0)
 
