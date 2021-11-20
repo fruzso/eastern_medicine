@@ -73,19 +73,23 @@ label hospital:
             """
             hide janos
 
+            show pc idle at right
+            pc "I was visiting someone."
+            hide pc
+
+            show janos idle at left
+            janos "Who?"
+            hide janos
+
         "Tell a lie":
-            "Janos intelligence: [janos_sheet.INTELLIGENCE]"
-            "Janos manipulation: [janos_sheet.MANIPULATION]"
-            "Cayanne wits: [pc_sheet.WITS]"
-            "CAyanne perusatzion: [pc_sheet.PERSUASION]"
             $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
-            "janos roll margin [roll_janos.margin_of_success]"
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERSUASION, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
             $ roll_pc.roll()
-            "pc roll maring [roll_pc.margin_of_success]"
 
             if roll_pc.margin_of_success > 0:
+                $ story_selling_blood = True
+
                 "/You lay back confidently, knowing that the secret to every good lie is in the details./"
 
                 show pc idle at right
@@ -131,6 +135,18 @@ label hospital:
                 show pc idle at right
                 pc "You, very well may."
                 hide pc
+
+                show janos idle at left
+                janos "You must have had a contact on the inside."
+                hide janos
+
+                show pc idle at right
+                pc "Yes."
+                hide pc
+
+                show janos idle at left
+                janos "Who?"
+                hide Janos
 
             else:
                 "/You try to act confidently, but you it's hard to lie to your own sheriff./"
@@ -180,6 +196,22 @@ label hospital:
 
                 $ pc_sheet.lose_willpower(1)
                 "/Burn. You lose 1 point of willpower./" #TODO:AUDIO create a general sound for loosing stats
+
+                show janos idle at left
+                janos """
+                So much effort without success.
+
+                I wonder why.
+
+                Maybe you were visiting someone on a regular basis.
+
+                But who?
+                """
+                hide janos
+
+    show pc idle at right
+    pc "It was Cecilia."
+    hide pc
 
 
         
