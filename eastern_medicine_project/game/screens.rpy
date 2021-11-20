@@ -105,7 +105,7 @@ screen say(who, what):
 
             window:
                 id "namebox"
-                style "namebox" + who
+                style "namebox" + who # Needs appropriately named namebox images
                 text who id "who"
 
         text what id "what"
@@ -138,16 +138,18 @@ style window:
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
-style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
+# We use individual name boxes for every character 
+# with a new character a new namebox + appropriately named iamge needs to be added
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+# style namebox:
+#     xpos gui.name_xpos
+#     xanchor gui.name_xalign
+#     xsize gui.namebox_width
+#     ypos gui.name_ypos
+#     ysize gui.namebox_height
 
+#     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+#     padding gui.namebox_borders.padding
 
 style nameboxAlmos:
     xpos gui.name_xpos
@@ -169,6 +171,35 @@ style nameboxJanos:
     background Frame("gui/namebox_janos.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding gui.namebox_borders.padding
 
+style nameboxCayenne:
+    xpos gui.name_xpos
+    xanchor gui.name_xalign
+    xsize gui.namebox_width
+    ypos gui.name_ypos
+    ysize gui.namebox_height
+
+    background Frame("gui/namebox_cayenne.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    padding gui.namebox_borders.padding
+
+style nameboxCecilia:
+    xpos gui.name_xpos
+    xanchor gui.name_xalign
+    xsize gui.namebox_width
+    ypos gui.name_ypos
+    ysize gui.namebox_height
+
+    background Frame("gui/namebox_cecilia.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    padding gui.namebox_borders.padding
+
+style nameboxAgent:
+    xpos gui.name_xpos
+    xanchor gui.name_xalign
+    xsize gui.namebox_width
+    ypos gui.name_ypos
+    ysize gui.namebox_height
+
+    background Frame("gui/namebox_agent.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    padding gui.namebox_borders.padding
 
 style say_label:
     properties gui.text_properties("name", accent=True)

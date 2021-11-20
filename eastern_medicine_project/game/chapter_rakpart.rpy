@@ -5,9 +5,13 @@ label  rakpart:
     scene black
     with fade
 
+    centered "August 22, 2021 Budapest, Hungary."
+
     play music background_music_rakpart volume 0.5 loop
 
-    pause(2.0)
+    centered "Time: GTM+1 23:00"
+
+    centered "Location: Somewhere near the seats of power that the Tzimische have cultivated for so long."
 
     scene background_video_rakpart
     with Dissolve(3.0)

@@ -5,7 +5,7 @@
 
 define janos = Character("Janos")
 define cecila = Character("Cecilia") # not used yet
-define si_agent = Character("SI_agent") # not used yet
+define agent = Character("Agent") # not used yet
 
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 
@@ -34,27 +34,27 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     call variables # Non-story label
-    call test
+    # call test
 
-    # call rakpart
+    call rakpart
 
-    # call character_selection
+    call character_selection
 
-    # call interogation_1
+    call interogation_1
 
-    # call hospital
+    call hospital
 
-    # call interogation_2
+    call interogation_2
 
-    # call heaven
+    call heaven
 
-    # call interogation_3
+    call interogation_3
 
-    # call carpark
+    call carpark
 
-    # call interogation_4
+    call interogation_4
 
-    # call epilogue
+    call epilogue
 
     scene black
     with fade

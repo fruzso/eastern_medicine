@@ -269,6 +269,10 @@ label interogation_1:
                     hide janos  
 
                     "/You feel a world of shame creaping in your mind./"
+            else:
+                "/This is not the Nosferatu's first rodeo./"
+
+                "/He moves his eyes quickly just enough to make any further attempts impossible./"
 
         # USE: Prsence 3 - Dread Gaze
         "Present your fangs to mmake a point" if pc_sheet.PRESENCE >= 3:
