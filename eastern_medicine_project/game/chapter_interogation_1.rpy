@@ -319,6 +319,8 @@ label interogation_1:
                 "/You put your fangs away in shame./"
                 $ pc_sheet.lose_willpower(1)
                 "/You lose 1 point of willpower./"    
+                if pc_sheet.WILLPOWER = 0:
+                    call lost_willpower
 
 
     show janos idle at left
