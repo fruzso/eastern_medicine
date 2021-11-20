@@ -9,6 +9,17 @@ label lost_willpower:
 
     return
 
+label lost_health:
+    # Game over
+    scene black
+    with fade
+
+    pause(1.0)
+
+    "You lost all your health"
+
+    return
+
 label defeat_mid_interogation:
     # Game over
 
