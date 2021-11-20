@@ -7,9 +7,10 @@ label test:
     $ pc_sheet = Almos()
     $ janos_sheet = Janos()
 
-    centered "Janos grabs you swiftly"
-    "His motions are too quick even for your eye to follow"
-    "And the molecules of your bodym only boudn together by the Dark Fathers curse perpetuated through the ages begin to give."
+    pc "I'm Almos."
+
+    janos "And the molecules of your bodym only boudn together by the Dark Fathers curse perpetuated through the ages begin to give."
+    "a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a a"
 
     # Contest roll
     $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)

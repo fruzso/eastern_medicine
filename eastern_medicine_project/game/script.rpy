@@ -9,6 +9,18 @@ define si_agent = Character("SI_agent") # not used yet
 
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 
+# dialogue settings
+define gui.dialogue_xpos = 250
+define gui.dialogue_ypos = 125
+
+# namebox settings
+define gui.name_xalign = 0.5
+define gui.name_xpos = 250
+define gui.name_ypos = 10
+define gui.namebox_width = 300
+define gui.namebox_height = 125
+
+
 image background_video_rakpart = Movie(play = "video/movie_rakpart.webm", mask = None)
 image background_video_interogation = Movie(play = "video/movie_interogation.webm", mask = None)
 image background_video_black_wheel_filled = Movie(play = "video/movie_character_selection_filled.webm")
@@ -22,27 +34,27 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     call variables # Non-story label
-    # call test
+    call test
 
-    call rakpart
+    # call rakpart
 
-    call character_selection
+    # call character_selection
 
-    call interogation_1
+    # call interogation_1
 
-    call hospital
+    # call hospital
 
-    call interogation_2
+    # call interogation_2
 
-    call heaven
+    # call heaven
 
-    call interogation_3
+    # call interogation_3
 
-    call carpark
+    # call carpark
 
-    call interogation_4
+    # call interogation_4
 
-    call epilogue
+    # call epilogue
 
     scene black
     with fade
