@@ -189,10 +189,12 @@ label interogation_1:
     menu irritated:
         "How do you react?"
         "Do nothing":
-            
+            show pc idle at right
+            pc "..."
+            hide pc
         "Ask for a dictionary":
             show pc idle at right
-            pc """"
+            pc """
             Could you be a lamb, and pass me a dictionary.
             
             I'm sure you carry one at all times.
@@ -211,116 +213,118 @@ label interogation_1:
             """
             hide janos
 
-        if pc_sheet.DOMINATE > 0:
-            # USE: Dominate 1 - Compell
-            "Compell him to talk plainly (DOMINATE)":
-                "/You try to catch his gaze/"
+        # USE: Dominate 1 - Compell
+        "Compell him to talk plainly (DOMINATE)" if pc_sheet.DOMINATE > 0:
+            "/You try to catch his gaze/"
 
-                # Simple Roll
-                $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
-                $ roll_pc.roll()
+            # Simple Roll
+            $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
+            $ roll_pc.roll()
 
-                if roll_pc.is_success:
-                    "/You meet Janos' eyes for a brief moment, but enough to utter the words:/"
-
-                    # Contest Roll
-                    $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
-                    $ roll_janos.roll()
-                    $ roll_pc = Roll(pc_sheet.CHARISMA + pc_sheet.DOMINATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
-                    $ roll_pc.roll()
-                    
-                    if roll_pc.is_success:
-                        show pc idle at right
-                        pc "Talk to me plainly!"
-                        hide pc
-
-                        show janos idle at left
-                        janos """
-                        Such a simple thing to do.
-                        
-                        One sentence, I believe, should suffice.
-
-                        I advise you do not waste more energy on such attempts.
-
-                        I might not be so forgiving, next time.
-                        """
-                        hide janos
-
-                    else:
-                        "/You feel your words missing their aim mid-air./"
-
-                        "/Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment/" #TODO:AUDIO que in nosie comming in
-
-                        show pc idle at right
-                        pc "Talk to me plainly!"
-                        hide pc
-
-                        $ janos_strikes += 1
-
-                        show janos idle at left
-                        janos """
-                        That's quite a lot of hubris comming from someone of your age.
-
-                        That's strike [janos_strikes].
-
-                        Let's continue
-                        """
-                        hide janos  
-
-                        "/You feel a world of shame creaping in your mind./"
-
-        if pc_sheet.PRESENCE >= 3:
-            # USE: Prsence 3 - Dread Gaze
-            "Present your fangs to mmake a point":
-                "/You open wide and put on an intimigating display of your fangs, while focusing all your supernatural effect on Janos./"
-
-                $ pc_sheet.rouse_check() # TODO: HUNGERCHECK
+            if roll_pc.is_success:
+                "/You meet Janos' eyes for a brief moment, but enough to utter the words:/"
 
                 # Contest Roll
-                $ roll_janos = Roll(janos_sheet.COMPOSURE + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
+                $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
                 $ roll_janos.roll()
-                $ roll_pc = Roll(pc_sheet.CHARISMA + pc_sheet.PRESENCE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+                $ roll_pc = Roll(pc_sheet.CHARISMA + pc_sheet.DOMINATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
                 $ roll_pc.roll()
                 
                 if roll_pc.is_success:
-                    "/Your display of vampiric prowess instills supernatural fear in Janos' eyes./"
-
-                    "/It's such a powerful effect as you are used to, but it will do./"
+                    show pc idle at right
+                    pc "Talk to me plainly!"
+                    hide pc
 
                     show janos idle at left
                     janos """
-                    Maybe there is more to you than what meets the eye.
+                    Such a simple thing to do.
+                    
+                    One sentence, I believe, should suffice.
 
-                    I am big enough to admit, that we might have started this little tete-at-tete on the wrong foot.
+                    I advise you do not waste more energy on such attempts.
 
-                    Therefore let us assume a tone more fit for civilized creatures.
+                    I might not be so forgiving, next time.
                     """
                     hide janos
-
-                    "/A simple victory, but it means a lot, against the sheriff./"
-                    $ pc_sheet.gain_willpower(1)
-                    "/You gain 1 point of willpower./"
 
                 else:
-                    "/Your display of vampiric prowess does not move its target./"
+                    "/You feel your words missing their aim mid-air./"
+
+                    "/Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment/" #TODO:AUDIO que in nosie comming in
+
+                    show pc idle at right
+                    pc "Talk to me plainly!"
+                    hide pc
+
+                    $ janos_strikes += 1
 
                     show janos idle at left
                     janos """
-                    Please.
+                    That's quite a lot of hubris comming from someone of your age.
 
-                    There is no need for such hostility.
+                    That's strike [janos_strikes].
 
-                    And I am only going to say this once. Put those away.
-
-                    Let us assume a tone more fit for civilized creatures.
+                    Let's continue
                     """
-                    hide janos
+                    hide janos  
 
-                    "/You put your fangs away in shame./"
-                    $ pc_sheet.lose_willpower(1)
-                    "/You lose 1 point of willpower./"
-                    if pc_sheet.WILLPOWER = 0:
-                        call lost_willpower    
+                    "/You feel a world of shame creaping in your mind./"
+            else:
+                "/This is not the Nosferatu's first rodeo./"
+
+                "/He moves his eyes quickly just enough to make any further attempts impossible./"
+
+        # USE: Prsence 3 - Dread Gaze
+        "Present your fangs to mmake a point" if pc_sheet.PRESENCE >= 3:
+            "/You open wide and put on an intimigating display of your fangs, while focusing all your supernatural effect on Janos./"
+
+            $ pc_sheet.rouse_check() # TODO: HUNGERCHECK
+
+            # Contest Roll
+            $ roll_janos = Roll(janos_sheet.COMPOSURE + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
+            $ roll_janos.roll()
+            $ roll_pc = Roll(pc_sheet.CHARISMA + pc_sheet.PRESENCE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+            $ roll_pc.roll()
+            
+            if roll_pc.is_success:
+                "/Your display of vampiric prowess instills supernatural fear in Janos' eyes./"
+
+                "/It's such a powerful effect as you are used to, but it will do./"
+
+                show janos idle at left
+                janos """
+                Maybe there is more to you than what meets the eye.
+
+                I am big enough to admit, that we might have started this little tete-at-tete on the wrong foot.
+
+                Therefore let us assume a tone more fit for civilized creatures.
+                """
+                hide janos
+
+                "/A simple victory, but it means a lot, against the sheriff./"
+                $ pc_sheet.gain_willpower(1)
+                "/You gain 1 point of willpower./"
+
+            else:
+                "/Your display of vampiric prowess does not move its target./"
+
+                show janos idle at left
+                janos """
+                Please.
+
+                There is no need for such hostility.
+
+                And I am only going to say this once. Put those away.
+
+                Let us assume a tone more fit for civilized creatures.
+                """
+                hide janos
+
+                "/You put your fangs away in shame./"
+                $ pc_sheet.lose_willpower(1)
+                "/You lose 1 point of willpower./"    
+                if pc_sheet.WILLPOWER = 0:
+                    call lost_willpower
 
 
     show janos idle at left

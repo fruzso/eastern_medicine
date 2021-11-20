@@ -95,11 +95,11 @@ label hospital:
                 show pc idle at right
                 if pc_sheet.CLAN == "Malkavian":
                     pc """
-                    Sometimes it was spontanoues, sometimes not
+                    Sometimes it was spontanoues, sometimes not,
 
-                    You know, I'm here and there
+                    you know, I am here and I am there,
 
-                    Sometimes I am everywhere.
+                    sometimes I am everywhere.
                     """
                     hide pc
 
@@ -111,7 +111,7 @@ label hospital:
                     pc """
                     The blood is profitable, and deep,
                     
-                    Sweet dreams come to us cheap.
+                    Sweet dreams don't come to us cheap.
                     """
 
                 else:

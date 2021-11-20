@@ -1,5 +1,5 @@
-label heaven:
-    # A memory of the PC's heaven
+label haven:
+    # A memory of the PC's haven
     # PLOTPOINTS: Fight with the S.I. Agents
 
     scene black
@@ -29,20 +29,20 @@ label heaven:
 
     "Around midday, when all slef respecting kindred should be in the deathlike slumber of torpor."
 
-    "You were in your lightproof heaven."
+    "You were in your lightproof haven."
 
-    scene background_video_heaven
+    scene background_video_haven
     with Dissolve(2.0)
 
     show pc idle at right
     pc "I was doing what all godfearing kindred would be doing. Laying in torpor."
     hide pc
 
-    show janos at right
+    show janos idle at right
     janos """
     Let us not bring God in the picture, just yet.
 
-    How did you know that your heaven has been breached?
+    How did you know that your haven has been breached?
     """
     hide janos
 
@@ -58,9 +58,9 @@ label heaven:
             """
             hide pc
 
-            $ pc_sheet.lost_health(1)
+            $ pc_sheet.lose_health(1)
             "/You lose 1 point of health./"
-            if pc_sheet.health = 0:
+            if pc_sheet.health == 0:
                 call lost_health
 
             show janos idle at right
@@ -107,9 +107,9 @@ label heaven:
             show pc idle at right
             if pc_sheet.CLAN == "Malkavian":
                 pc """
-                It was not the first time that my dreams brought me
-                
-                How should I say, that even you would understand.
+                It was not the first time that my dreams brought me ... How should I say, that even you would understand...
+
+                Hm...
                 
                 You have heard of visions, soothsaying, portents and the like, right?"""
                 hide pc
@@ -118,13 +118,13 @@ label heaven:
                 janos "Yes, naturally."
                 hide janos
 
-                "/you notice the Janos would like to say something else, chooses to remain silent/"
+                "/you notice that Janos would like to say something else, but he chooses to remain silent/"
 
                 show pc idle at right
                 pc """
-                Let's just say that I had a feeelign that it woudl be a terribly good idea to kick in the door.
+                Let's just say that I had a feeling that it would be a terribly good idea to kick in the door.
                 
-                That is just not my style.
+                But that is just not my style.
 
                 So, naturally I had a pretty good idea what was going on.
                 """
@@ -145,7 +145,7 @@ label heaven:
 
                 show janos idle at right
                 janos "To be honest, I don't."
-                hide
+                hide janos
 
                 show pc idle at right
                 pc "well, I did."
@@ -182,7 +182,7 @@ label heaven:
         "I couldn't believe it" if not story_si_vision:
             show pc idle at right
             pc """
-            It was my heaven. Unpenetrated for [pc_sheet.AGE] years.
+            It was my haven. Unpenetrated for [pc_sheet.AGE] years.
             
             That is not something everyone can tell.
 
@@ -190,14 +190,27 @@ label heaven:
 
             Yet I mustered all my resolve and started to stratagize.
             """
-            hide
+            hide pc
+
+        "I was shocked":
+            show pc idle at right
+            pc """
+            Believe it or not, I was completely shoched.
+
+            It took a few good seconds to gather myself and face what was comming.
+
+            You could say that I fucked it up.
+
+            But here we are. Quite right. In the end we are here.
+            """
+            hide pc
     
     menu first_encounter:
         "How did it start?"
         "I went on the offensive":
             show pc at right
             pc """
-            They were attacking my heaven. So naturally it was fuck the masquerade time.
+            They were attacking my haven. So naturally it was fuck the masquerade time.
 
             Grabbed the first weapon I could get my hands on from my emergency staff.
 
@@ -220,13 +233,17 @@ label heaven:
                     menu weapon_choice_heavy:
                         "you grabbed a..."
                         "Uzi machinegun":
+                            "PLACEHOLDER"
 
                         "pistol":
+                            "PLACEHOLDER"
 
                         "Ceremonial sword":
+                            "PLACEHOLDER"
 
 
                         "nothing, I am the weapon":
+                            "PLACEHOLDER"
                         
                     
                 "Not made for war":
@@ -246,6 +263,7 @@ label heaven:
 
 
         "I went on the defensive":
+            "PLACEHOLDER"
             #block of code to run
         
     
