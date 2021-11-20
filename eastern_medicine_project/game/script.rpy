@@ -54,4 +54,7 @@ label variables:
     $ janos_strikes = 0
 
     # Story events:
+    # False by default and only switched if chosen 
     $ story_selling_blood = False
+    $ story_violent_arrival = False
+    $ story_si_vision = False

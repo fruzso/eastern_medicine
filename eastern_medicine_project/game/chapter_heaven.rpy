@@ -9,15 +9,19 @@ label heaven:
     janos """
     So, the big one.
     
-    What do you remember of August?
+    What do you remember of August 21?
 
     And please don't give me any of that patriotic bullshit,
 
-    nothing like - I foundled the memories of a great celebration and national glory- 
+    nothing like - I snuggled up fondly with the memories of a great celebration and national glory - 
+    
+    As you say, no bullshit.
     """
     hide janos
 
     pause(1.0)
+
+    "Hearing Janos' words, you feel transported back to August 21."
 
     "You remember yesturday."
 
@@ -42,8 +46,10 @@ label heaven:
     """
     hide janos
 
-    menu heave_defance:
+    menu sensing_the_intrusion:
         "It was a piece of the door, landing in my...":
+            $ story_violent_arrival = True
+
             show pc idle at right
             pc """
             It was a piece of the door, landing in my abdomen.
@@ -96,6 +102,8 @@ label heaven:
             hide pc
 
         "I had a vision" if pc_sheet.AUSPEX >= 2:
+            $ story_si_vision = True
+
             show pc idle at right
             if pc_sheet.CLAN == "Malkavian":
                 pc """
@@ -143,7 +151,6 @@ label heaven:
                 pc "well, I did."
                 hide pc
 
-
                 "/You lose 1 point of willpower./"
                 if pc_sheet.WILLPOWER = 0:
                     call lost_willpower
@@ -151,10 +158,97 @@ label heaven:
 
     show janos idle at right
     janos "So, you were awake. What happened next?"
-    hide janos    
+    hide janos
+
+    menu comming_to_terms_with_reality:
+        "What happened next?"
+        "I knew something was wrong" if not story_violent_arrival:
+            show pc idle at right
+            pc "There was no question question about it, something sinister was going on."
+            hide pc
+
+            show janos idle at right
+            janos """
+            Yes
+            
+            Please, do share.
+            """
+            hide janos
+
+            show pc idle at right
+            pc "I had little information you see, so I waited."
+            hide pc
+
+        "I couldn't believe it" if not story_si_vision:
+            show pc idle at right
+            pc """
+            It was my heaven. Unpenetrated for [pc_sheet.AGE] years.
+            
+            That is not something everyone can tell.
+
+            It was still quite unbelievable that an attack on it was immanent.
+
+            Yet I mustered all my resolve and started to stratagize.
+            """
+            hide
+    
+    menu first_encounter:
+        "How did it start?"
+        "I went on the offensive":
+            show pc at right
+            pc """
+            They were attacking my heaven. So naturally it was fuck the masquerade time.
+
+            Grabbed the first weapon I could get my hands on from my emergency staff.
+
+            My apartment was...
+            """
+
+            menu gear_up:
+                "My apartment was..."
+                "Full of gear":
+                    show pc idle at right
+                    pc """
+                    I am a [pc_sheet.ASSUMED_GENDER] who likes to be prepared, you see
+
+                    I firmly believe that the attack is the best form of defence
+
+                    in any case it never hurts if you have an arsenal at the ready bellow the nightstand.
+                    """
+                    hide pc
+
+                    menu weapon_choice_heavy:
+                        "you grabbed a..."
+                        "Uzi machinegun":
+
+                        "pistol":
+
+                        "Ceremonial sword":
 
 
+                        "nothing, I am the weapon":
+                        
+                    
+                "Not made for war":
+                    show pc idle at right
+                    pc """
+                    I mean, I did not really think I had anything to fear.
 
+                    Trully, is it not your job, actually, to stop all sort of shit like this form going on.
+
+                    Anyway, no use crying over spilt milk.
+
+                    Or blood.
+                    """
+                    hide pc
+                    
+                
+
+
+        "I went on the defensive":
+            #block of code to run
+        
+    
 
 
     scene black
