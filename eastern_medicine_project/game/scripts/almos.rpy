@@ -3,6 +3,7 @@ init python:
         def __init__(self):
             # Basic
             self.NAME = "Almos"
+            self.SEX = "Male"
             self.AGE = 179
             self.CLAN = "Toreador"
             self.QUOTE = "It’s not what you look at that matters, it’s what you see."

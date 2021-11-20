@@ -21,7 +21,7 @@ image background_video_heaven = Movie(play = "video/movie_heaven.webm", mask = N
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
-    # call variables # Non-story label
+    call variables # Non-story label
     # call test
 
     call rakpart
@@ -48,6 +48,10 @@ label start:
     with fade
     return    
 
-# label variables:
-    # $ pc_sheet = None
-    # $ pc_seated = True
+label variables:
+    # Only programatic content, nothing to show
+    # Game mechanics:
+    $ janos_strikes = 0
+
+    # Story events:
+    $ story_selling_blood = False
