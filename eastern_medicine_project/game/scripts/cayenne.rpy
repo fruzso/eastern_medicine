@@ -3,7 +3,7 @@ init python:
         def __init__(self):
             # Basic
             self.NAME = "Cayenne"
-            self.SEX = "Female"
+            self.ASSUMED_GENDER = "lady"
             self.AGE = 183
             self.CLAN = "Malkavian"
             self.QUOTE = "Wildflower; pick up your pretty little head, it will get easier, your dreams are not dead."

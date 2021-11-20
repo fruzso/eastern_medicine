@@ -7,7 +7,7 @@ init python:
             self.AGE = 250
             self.CLAN = "Nosferatu"
             self.QUOTE = "But I cheated and deformed by dissembling nature am determined to weigh upon the shoulder of the world."
-            self.GENERATION = 8
+            self.GENERATION = 10
 
             # Attributes
             self.STRENGTH = 4

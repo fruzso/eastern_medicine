@@ -1,3 +1,14 @@
+label lost_willpower:
+    # Game over
+    scene black
+    with fade
+
+    pause(1.0)
+
+    "You lost all your willpower"
+
+    return
+
 label defeat_mid_interogation:
     # Game over
 

@@ -3,7 +3,7 @@ init python:
         def __init__(self):
             # Basic
             self.NAME = "Almos"
-            self.SEX = "Male"
+            self.ASSUMED_GENDER = "gentleman"
             self.AGE = 179
             self.CLAN = "Toreador"
             self.QUOTE = "It’s not what you look at that matters, it’s what you see."
@@ -54,7 +54,7 @@ init python:
             self.TECHNOLOGY = 3
 
             # Disciplines
-            self.ANIMALISM = 2
+            self.ANIMALISM = 0
             self.AUSPEX = 3
             self.CELERITY = 3
             self.DOMINATE = 0

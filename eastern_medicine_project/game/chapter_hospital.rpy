@@ -196,6 +196,9 @@ label hospital:
 
                 $ pc_sheet.lose_willpower(1)
                 "/Burn. You lose 1 point of willpower./" #TODO:AUDIO create a general sound for loosing stats
+                if pc_sheet.willpower == 0:
+                    # Game over
+                    call lost_willpower
 
                 show janos idle at left
                 janos """
