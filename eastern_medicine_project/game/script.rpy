@@ -15,11 +15,11 @@ define gui.dialogue_ypos = 125
 
 # namebox settings
 define gui.name_xalign = 0.5
+define gui.name_yalign = 0.5
 define gui.name_xpos = 250
 define gui.name_ypos = 10
 define gui.namebox_width = 300
 define gui.namebox_height = 125
-
 
 image background_video_rakpart = Movie(play = "video/movie_rakpart.webm", mask = None)
 image background_video_interogation = Movie(play = "video/movie_interogation.webm", mask = None)
