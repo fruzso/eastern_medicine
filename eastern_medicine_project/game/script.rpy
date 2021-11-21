@@ -1,4 +1,4 @@
-﻿# The Main script of the game goes in this file.
+# The Main script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -36,7 +36,9 @@ label start:
     call variables # Non-story label
     call test
 
-    # call rakpart
+    pause(10.0)
+
+    call rakpart
 
     # call character_selection
 
@@ -46,7 +48,11 @@ label start:
 
     # call interogation_2
 
+<<<<<<< HEAD
     # call heaven
+=======
+    call haven
+>>>>>>> 13c86d3 (GUIC-002 Combined commit of gui modifications for MORE)
 
     # call interogation_3
 

@@ -5,4 +5,11 @@ label carpark:
     scene background_video_carpark
     with Dissolve(3.0)
 
+    call screen show_dynamic_stats
+
+    pause(1.0)
+
+    hide screen dynamic_stats
+    scene black
+    with fade
     return

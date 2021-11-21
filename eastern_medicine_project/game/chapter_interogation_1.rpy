@@ -11,6 +11,8 @@ label interogation_1:
 
     pause(3.0)
 
+    call show_dynamic_stats
+
     show janos idle at left
     janos "Take a seat!"
     hide janos
@@ -322,7 +324,7 @@ label interogation_1:
 
                 "/You put your fangs away in shame./"
                 $ pc_sheet.lose_willpower(1)
-                "/You lose 1 point of willpower./"    
+                call change_dynamic_stats
                 if pc_sheet.WILLPOWER = 0:
                     call lost_willpower
 
@@ -400,9 +402,8 @@ label interogation_1:
 
                 "/Shit./"
                 $ pc_sheet.lose_willpower(1)
-                "/You lose 1 point of willpower./" #TODO:AUDIO create a general sound for loosing stats
-                if pc_sheet.willpower == 0:
-                    # Game over
+                call change_dynamic_stats
+                if pc_sheet.WILLPOWER = 0:
                     call lost_willpower
 
                 show pc idle at right
@@ -424,7 +425,7 @@ label interogation_1:
             pc "I didn't go there to see the doctor."
             hide pc
 
+            hide screen dynamic_stats
             scene black
             with fade
-
             return

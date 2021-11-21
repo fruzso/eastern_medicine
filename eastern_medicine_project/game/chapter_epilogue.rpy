@@ -2,6 +2,10 @@ label epilogue:
     # Game over - Victory
     # Only accessible at the end
 
-    centered "The end of the game"
+    hide screen dynamic_stats
 
+    centered "The end of the game"
+    
+    scene black
+    with fade
     return
