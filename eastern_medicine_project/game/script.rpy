@@ -78,7 +78,8 @@ label variables:
 
     # Story events:
     # False by default and only switched if chosen 
-    $ story_pc_guilty = False
+    $ story_pc_guilty = False # Weather you think if yu are guilty
+    $ story_janos_guilty = True # Weather Janos thinks you are guilty
     $ story_selling_blood = False
     $ story_violent_arrival = False
     $ story_si_vision = False
