@@ -1,9 +1,16 @@
+init python:
+    renpy.music.register_channel("haven2", "music", True)
+
 label haven:
     # A memory of the PC's haven
     # PLOTPOINTS: Fight with the S.I. Agents
 
     scene black
     with fade
+    
+    
+    play music background_music_haven1 volume 0.5 loop
+    play haven2 background_music_haven2 volume 0.5
 
     show janos idle at right
     janos """

@@ -9,8 +9,12 @@ define agent = Character("Agent") # not used yet
 
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 define audio.background_music_interrogation = "music/background_music_interrogation.mp3"
-define audio.background_music_victory = "music/background_music_victory.mp3"
 define audio.background_music_hospital = "music/background_music_hospital.mp3"
+# car scene
+define audio.background_music_haven1 = "music/background_music_haven_1.wav"
+define audio.background_music_haven2 = "music/background_music_haven_2.wav"
+define audio.background_music_victory = "music/background_music_victory.mp3"
+
 
 # dialogue settings
 define gui.dialogue_xpos = 250
@@ -39,27 +43,27 @@ label start:
     call variables # Non-story label
     # call test
 
-    call rakpart
+    # call rakpart
 
-    call character_selection
+    # call character_selection
 
-    call interogation_1
+    # call interogation_1
 
-    call hospital
+    # call hospital
 
-    call interogation_2
+    # call interogation_2
 
     call haven
 
-    call interogation_3
+    # call interogation_3
 
-    call carpark
+    # call carpark
 
-    call interogation_4
+    # call interogation_4
 
-    call victory 
+    # call victory 
 
-    call epilogue
+    # call epilogue
 
     scene black
     with fade

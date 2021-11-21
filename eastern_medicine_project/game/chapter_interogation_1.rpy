@@ -25,7 +25,7 @@ label interogation_1:
 
     "/The nosferatu's pale figure draws away your attention./"
 
-    menu emotiona_reading:
+    menu emotional_reading:
         "Study his emotions":
             "/In a split second you catalogue his features, mannerisms and faint flickers of emotion in his eyes./"
 
