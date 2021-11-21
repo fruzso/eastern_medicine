@@ -34,6 +34,8 @@ label haven:
     scene background_video_haven
     with Dissolve(2.0)
 
+    call show_dynamic_stats
+
     show pc idle at right
     pc "I was doing what all godfearing kindred would be doing. Laying in torpor."
     hide pc
@@ -59,7 +61,7 @@ label haven:
             hide pc
 
             $ pc_sheet.lose_health(1)
-            "/You lose 1 point of health./"
+            call change_dynamic_stats
             if pc_sheet.health == 0:
                 call lost_health
 
@@ -95,7 +97,8 @@ label haven:
             Even with the pain, it took considerable effort to wake up.            
             """
 
-            "/You lose 1 point of willpower./"
+            $ pc_sheet.lose_willpower(1)
+            call change_dynamic_stats
             if pc_sheet.WILLPOWER = 0:
                 call lost_willpower
             
@@ -259,8 +262,6 @@ label haven:
                     """
                     hide pc
                     
-                
-
 
         "I went on the defensive":
             "PLACEHOLDER"
@@ -268,7 +269,7 @@ label haven:
         
     
 
-
+    hide screen dynamic_stats
     scene black
     with fade
     return

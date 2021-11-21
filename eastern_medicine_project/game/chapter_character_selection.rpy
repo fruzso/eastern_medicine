@@ -21,8 +21,15 @@ label character_selection:
 
     show pc idle at center
 
+    call show_dynamic_stats
+
     "[pc_sheet.NAME], of clan [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
-    
+
+
+
+    pause(3.0)
+
+    hide screen dynamic_stats
     scene black
     with fade
     return
