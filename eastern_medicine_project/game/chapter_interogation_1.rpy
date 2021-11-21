@@ -258,6 +258,7 @@ label interogation_1:
                     hide janos
 
                 else:
+                    play sound "sounds/outside_alarm.mp3" fadein 1.0
                     centered "You feel your words missing their aim mid-air."
 
                     centered "Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment" #TODO:AUDIO que in nosie comming in

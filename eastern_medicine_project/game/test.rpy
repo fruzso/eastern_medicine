@@ -9,16 +9,12 @@ label test:
     $ janos_sheet = Janos()
     
     call show_dynamic_stats
+    
+    play sound "sounds/outside_alarm.mp3" fadein 1.0
 
     centered "Test scene to test testable stuff. Hi!"
 
-    $ pc_sheet.lose_willpower(1)
-    call change_dynamic_stats("lose")
-
     centered "Tested something."
-
-    $ pc_sheet.gain_willpower(1)
-    call change_dynamic_stats("gain")
 
     centered "Tested another something."
 
