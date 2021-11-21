@@ -8,6 +8,9 @@ define cecila = Character("Cecilia") # not used yet
 define agent = Character("Agent") # not used yet
 
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
+define audio.background_music_interrogation = "music/background_music_interrogation.mp3"
+define audio.background_music_victory = "music/background_music_victory.mp3"
+define audio.background_music_hospital = "music/background_music_hospital.mp3"
 
 # dialogue settings
 define gui.dialogue_xpos = 250
@@ -34,13 +37,13 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     call variables # Non-story label
-    call test
+    # call test
 
     pause(10.0)
 
     call rakpart
 
-    # call character_selection
+    call character_selection
 
     # call interogation_1
 
@@ -48,11 +51,7 @@ label start:
 
     # call interogation_2
 
-<<<<<<< HEAD
     # call heaven
-=======
-    call haven
->>>>>>> 13c86d3 (GUIC-002 Combined commit of gui modifications for MORE)
 
     # call interogation_3
 
@@ -60,7 +59,9 @@ label start:
 
     # call interogation_4
 
-    # call epilogue
+    call victory 
+
+    call epilogue
 
     scene black
     with fade

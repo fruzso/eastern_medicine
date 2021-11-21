@@ -1,15 +1,19 @@
 label interogation_1:
     # The main scene of the game, where the player returns many times
     # PLOTPOINTS: 
-
-    #TODO:AUDIO add interogation opening sounds, footsteps, door
-
-    pause(10.0) #TODO:AUDIO correct the pause time to fit the music, or make it that the next action only happens once the sound finished
-
+    
+    scene black 
+    with fade 
+    centered "/You follow the footsteps of Janos through what must be a dark corridor./"
+    
+    play sound "sounds/interrogation_footsteps_and_door.mp3"
+    pause(10.0)
+    
     scene background_video_interogation
     with Dissolve(3.0)
+    pause(5.0)
 
-    pause(3.0)
+    play music background_music_interrogation volume 0.5 loop
 
     call show_dynamic_stats
 

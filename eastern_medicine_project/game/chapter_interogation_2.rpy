@@ -1,6 +1,11 @@
 label interogation_2:
     # The main scene of the game, where the player returns many times
     # PLOTPOINTS: 
+    
+    scene black 
+    with fade 
+    
+    play music background_music_interrogation volume 0.5 loop
 
     scene background_video_interogation
     with Dissolve(3.0)
