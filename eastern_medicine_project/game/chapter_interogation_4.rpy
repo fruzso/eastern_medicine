@@ -132,8 +132,23 @@ label interogation_4:
                         centered "You vanish in front of Janos' eyes."
 
                         if janos_sheet.AUSPEX > 1:
+                            $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AUSPEX, janos_sheet.hunger, difficulty=0)
+                            $ roll_janos.roll()
+                            $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+                            $ roll_pc.roll()
+
+                            centered "You sense that is looking for you with dark power of sight"
+
+                            if roll_pc.is_success:
+                                centered "But it is to no point. He cannot find you."
+                                call victory
+                            else:
+                                centered "Shit. He's got you"
+                                call fight_2                              
+
                         else:
-                            
+                            call victory
+
                     else:
                         centered "You begin to fade in front of Janos' eyes, but the nosferatu cannot be fouled."
                         call defeat_violent
@@ -192,6 +207,10 @@ label interogation_4:
                 hide pc
 
                 centered "His grasp hold firm."
+        
+        label fight_2:
+            centered "PLACEHOLDER" # TODO:WRITE
+            
 
 
 
