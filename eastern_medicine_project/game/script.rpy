@@ -14,6 +14,7 @@ define audio.background_music_hospital = "music/background_music_hospital.mp3"
 # TODO:AUDIO car scene
 define audio.background_music_haven1 = "music/background_music_haven_1.mp3"
 define audio.background_music_haven2 = "music/background_music_haven_2.mp3"
+define audio.background_music_haven = "music/background_music_haven_possible.mp3"
 define audio.background_music_victory = "music/background_music_victory.mp3"
 
 

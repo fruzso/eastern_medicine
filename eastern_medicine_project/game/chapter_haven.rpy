@@ -1,5 +1,5 @@
 init python:
-    renpy.music.register_channel("haven2", "music", True)
+    renpy.music.register_channel("haven", "music", True)
 
 label haven:
     # A memory of the PC's haven
@@ -9,7 +9,7 @@ label haven:
     with fade
     
     play music background_music_haven1 volume 0.5 loop
-    play haven2 background_music_haven2 volume 0.5
+    # play haven background_music_haven volume 0.5
 
     centered "Hearing Janos' words, you feel transported back to August 21."
 
