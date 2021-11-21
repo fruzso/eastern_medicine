@@ -1,23 +1,29 @@
-screen character_stats(sheet):
+screen character_stats(sheet, choosable):
+
+    # Background
+    add "background_video_black_wheel_empty"
+    add "gui/character_sheet_backgrounds/character_sheet_background [sheet.NAME].png" alpha 0.5
+
+    # Character
     add "images/[sheet.NAME] idle.png" pos (0,0)
 
-    vbox spacing 40 xalign 0.5 yalign 0.5:
-        hbox spacing 80:
-            # General
+    # Stats
+    vbox xalign 0.7 yalign 0.5 spacing 40:
+        hbox spacing 100:
+            vbox:
+                text "Age: [sheet.AGE]"
+                text "Sex: [sheet.SEX]"
+                
             vbox:
                 text "Name: [sheet.NAME]"
-                text "Age: [sheet.AGE]"
-
-            vbox:
-                text "Clan: [sheet.CLAN]"
-                text "Generation: [sheet.GENERATION]"
+                text "Clan: [sheet.CLAN]"                
             
-            vbox:    
-                text "Sex: [sheet.SEX]"
+            vbox:
+                text "Generation: [sheet.GENERATION]"    
                 text "Blood potency: [sheet.BLOOD_POTENCY]"
-
-        hbox spacing 80:
-            # Attributes
+                
+                
+        hbox spacing 100:
             vbox:
                 text "Strength: [sheet.STRENGTH]"
                 text "Dexterity: [sheet.DEXTERITY]"
@@ -33,8 +39,7 @@ screen character_stats(sheet):
                 text "Wits: [sheet.WITS]"
                 text "Resolve: [sheet.RESOLVE]"
         
-        hbox spacing 80:
-            # Skills
+        hbox spacing 100:
             vbox:
                 text "Athletics: [sheet.ATHLETICS]"
                 text "Brawl: [sheet.BRAWL]"
@@ -68,7 +73,7 @@ screen character_stats(sheet):
                 text "Science: [sheet.SCIENCE]"
                 text "Technology: [sheet.TECHNOLOGY]"
         
-        hbox spacing 80:
+        hbox spacing 100:
             # Disciplines
             if sheet.ANIMALISM > 0: 
                 text "Animalism: [sheet.ANIMALISM]"
@@ -87,14 +92,18 @@ screen character_stats(sheet):
             if sheet.POTENCE > 0:
                 text "Potence: [sheet.POTENCE]"
 
-        hbox spacing 80:
+        hbox spacing 100:
             # Dynamic
             text "Starter health: [sheet.health]"
             text "Starter willpower: [sheet.willpower]"
             text "Starter hunger: [sheet.hunger]"
 
-    vbox:
-        textbutton "Choose" action Jump("chosen")
-        textbutton "Back" action Jump("choose_character")
+    vbox xalign 0.9 yalign 0.5:
+        # Buttons
+        if choosable:
+            textbutton "Choose" action Jump("chosen") 
+            textbutton "Back" action Jump("choose_character")
+        else:
+            textbutton "Back" action Hide("character_stats")
 
 

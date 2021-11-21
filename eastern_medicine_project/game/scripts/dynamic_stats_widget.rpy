@@ -1,22 +1,22 @@
-# Dynamic stat variables
-define widget_text_y_offset = 45
-define widget_text_x_offset = 150
-define widget_text_height = 14
-define widget_counter_x_offset = 100
-
 screen dynamic_stats(character_name, character_clan, health_value, hunger_value, willpower_value):
     # Paintbrush background
     add "gui/dynamic_stats/meter_widget_[character_name].png" pos (0, 0) 
     add "gui/dynamic_stats/clan_symbol_[character_clan].png" pos (75, 40) xysize (100, 100)
 
-    text "WILLPOWER" size widget_text_height xpos widget_text_x_offset ypos widget_text_y_offset + widget_text_height
-    text "HEALTH" size widget_text_height xpos widget_text_x_offset ypos widget_text_y_offset + (widget_text_height * 2)
-    text "HUNGER" size widget_text_height xpos widget_text_x_offset ypos widget_text_y_offset + (widget_text_height * 3)
+    hbox xpos 150 ypos 45:
+        vbox:
+            text "WILLPOWER" size 14
+            text "HEALTH" size 14
+            text "HUNGER" size 14
+            textbutton "Character sheet" action Show("character_stats", sheet=pc_sheet, choosable=False)
+            
+        vbox: 
+            text "[willpower_value]" size 14
+            text "[health_value]" size 14
+            text "[hunger_value]" size 14
 
-    text "[willpower_value]" size widget_text_height xpos widget_text_x_offset + widget_counter_x_offset ypos widget_text_y_offset + widget_text_height
-    text "[health_value]" size widget_text_height xpos widget_text_x_offset + widget_counter_x_offset ypos widget_text_y_offset + (widget_text_height * 2)
-    text "[hunger_value]" size widget_text_height xpos widget_text_x_offset + widget_counter_x_offset ypos widget_text_y_offset + (widget_text_height * 3)
-
+        
+    
 label show_dynamic_stats:
     show screen dynamic_stats(character_name=pc_sheet.NAME, character_clan=pc_sheet.CLAN, health_value=pc_sheet.health, hunger_value=pc_sheet.hunger, willpower_value=pc_sheet.willpower)
     return

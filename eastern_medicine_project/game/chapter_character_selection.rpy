@@ -16,10 +16,10 @@ label character_selection:
         "Choose your character"
         "Almos":
             $ pc_sheet = Almos()
-            call screen character_stats(pc_sheet)
+            call screen character_stats(pc_sheet, choosable=True)
         "Cayenne":
             $ pc_sheet = Cayenne()
-            call screen character_stats(pc_sheet)
+            call screen character_stats(pc_sheet, choosable=True)
         
     label chosen:
         hide screen character_stats
