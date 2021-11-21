@@ -45,19 +45,19 @@ label start:
 
     call character_selection
 
-    # call interogation_1
+    call interogation_1
 
-    # call hospital
+    call hospital
 
-    # call interogation_2
+    call interogation_2
 
-    # call heaven
+    call heaven
 
-    # call interogation_3
+    call interogation_3
 
-    # call carpark
+    call carpark
 
-    # call interogation_4
+    call interogation_4
 
     call victory 
 
