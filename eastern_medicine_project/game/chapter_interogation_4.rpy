@@ -10,7 +10,7 @@ label interogation_4:
     scene background_video_interogation
     with Dissolve(3.0)
 
-    call screen show_dynamic_stats
+    call show_dynamic_stats
 
     pause(1.0)
 

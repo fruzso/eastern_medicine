@@ -30,7 +30,7 @@ image background_video_black_wheel_filled = Movie(play = "video/movie_character_
 image background_video_black_wheel_empty = Movie(play = "video/moive_character_seelction_empty.webm", mask = None)
 image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask = None)
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
-image background_video_heaven = Movie(play = "video/movie_heaven.webm", mask = None)
+image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
 
 # The game starts here.
 label start:
@@ -38,8 +38,6 @@ label start:
     
     call variables # Non-story label
     # call test
-
-    pause(10.0)
 
     call rakpart
 
@@ -51,7 +49,7 @@ label start:
 
     call interogation_2
 
-    call heaven
+    call haven
 
     call interogation_3
 

@@ -13,7 +13,7 @@ label hospital:
 
     with Pause(1.0)
 
-    jump show_dynamic_stats
+    call show_dynamic_stats
 
     show pc idle at right
     pc "The hospital was particulary quiet that evening."
@@ -203,7 +203,7 @@ label hospital:
                 "/Burn. You lose 1 point of willpower./"
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
-                if pc_sheet.WILLPOWER = 0:
+                if pc_sheet.willpower == 0:
                     call lost_willpower
 
                 show janos idle at left

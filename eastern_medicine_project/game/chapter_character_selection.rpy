@@ -25,10 +25,7 @@ label character_selection:
 
     "[pc_sheet.NAME], of clan [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
 
-
-
-    pause(3.0)
-
+    stop music fadeout 1.0
     hide screen dynamic_stats
     scene black
     with fade

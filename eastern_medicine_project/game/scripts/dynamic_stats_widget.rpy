@@ -23,11 +23,11 @@ label show_dynamic_stats:
 
 label change_dynamic_stats:
     hide screen dynamic_stats
-    with dissolve(0.5)
+    with Dissolve(0.5)
 
     #TODO:AUDIO stat change sounds
 
     call show_dynamic_stats
-    with dissolve(0.5)
+    with Dissolve(0.5)
 
     return

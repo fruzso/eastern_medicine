@@ -99,7 +99,7 @@ label haven:
 
             $ pc_sheet.lose_willpower(1)
             call change_dynamic_stats
-            if pc_sheet.WILLPOWER = 0:
+            if pc_sheet.willpower == 0:
                 call lost_willpower
             
             hide pc
@@ -155,7 +155,7 @@ label haven:
                 hide pc
 
                 "/You lose 1 point of willpower./"
-                if pc_sheet.WILLPOWER = 0:
+                if pc_sheet.willpower == 0:
                     call lost_willpower
 
 

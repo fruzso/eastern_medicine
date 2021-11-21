@@ -329,7 +329,7 @@ label interogation_1:
                 "/You put your fangs away in shame./"
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
-                if pc_sheet.WILLPOWER = 0:
+                if pc_sheet.WILLPOWER == 0:
                     call lost_willpower
 
 
@@ -407,7 +407,7 @@ label interogation_1:
                 "/Shit./"
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
-                if pc_sheet.WILLPOWER = 0:
+                if pc_sheet.willpower == 0:
                     call lost_willpower
 
                 show pc idle at right
@@ -428,7 +428,8 @@ label interogation_1:
             show pc idle at right
             pc "I didn't go there to see the doctor."
             hide pc
-
+            
+            stop music fadeout 1.0
             hide screen dynamic_stats
             scene black
             with fade
