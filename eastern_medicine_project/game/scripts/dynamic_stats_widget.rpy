@@ -21,11 +21,15 @@ label show_dynamic_stats:
     show screen dynamic_stats(character_name=pc_sheet.NAME, character_clan=pc_sheet.CLAN, health_value=pc_sheet.health, hunger_value=pc_sheet.hunger, willpower_value=pc_sheet.willpower)
     return
 
-label change_dynamic_stats:
+label change_dynamic_stats(direction):
     hide screen dynamic_stats
     with Dissolve(0.5)
 
-    #TODO:AUDIO stat change sounds
+    if direction == "lose":
+        play sound "sounds/widget_lose_stat.mp3"
+    elif direction == "gain":
+        play sound "sounds/widget_gain_stat.mp3"
+    
 
     if pc_sheet.willpower == 0:
         jump willpower_defeat

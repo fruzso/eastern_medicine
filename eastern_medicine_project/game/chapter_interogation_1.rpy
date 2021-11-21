@@ -312,8 +312,8 @@ label interogation_1:
                 hide janos
 
                 centered "A simple victory, but it means a lot, against the sheriff."
-                $ pc_sheet.gain_willpower(1)
-                call change_dynamic_stats
+                $ pc_sheet.gain_willpower(1)  
+                call change_dynamic_stats("gain")
 
             else:
                 centered "Your display of vampiric prowess does not move its target."
@@ -332,7 +332,7 @@ label interogation_1:
 
                 centered  "You put your fangs away in shame."
                 $ pc_sheet.lose_willpower(1)
-                call change_dynamic_stats
+                call change_dynamic_stats("lose")
 
     show janos idle at right
     janos "Where were you on the 20th of August?"
@@ -407,7 +407,7 @@ label interogation_1:
 
                 centered "Shit."
                 $ pc_sheet.lose_willpower(1)
-                call change_dynamic_stats
+                call change_dynamic_stats("lose")
 
                 show pc idle at right
                 pc "I thought she was a doctor."
