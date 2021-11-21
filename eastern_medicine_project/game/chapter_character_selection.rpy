@@ -2,8 +2,6 @@ label character_selection:
     # Rakpart darkness
     # PLOTPOINTS: Character selction and customization
 
-    # TODO:AUDIO add footstep sound
-
     scene background_video_black_wheel_filled
     with Dissolve(3.0)
 
