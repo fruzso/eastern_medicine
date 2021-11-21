@@ -8,35 +8,18 @@ label haven:
     scene black
     with fade
     
-    
     play music background_music_haven1 volume 0.5 loop
     play haven2 background_music_haven2 volume 0.5
 
-    show janos idle at right
-    janos """
-    So, the big one.
-    
-    What do you remember of August 21?
+    centered "Hearing Janos' words, you feel transported back to August 21."
 
-    And please don't give me any of that patriotic bullshit,
+    centered "You remember yesturday."
 
-    nothing like - I snuggled up fondly with the memories of a great celebration and national glory - 
-    
-    As you say, no bullshit.
-    """
-    hide janos
+    centered "Yes, the day."
 
-    pause(1.0)
+    centered "Around midday, when all slef respecting kindred should be in the deathlike slumber of torpor."
 
-    "Hearing Janos' words, you feel transported back to August 21."
-
-    "You remember yesturday."
-
-    "Yes, the day."
-
-    "Around midday, when all slef respecting kindred should be in the deathlike slumber of torpor."
-
-    "You were in your lightproof haven."
+    centered "You were in your lightproof haven."
 
     scene background_video_haven
     with Dissolve(2.0)
@@ -69,8 +52,6 @@ label haven:
 
             $ pc_sheet.lose_health(1)
             call change_dynamic_stats
-            if pc_sheet.health == 0:
-                call lost_health
 
             show janos idle at right
             janos "Carry on, no need to spare the details."
@@ -81,7 +62,7 @@ label haven:
             pc "I am friends with the Tremere, so I had an associate install wards and rituals just in case of something like this."
             hide pc
 
-            show janos at right
+            show janos idle at right
             janos "Name, please."
             hide janos
 
@@ -106,8 +87,6 @@ label haven:
 
             $ pc_sheet.lose_willpower(1)
             call change_dynamic_stats
-            if pc_sheet.willpower == 0:
-                call lost_willpower
             
             hide pc
 
@@ -217,7 +196,7 @@ label haven:
     menu first_encounter:
         "How did it start?"
         "I went on the offensive":
-            show pc at right
+            show pc idle at right
             pc """
             They were attacking my haven. So naturally it was fuck the masquerade time.
 
