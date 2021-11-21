@@ -43,27 +43,27 @@ label start:
     call variables # Non-story label
     # call test
 
-    # call rakpart
+    call rakpart
 
-    # call character_selection
+    call character_selection
 
-    # call interogation_1
+    call interogation_1
 
-    # call hospital
+    call hospital
 
-    # call interogation_2
+    call interogation_2
 
     call haven
 
-    # call interogation_3
+    call interogation_3
 
-    # call carpark
+    call carpark
 
-    # call interogation_4
+    call interogation_4
 
-    # call victory 
+    call victory 
 
-    # call epilogue
+    call epilogue
 
     scene black
     with fade
