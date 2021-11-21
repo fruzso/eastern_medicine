@@ -21,6 +21,31 @@ label interogation_1:
     janos "Take a seat!"
     hide janos
 
+    centered "You consider the room, knowing inside that you are:"
+
+    menu pc_guilty:
+        "You are"
+        "Guilty":
+            $ story_pc_guilty = True
+            centered """
+            A few rationalizations of your crime run through your head.
+            In the end all what matters is if you can get away with it.
+            And why couldn't you?
+            It was the right thing to do anyway.
+            """
+            
+        "Innocent":
+            $ story_pc_guilty = False
+            centered "You take pride and comfort in the knowledge that you are innocent."
+
+    show janos idle at right
+    janos "Did you say something?"
+    hide janos
+
+    show pc idle at right
+    pc "Nothing."
+    hide pc  
+        
     centered """
     Your eyes easily find the only chair singled out in the middle of the damp room, 
     but you hesitate. The nosferatu's pale figure draws away your attention.
