@@ -4,7 +4,7 @@ label hospital:
     scene black 
     with fade 
     
-    #play music background_music_interrogation volume 0.5 loop
+    play music background_music_hospital volume 0.5 loop
 
     scene backgorund_video_hospital
     with Dissolve(2.0)

@@ -10,6 +10,7 @@ define agent = Character("Agent") # not used yet
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 define audio.background_music_interrogation = "music/background_music_interrogation.mp3"
 define audio.background_music_victory = "music/background_music_victory.mp3"
+define audio.background_music_hospital = "music/background_music_hospital.mp3"
 
 # dialogue settings
 define gui.dialogue_xpos = 250
