@@ -261,7 +261,7 @@ label interogation_1:
                     play sound "sounds/outside_alarm.mp3" fadein 1.0
                     centered "You feel your words missing their aim mid-air."
 
-                    centered "Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment" #TODO:AUDIO que in nosie comming in
+                    centered "Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment"
 
                     show pc idle at right
                     pc "Talk to me plainly!"
@@ -348,7 +348,7 @@ label interogation_1:
 
             if roll_pc.margin_of_success > 0:
                 # Succesful lie
-                #TODO:AUDIO que in fireworks
+                play sound "sounds/fireworks.mp3" fadein 1.0
 
                 show pc idle at right
                 pc """
@@ -376,8 +376,8 @@ label interogation_1:
 
                 "It's time to tell it."
                 
-                #TODO:AUDIO que in fireworks
-
+                play sound "sounds/fireworks.mp3" fadein 1.0
+                
                 show pc idle at right
                 pc """
                 It was a particulary bright evening, I remember it well. As if it was yesturday.

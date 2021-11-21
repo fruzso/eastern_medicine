@@ -14,6 +14,8 @@ label test:
 
     centered "Test scene to test testable stuff. Hi!"
 
+    play sound "sounds/fireworks.mp3" fadein 1.0
+    
     centered "Tested something."
 
     centered "Tested another something."
