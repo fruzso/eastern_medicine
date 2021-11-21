@@ -4,7 +4,7 @@ label interogation_1:
     
     scene black 
     with fade 
-    centered "/You follow the footsteps of Janos through what must be a dark corridor./"
+    centered "You follow the footsteps of Janos through what must be a dark corridor."
     
     play sound "sounds/interrogation_footsteps_and_door.mp3"
     pause(10.0)
@@ -17,27 +17,27 @@ label interogation_1:
 
     call show_dynamic_stats
 
-    show janos idle at left
+    show janos idle at right
     janos "Take a seat!"
     hide janos
 
-    "/Your eyes easily find the only chair singled out in the middle of the damp room, but you hesitate./"
+    centered "Your eyes easily find the only chair singled out in the middle of the damp room, but you hesitate."
 
-    "/The nosferatu's pale figure draws away your attention./"
+    centered "The nosferatu's pale figure draws away your attention."
 
     menu emotional_reading:
         "Study his emotions":
-            "/In a split second you catalogue his features, mannerisms and faint flickers of emotion in his eyes./"
+            centered "In a split second you catalogue his features, mannerisms and faint flickers of emotion in his eyes."
 
             $ roll = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
             $ roll.roll()
 
             if roll.margin_of_success > -1:
-                "/He is an open book to you./"
+                centered "He is an open book to you."
 
-                "/He may be playing the tough guy, but you sense that something else is bothering him inside/"
+                centered "He may be playing the tough guy, but you sense that something else is bothering him inside"
             else:
-                "/He is hard to read. However hard you try to figure out what is going on behind his deformed features, it is to no avail./"
+                centered "He is hard to read. However hard you try to figure out what is going on behind his deformed features, it is to no avail."
 
         "Who gives a fuck":
             jump seating_choice
@@ -50,12 +50,12 @@ label interogation_1:
             show pc idle at right
             pc "Well, if this is the best the house can offer, I don't mind if I do."
 
-            "/You sit down and take your time to adjust in the chair/"
+            centered "You sit down and take your time to adjust in the chair"
 
             pc "Never mind the squeks and the wait."
             hide pc
 
-            show janos idle at left
+            show janos idle at right
             janos "Are you sitting comfortably?"
             hide janos
 
@@ -69,14 +69,14 @@ label interogation_1:
             show pc idle
             pc "Thanks, but no thanks. I prefere to stand."
 
-            "/You remain standing./"
+            centered "You remain standing."
             hide pc
             
-            show janos idle at left
+            show janos idle at right
             janos "Suit yourself. But we are going to be here for some time."
     
     if not pc_seated:
-        show janos idle at left
+        show janos idle at right
 
     janos "Let's begin. Shall we?!"
     hide janos
@@ -85,7 +85,7 @@ label interogation_1:
     pc "By all means. We don't wanna' be here all night, do we?"
     hide pc
 
-    show janos idle at left
+    show janos idle at right
     janos "The young are always so hasty, and trouble follows posthaste"
     hide janos
 
@@ -107,7 +107,7 @@ label interogation_1:
     pc "Have we started on the tourture yet?"
     hide pc
 
-    show janos idle at left
+    show janos idle at right
     janos "You would know if we did, I assure you. In any case, there is a point to your persistence, I confess."
 
     if pc_sheet.CLAN == "Malkavian":
@@ -123,7 +123,7 @@ label interogation_1:
         """
         hide pc
 
-        show janos idle at left
+        show janos idle at right
         janos "Are you finished?"
         hide janos
 
@@ -139,7 +139,7 @@ label interogation_1:
         pc "..."
         hide pc
 
-        show janos idle at left   
+        show janos idle at right   
 
     show janos idle
     janos "Have you been followed?"
@@ -162,7 +162,7 @@ label interogation_1:
         """
         hide pc
 
-        show janos idle at left
+        show janos idle at right
         janos """
         Please refrain from toying with me.
 
@@ -221,14 +221,14 @@ label interogation_1:
 
         # USE: Dominate 1 - Compell
         "Compell him to talk plainly (DOMINATE)" if pc_sheet.DOMINATE > 0:
-            "/You try to catch his gaze/"
+            centered "You try to catch his gaze"
 
             # Simple Roll
             $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
             $ roll_pc.roll()
 
             if roll_pc.is_success:
-                "/You meet Janos' eyes for a brief moment, but enough to utter the words:/"
+                centered  "You meet Janos' eyes for a brief moment, but enough to utter the words:"
 
                 # Contest Roll
                 $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
@@ -241,7 +241,7 @@ label interogation_1:
                     pc "Talk to me plainly!"
                     hide pc
 
-                    show janos idle at left
+                    show janos idle at right
                     janos """
                     Such a simple thing to do.
                     
@@ -254,9 +254,9 @@ label interogation_1:
                     hide janos
 
                 else:
-                    "/You feel your words missing their aim mid-air./"
+                    centered "You feel your words missing their aim mid-air."
 
-                    "/Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment/" #TODO:AUDIO que in nosie comming in
+                    centered "Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment" #TODO:AUDIO que in nosie comming in
 
                     show pc idle at right
                     pc "Talk to me plainly!"
@@ -264,7 +264,7 @@ label interogation_1:
 
                     $ janos_strikes += 1
 
-                    show janos idle at left
+                    show janos idle at right
                     janos """
                     That's quite a lot of hubris comming from someone of your age.
 
@@ -274,15 +274,15 @@ label interogation_1:
                     """
                     hide janos  
 
-                    "/You feel a world of shame creaping in your mind./"
+                    centered "You feel a world of shame creaping in your mind."
             else:
-                "/This is not the Nosferatu's first rodeo./"
+                centered "This is not the Nosferatu's first rodeo."
 
-                "/He moves his eyes quickly just enough to make any further attempts impossible./"
+                centered "He moves his eyes quickly just enough to make any further attempts impossible."
 
         # USE: Prsence 3 - Dread Gaze
         "Present your fangs to mmake a point" if pc_sheet.PRESENCE >= 3:
-            "/You open wide and put on an intimigating display of your fangs, while focusing all your supernatural effect on Janos./"
+            centered "You open wide and put on an intimigating display of your fangs, while focusing all your supernatural effect on Janos."
 
             $ pc_sheet.rouse_check() # TODO: HUNGERCHECK
 
@@ -293,11 +293,11 @@ label interogation_1:
             $ roll_pc.roll()
             
             if roll_pc.is_success:
-                "/Your display of vampiric prowess instills supernatural fear in Janos' eyes./"
+                centered "Your display of vampiric prowess instills supernatural fear in Janos' eyes."
 
-                "/It's such a powerful effect as you are used to, but it will do./"
+                centered "It's such a powerful effect as you are used to, but it will do."
 
-                show janos idle at left
+                show janos idle at right
                 janos """
                 Maybe there is more to you than what meets the eye.
 
@@ -307,14 +307,14 @@ label interogation_1:
                 """
                 hide janos
 
-                "/A simple victory, but it means a lot, against the sheriff./"
+                centered "A simple victory, but it means a lot, against the sheriff."
                 $ pc_sheet.gain_willpower(1)
-                "/You gain 1 point of willpower./"
+                call change_dynamic_stats
 
             else:
-                "/Your display of vampiric prowess does not move its target./"
+                centered "Your display of vampiric prowess does not move its target."
 
-                show janos idle at left
+                show janos idle at right
                 janos """
                 Please.
 
@@ -326,14 +326,11 @@ label interogation_1:
                 """
                 hide janos
 
-                "/You put your fangs away in shame./"
+                centered  "You put your fangs away in shame."
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
-                if pc_sheet.WILLPOWER == 0:
-                    call lost_willpower
 
-
-    show janos idle at left
+    show janos idle at right
     janos "Where were you on the 20th of August?"
     hide janos
 
@@ -360,7 +357,7 @@ label interogation_1:
                 """            
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "Knowing your kind, I am surprised that you do not put in a word for a national holiday every day."
                 hide janos
 
@@ -370,9 +367,9 @@ label interogation_1:
 
             else:
                 # Unsuccesful lie
-                "/You have a story prepared just for this question./"
+                "You have a story prepared just for this question."
 
-                "/It's time to tell it./"
+                "It's time to tell it."
                 
                 #TODO:AUDIO que in fireworks
 
@@ -388,27 +385,25 @@ label interogation_1:
                 """            
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "And that's where you met Cecilia?"
                 hide janos
 
-                "/This is a tough one./"
+                centered "This is a tough one."
 
-                "/But why not?/"
+                centered "But why not?"
 
                 show pc idle at right
                 pc "Yes."
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "Curious. What would an underpaid nurse do atop a Fortune 500 company's private party?"
                 hide Janos
 
-                "/Shit./"
+                centered "Shit."
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
-                if pc_sheet.willpower == 0:
-                    call lost_willpower
 
                 show pc idle at right
                 pc "I thought she was a doctor."
@@ -421,7 +416,7 @@ label interogation_1:
             pc "I was in the hospital."
             hide pc
 
-            show janos idle at left
+            show janos idle at right
             janos "The hospital?"
             hide janos
         

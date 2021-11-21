@@ -9,7 +9,7 @@ label hospital:
     scene backgorund_video_hospital
     with Dissolve(2.0)
 
-    "/The memory of St. Margit's hospital comes back, maybe even more clearly than you would like/"
+    centered "The memory of St. Margit's hospital comes back, maybe even more clearly than you would like"
 
     with Pause(1.0)
 
@@ -19,29 +19,29 @@ label hospital:
     pc "The hospital was particulary quiet that evening."
     hide pc
 
-    show janos idle at left
+    show janos idle at right
     janos "Were you a frequent visitor?"
 
-    "/He fiddles around his notes./"
+    centered "He fiddles around his notes."
 
-    "/Naturally, he does not share his discoveries with you./"
+    centered "Naturally, he does not share his discoveries with you."
     hide janos
 
     show pc idle at right
     pc "It seems that you already have the answer somewhere there, written down."
     hide pc
 
-    show janos idle at left
+    show janos idle at right
     janos "I often find that the subject's verbal account illuminates the salient points of the affair in comparision to which textual evidence quite simply pales."
     hide janos
 
     show pc idle at right
     pc "illuminates the salient points..."
     
-    "/Janos' imapatient voice interupts you./"
+    centered "Janos' imapatient voice interupts you."
     hide pc
 
-    show janos idle at left
+    show janos idle at right
     janos """
     Yes. It illuminates.
     
@@ -60,7 +60,7 @@ label hospital:
             pc "At least once a week"
             hide pc
 
-            show janos idle at left
+            show janos idle at right
             janos """
             That is quite frequent.
 
@@ -83,7 +83,7 @@ label hospital:
             pc "I was visiting someone."
             hide pc
 
-            show janos idle at left
+            show janos idle at right
             janos "Who?"
             hide janos
 
@@ -96,7 +96,7 @@ label hospital:
             if roll_pc.margin_of_success > 0:
                 $ story_selling_blood = True
 
-                "/You lay back confidently, knowing that the secret to every good lie is in the details./"
+                centered "You lay back confidently, knowing that the secret to every good lie is in the details."
 
                 show pc idle at right
                 if pc_sheet.CLAN == "Malkavian":
@@ -109,7 +109,7 @@ label hospital:
                     """
                     hide pc
 
-                    show janos idle at left
+                    show janos idle at right
                     janos "May I ask, the [pc_sheet.ASSUMED_GENDER] to leave poetics in the hands of the experts and communicate only the facts."
                     hide janos
 
@@ -130,7 +130,7 @@ label hospital:
                     """
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos """
                 And the hospital is where you got your wares.
 
@@ -142,7 +142,7 @@ label hospital:
                 pc "You, very well may."
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "You must have had a contact on the inside."
                 hide janos
 
@@ -150,12 +150,12 @@ label hospital:
                 pc "Yes."
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "Who?"
                 hide Janos
 
             else:
-                "/You try to act confidently, but you it's hard to lie to your own sheriff./"
+                centered "You try to act confidently, but you it's hard to lie to your own sheriff."
                 show pc idle at right
                 pc """
                 I wouldn't say I visited the hospital often.
@@ -163,29 +163,29 @@ label hospital:
                 I would go there a bit more than the others.
                 """
 
-                "/You feel that the right words escape you./"
+                centered "You feel that the right words escape you."
 
-                "/Why does he let this drag on./"
+                centered "Why does he let this drag on."
 
-                "/Maybe he is buying it./"
+                centered "Maybe he is buying it."
 
                 pc "You know there is a certain beuty to a place like that."
 
-                "/Shit. Beuty to a Hungarian hospital?/"
+                centered "Shit. Beuty to a Hungarian hospital?"
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "Yes, I see."
                 hide janos
 
                 show pc idle at right
-                "/Did he really buy that?!/"
+                centered "Did he really buy that?!"
 
-                "/I must press on/"
+                centered "I must press on"
                 pc "I know it is not for everybody's taste, but you need somethign to keep you going through the years"
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos """[pc_sheet.AGE] of them, to be exact.
 
                 So in [pc_sheet.AGE] years you have found that it is the ethemeral beauty of underfunded hospitals that, how did you put it 'keeps you going'
@@ -196,17 +196,15 @@ label hospital:
                 pc "Kinda."
                 hide pc
 
-                show janos idle at left
+                show janos idle at right
                 janos "I think it disrespectful, when someone lies to my face."
                 hide janos
 
-                "/Burn. You lose 1 point of willpower./"
+                centered "Burn. You lose 1 point of willpower."
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
-                if pc_sheet.willpower == 0:
-                    call lost_willpower
 
-                show janos idle at left
+                show janos idle at right
                 janos """
                 So much effort without success.
 

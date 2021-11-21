@@ -18,7 +18,7 @@ label  rakpart:
 
     pause(2.0)
 
-    show janos idle at left
+    show janos idle at right
     
     # Create Janos' character sheet
     $ janos_sheet = Janos()
@@ -63,6 +63,7 @@ label  rakpart:
 
     Certainly not the last.
     """
+    hide janos
 
     scene black
     with fade

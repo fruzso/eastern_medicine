@@ -1,22 +1,37 @@
-label lost_willpower:
+label willpower_defeat:
     # Game over
     scene black
     with fade
 
     pause(1.0)
 
-    "You lost all your willpower"
+    centered "You lost all your willpower"
 
     return
 
-label lost_health:
+label health_defeat:
     # Game over
     scene black
     with fade
 
     pause(1.0)
 
-    "You lost all your health"
+    centered "You lost all your health"
+
+    return
+
+label hunger_defeat:
+    # Game over
+    scene black
+    with fade
+
+    pause(1.0)
+
+    centered "The beast takes over you."
+
+    centered "There flashes of rampaging around in the room."
+
+    centered "And Janos' word cathes the artificial light."
 
     return
 
@@ -27,8 +42,8 @@ label defeat_mid_interogation:
     with Dissolve(3.0)
 
     centered "Janos grabs you swiftly"
-    "His motions are too quick even for your eye to follow"
-    "And the molecules of your bodym only boudn together by the Dark Fathers curse perpetuated through the ages begin to give."
+    centered "His motions are too quick even for your eye to follow"
+    centered "And the molecules of your bodym only boudn together by the Dark Fathers curse perpetuated through the ages begin to give."
     
     # This ends the game.
     return

@@ -128,7 +128,7 @@ label haven:
                 janos "Yes, naturally."
                 hide janos
 
-                "/you notice that Janos would like to say something else, but he chooses to remain silent/"
+                centered "you notice that Janos would like to say something else, but he chooses to remain silent"
 
                 show pc idle at right
                 pc """
@@ -161,9 +161,8 @@ label haven:
                 pc "well, I did."
                 hide pc
 
-                "/You lose 1 point of willpower./"
-                if pc_sheet.willpower == 0:
-                    call lost_willpower
+                $ pc_sheet.lose_willpower(1)
+                call show_dynamic_stats
 
 
     show janos idle at right
