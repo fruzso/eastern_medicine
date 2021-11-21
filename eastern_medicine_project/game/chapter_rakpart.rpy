@@ -1,4 +1,4 @@
-label  rakpart:
+label rakpart:
     # Start scenne
     # Janos enters and ponders the crimes of the PC
 
@@ -47,7 +47,7 @@ label  rakpart:
     Naturally someone must have invited them.
     """
 
-    #TODO:AUDIO queue footstep sound here
+    play sound "sounds/rakpart_footsteps.mp3" fadein 1.0 volume 1.0
     centered "Footsteps approach in the mist, thumping the ground with a growing determination of volume."
 
     janos """
@@ -61,8 +61,8 @@ label  rakpart:
 
     Certainly not the last.
     """
+    stop sound fadeout 1.0
     hide janos
-
     scene black
     with fade
     return
