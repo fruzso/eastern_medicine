@@ -7,7 +7,22 @@ label test:
 
     $ pc_sheet = Almos()
     $ janos_sheet = Janos()
+    
+    call show_dynamic_stats
 
+    centered "Test scene to test testable stuff. Hi!"
+
+    $ pc_sheet.lose_willpower(1)
+    call change_dynamic_stats("lose")
+
+    centered "Tested something."
+
+    $ pc_sheet.gain_willpower(1)
+    call change_dynamic_stats("gain")
+
+    centered "Tested another something."
+
+    centered "This is still a test environment. Hihi"
     # pc "I'm Almos."
 
     # janos "And the molecules of your bodym only boudn together by the Dark Fathers curse perpetuated through the ages begin to give."
