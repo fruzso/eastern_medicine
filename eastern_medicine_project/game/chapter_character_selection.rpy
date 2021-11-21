@@ -16,19 +16,24 @@ label character_selection:
         "Choose your character"
         "Almos":
             $ pc_sheet = Almos()
+            call screen character_stats(pc_sheet)
         "Cayenne":
             $ pc_sheet = Cayenne()
-          
-    define pc = Character("[pc_sheet.NAME]") # The player character is defined, and can be reffered to as pc from hereon
-    image pc idle = "[pc_sheet.NAME] idle.png"
+            call screen character_stats(pc_sheet)
+        
+    label chosen:
+        hide screen character_stats
+              
+        define pc = Character("[pc_sheet.NAME]") # The player character is defined, and can be reffered to as pc from hereon
+        image pc idle = "[pc_sheet.NAME] idle.png"
 
-    show pc idle at left
+        show pc idle at center
 
-    call show_dynamic_stats
+        call show_dynamic_stats
 
-    centered "[pc_sheet.NAME], of clan [pc_sheet.CLAN]." 
-    pc "[pc_sheet.QUOTE]"
-    hide pc
+        centered "[pc_sheet.NAME], of clan [pc_sheet.CLAN]." 
+        pc "[pc_sheet.QUOTE]"
+        hide pc
 
     stop music fadeout 1.0
     hide screen dynamic_stats
