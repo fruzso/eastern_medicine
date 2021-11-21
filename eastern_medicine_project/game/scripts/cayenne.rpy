@@ -60,7 +60,7 @@ init python:
             self.CELERITY = 1
             self.DOMINATE = 2
             self.FORTITUDE = 0
-            self.OBFUSCATE = 3
+            self.OBFUSCATE = 4
             self.PRESENCE = 0
             self.POTENCE = 0
 

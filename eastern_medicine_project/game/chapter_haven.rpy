@@ -51,7 +51,7 @@ label haven:
             hide pc
 
             $ pc_sheet.lose_health(1)
-            call change_dynamic_stats("lose")
+            call change_dynamic_stats("worse")
 
             show janos idle at right
             janos "Carry on, no need to spare the details."
@@ -86,7 +86,7 @@ label haven:
             """
 
             $ pc_sheet.lose_willpower(1)
-            call change_dynamic_stats("lose")
+            call change_dynamic_stats("worse")
             
             hide pc
 
@@ -221,17 +221,17 @@ label haven:
                     menu weapon_choice_heavy:
                         "you grabbed a..."
                         "Uzi machinegun":
-                            "PLACEHOLDER"
+                            "PLACEHOLDER" # TODO:WRITE
 
                         "pistol":
-                            "PLACEHOLDER"
+                            "PLACEHOLDER" # TODO:WRITE
 
                         "Ceremonial sword":
-                            "PLACEHOLDER"
+                            "PLACEHOLDER" # TODO:WRITE
 
 
                         "nothing, I am the weapon":
-                            "PLACEHOLDER"
+                            "PLACEHOLDER" # TODO:WRITE
                         
                     
                 "Not made for war":
@@ -249,7 +249,7 @@ label haven:
                     
 
         "I went on the defensive":
-            "PLACEHOLDER"
+            "PLACEHOLDER" # TODO:WRITE
             #block of code to run
         
     

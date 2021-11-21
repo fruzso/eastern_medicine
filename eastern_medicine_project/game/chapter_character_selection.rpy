@@ -8,7 +8,6 @@ label character_selection:
     pause(3.0)
 
     menu choose_character:
-        # TODO character sheets
         # TODO Names ypos 
         # TODO Hover color
         "Choose your character"
