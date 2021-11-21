@@ -1,6 +1,10 @@
 label hospital:
     # A memmory of the Hospital
     # PLOTPOINTS: We learn about the stolen blood and the PC's relation to Cecila
+    scene black 
+    with fade 
+    
+    #play music background_music_interrogation volume 0.5 loop
 
     scene backgorund_video_hospital
     with Dissolve(2.0)
