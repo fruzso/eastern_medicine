@@ -5,7 +5,7 @@ label victory:
     scene black 
     with fade
 
-    centrered "You have escaped."
+    centered "You have escaped."
 
     play music background_music_victory volume 0.5 loop
 
