@@ -200,7 +200,7 @@ label hospital:
                 janos "I think it disrespectful, when someone lies to my face."
                 hide janos
 
-                centered "Burn. You lose 1 point of willpower."
+                centered "Burn."
                 $ pc_sheet.lose_willpower(1)
                 call change_dynamic_stats
 
@@ -220,6 +220,7 @@ label hospital:
     pc "It was Cecilia."
     hide pc
 
+    stop music fadeout 1.0
     hide screen dynamic_stats
     scene black
     with fade

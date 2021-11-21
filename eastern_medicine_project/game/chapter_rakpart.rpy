@@ -5,9 +5,9 @@ label  rakpart:
     scene black
     with fade
 
-    centered "August 22, 2021 Budapest, Hungary."
-
     play music background_music_rakpart volume 0.5 loop
+
+    centered "August 22, 2021 Budapest, Hungary."
 
     centered "Time: GTM+1 23:00"
 
@@ -48,9 +48,7 @@ label  rakpart:
     """
 
     #TODO:AUDIO queue footstep sound here
-    "/Footsteps approach in the mist, thumping the ground with a growing determination of volume./"
-
-    pause(2.0)
+    centered "Footsteps approach in the mist, thumping the ground with a growing determination of volume."
 
     janos """
     Can it be our gracious party host?

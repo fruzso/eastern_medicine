@@ -10,20 +10,25 @@ label character_selection:
     pause(3.0)
 
     menu choose_character:
+        # TODO character sheets
+        # TODO Names ypos 
+        # TODO Hover color
         "Choose your character"
         "Almos":
             $ pc_sheet = Almos()
-        "Cayanne":
+        "Cayenne":
             $ pc_sheet = Cayenne()
           
     define pc = Character("[pc_sheet.NAME]") # The player character is defined, and can be reffered to as pc from hereon
     image pc idle = "[pc_sheet.NAME] idle.png"
 
-    show pc idle at center
+    show pc idle at left
 
     call show_dynamic_stats
 
-    "[pc_sheet.NAME], of clan [pc_sheet.CLAN]. [pc_sheet.QUOTE]"
+    centered "[pc_sheet.NAME], of clan [pc_sheet.CLAN]." 
+    pc "[pc_sheet.QUOTE]"
+    hide pc
 
     stop music fadeout 1.0
     hide screen dynamic_stats

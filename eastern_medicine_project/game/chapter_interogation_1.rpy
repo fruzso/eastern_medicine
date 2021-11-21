@@ -21,9 +21,10 @@ label interogation_1:
     janos "Take a seat!"
     hide janos
 
-    centered "Your eyes easily find the only chair singled out in the middle of the damp room, but you hesitate."
-
-    centered "The nosferatu's pale figure draws away your attention."
+    centered """
+    Your eyes easily find the only chair singled out in the middle of the damp room, 
+    but you hesitate. The nosferatu's pale figure draws away your attention.
+    """
 
     menu emotional_reading:
         "Study his emotions":
@@ -37,7 +38,10 @@ label interogation_1:
 
                 centered "He may be playing the tough guy, but you sense that something else is bothering him inside"
             else:
-                centered "He is hard to read. However hard you try to figure out what is going on behind his deformed features, it is to no avail."
+                centered """
+                He is hard to read. However hard you try to figure out 
+                what is going on behind his deformed features, it is to no avail.
+                """
 
         "Who gives a fuck":
             jump seating_choice
@@ -131,7 +135,7 @@ label interogation_1:
         pc "Eternally."
         hide pc
 
-        show janos idle
+        show janos idle at right
         janos "That will be enough."
         hide janos
 
@@ -141,7 +145,7 @@ label interogation_1:
 
         show janos idle at right   
 
-    show janos idle
+    show janos idle at right
     janos "Have you been followed?"
     hide janos
 
@@ -174,7 +178,7 @@ label interogation_1:
     pc "Rcently?"
     hide pc
 
-    show janos idle
+    show janos idle at right
     janos "Shall we say in the last 3 weeks."
     hide janos
 
@@ -182,7 +186,7 @@ label interogation_1:
     pc "Not that I know of."
     hide pc
 
-    show janos idle
+    show janos idle at right
     janos """
     What the fuck do you know then?!
 
