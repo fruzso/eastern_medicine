@@ -5,6 +5,7 @@ init python:
             self.NAME = "Janos"
             self.ASSUMED_GENDER = "gentleman"
             self.AGE = 250
+            self.SEX = "Male"
             self.CLAN = "Nosferatu"
             self.QUOTE = "But I cheated and deformed by dissembling nature am determined to weigh upon the shoulder of the world."
             self.GENERATION = 10

@@ -5,6 +5,7 @@ init python:
             self.NAME = "Almos"
             self.ASSUMED_GENDER = "gentleman"
             self.AGE = 179
+            self.SEX = "Male"
             self.CLAN = "Toreador"
             self.QUOTE = "It’s not what you look at that matters, it’s what you see."
             self.GENERATION = 10

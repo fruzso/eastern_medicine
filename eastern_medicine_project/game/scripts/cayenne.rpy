@@ -5,6 +5,7 @@ init python:
             self.NAME = "Cayenne"
             self.ASSUMED_GENDER = "lady"
             self.AGE = 183
+            self.SEX = "Female"
             self.CLAN = "Malkavian"
             self.QUOTE = "Wildflower; pick up your pretty little head, it will get easier, your dreams are not dead."
             self.GENERATION = 10
