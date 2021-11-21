@@ -202,7 +202,7 @@ label hospital:
 
                 centered "Burn."
                 $ pc_sheet.lose_willpower(1)
-                call change_dynamic_stats("lose")
+                call change_dynamic_stats("worse")
 
                 show janos idle at right
                 janos """

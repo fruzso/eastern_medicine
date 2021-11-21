@@ -87,7 +87,7 @@ label interogation_4:
                         """
 
                     $ pc_sheet.gain_willpower(1)
-                    call change_dynamic_stats
+                    call change_dynamic_stats("better")
 
                 else:
                     centered "No hope."
@@ -116,8 +116,28 @@ label interogation_4:
 
             menu where_to_run:
                 "Choose a direciton!"
-                "Vanish into thin air (OBFUSCATE)" if pc_sheet.OBFUSCATE >= 3:
-                    centered "PLACEHOLDER" # TODO:WRITE
+                "Vanish into thin air (OBFUSCATE)" if pc_sheet.OBFUSCATE >= 4:
+                    centered "Thank the Dark Father, you have to power to vanish from the eye."
+                    
+                    # Rousecheck
+                    if not pc_sheet.rouse_check():
+                        call change_dynamic_stats("worse")                   
+
+                    $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AWARENESS, janos_sheet.hunger, difficulty=0)
+                    $ roll_janos.roll()
+                    $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+                    $ roll_pc.roll()
+
+                    if roll_pc.is_success:
+                        centered "You vanish in front of Janos' eyes."
+
+                        if janos_sheet.AUSPEX > 1:
+                        else:
+                            
+                    else:
+                        centered "You begin to fade in front of Janos' eyes, but the nosferatu cannot be fouled."
+                        call defeat_violent
+
 
                 "I've got speed (CELERITY)" if pc_sheet.CELERITY > 0:
                     centered "PLACEHOLDER" # TODO:WRITE
@@ -138,11 +158,46 @@ label interogation_4:
         if story_janos_guilty:
             janos "Guilty."
             hide janos
+
+            centered "It's to late to run."
+
+            call fight
+
         else:
             janos "Not guilty."
             hide janos
 
             call victory # The End.
+    
+        label fight:
+            centered "Janos grabs your arm."
+
+            centered "You try to escape his grasp."
+
+            $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL, janos_sheet.hunger, difficulty=0)
+            $ roll_janos.roll()
+            $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.BRAWL, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+            $ roll_pc.roll()
+
+            if roll_pc.is_success:
+                show pc idle at right
+                pc "Hah!"
+                hide pc
+
+                centered "Your muscles cleverly obey your commands and you escape his grasp."
+
+            else:
+                show pc idle at right
+                pc "Shit!"
+                hide pc
+
+                centered "His grasp hold firm."
+
+
+
+
+
+            
 
         
 

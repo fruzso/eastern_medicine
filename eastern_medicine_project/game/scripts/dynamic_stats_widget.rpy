@@ -25,9 +25,9 @@ label change_dynamic_stats(direction):
     hide screen dynamic_stats
     with Dissolve(0.5)
 
-    if direction == "lose":
+    if direction == "worse":
         play sound "sounds/widget_lose_stat.mp3"
-    elif direction == "gain":
+    elif direction == "better":
         play sound "sounds/widget_gain_stat.mp3"
     
 

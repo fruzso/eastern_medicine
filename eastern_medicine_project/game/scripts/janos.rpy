@@ -100,6 +100,8 @@ init python:
             
             if not hunger_success:
                 self.get_hungry(1)
+            
+            return hunger_success
         
         def set_hunger_to_zero(self):
             self.hunger = 0

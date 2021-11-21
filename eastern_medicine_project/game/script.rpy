@@ -63,10 +63,6 @@ label start:
 
     call interogation_4
 
-    call victory 
-
-    call epilogue
-
     scene black
     with fade
     return    

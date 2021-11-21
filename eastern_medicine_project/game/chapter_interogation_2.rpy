@@ -46,7 +46,7 @@ label interogation_2:
                 centered "You ressist his attempt."
 
                 $ pc_sheet.gain_willpower(1)
-                call change_dynamic_stats("gain")
+                call change_dynamic_stats("better")
 
                 menu feign_compliance:
                     "Do you want to fake complience?"
