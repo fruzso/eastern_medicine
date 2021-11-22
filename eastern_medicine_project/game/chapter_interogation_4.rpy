@@ -94,6 +94,7 @@ label interogation_4:
 
                     if story_pc_guilty:
                         centered "Shit, he knows it was you."
+                            
                     else:
                         centered "Shit, he thinks it was you."
 
@@ -121,6 +122,9 @@ label interogation_4:
         "Run, run, run!":
             call run
 
+        "I am no coward, fight!"
+            call fight_pc_start
+
     show janos idle at right
     janos """
     As it happens, the prince gave me full jurisdiction over this matter.
@@ -135,7 +139,7 @@ label interogation_4:
         hide janos
 
         centered "It's to late to run."
-        call fight
+        call fight_janos_start
 
     else:
         janos "Not guilty."

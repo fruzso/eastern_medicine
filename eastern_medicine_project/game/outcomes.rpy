@@ -78,15 +78,15 @@ label hunger_defeat:
 
     return
 
-label defeat_violent:
+label voilent_defeat:
     # Game over
 
     scene background_video_black_wheel_empty
     with Dissolve(3.0)
 
     centered "Janos grabs you swiftly"
-    centered "His motions are too quick even for your eye to follow"
-    centered "And the molecules of your bodym only boudn together by the Dark Fathers curse perpetuated through the ages begin to give."
+    centered "His motions are too quick even for your eyes to follow"
+    centered "And the molecules of your body only bound together by the Dark Fathers curse perpetuated through the ages begin to give."
     
     # This ends the game.
     return

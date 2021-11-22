@@ -1,6 +1,8 @@
-label fight:
-    centered "Janos grabs your arm."
+label fight_pc_start:
+    "PLACEHOLDER" # TODO: STROY
+    call fight
 
+label fight_janos_start:
     centered "You try to escape his grasp."
 
     $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL, janos_sheet.hunger, difficulty=0)
@@ -20,4 +22,12 @@ label fight:
         pc "Shit!"
         hide pc
 
-        centered "His grasp hold firm."         
+        centered "His grasp hold firm."  
+
+    "PLACEHOLDER" # TODO: STROY
+    call final_fight
+
+label final_fight:
+    "PLACEHOLDER" # TODO: STROY
+
+       
