@@ -11,7 +11,7 @@ define agent = Character("Agent") # not used yet
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
 define audio.background_music_interrogation = "music/background_music_interrogation.mp3"
 define audio.background_music_hospital = "music/background_music_hospital.mp3"
-# TODO:AUDIO car scene
+define audio.background_music_carpark = "music/background_music_carpark.mp3"
 define audio.background_music_haven1 = "music/background_music_haven_1.mp3"
 define audio.background_music_haven2 = "music/background_music_haven_2.mp3"
 define audio.background_music_haven = "music/background_music_haven_possible.mp3"
@@ -45,17 +45,17 @@ label start:
     call variables # Non-story label
     # call test
 
-    call rakpart
+    #call rakpart
 
     call character_selection
 
-    call interogation_1
+    #call interogation_1
 
-    call hospital
+    #call hospital
 
-    call interogation_2
+    #call interogation_2
 
-    call haven
+    #call haven
 
     call interogation_3
 
