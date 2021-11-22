@@ -95,7 +95,7 @@ label interogation_3:
 
         "They must have followed me":
             show pc idle at right
-            pc "I am no trained observered, but since I hadn't told them they must have followed me.
+            pc """I am no trained observered, but since I hadn't told them they must have followed me.
             
             Or, and this is the truly terrifying possiblity, someone lead them there.
             
@@ -122,71 +122,72 @@ label interogation_3:
 
                     cnetered "Did he buy it?"
 
-        show janos idle at right
-        janos """
-        While it is tempting to think that It was your own ignorance and carelessness that put you in harms way,
+    show janos idle at right
+    janos """
+    While it is tempting to think that It was your own ignorance and carelessness that put you in harms way,
 
-        unfortunately, - or fortunately, I cannot quite tell at this point -
+    unfortunately, - or fortunately, I cannot quite tell at this point -
 
-        my sources reveal otherwise.
-        """
-        hide janos
+    my sources reveal otherwise.
+    """
+    hide janos
 
-        show pc idle at right
-        pc "Insults aside, you have hooked. What do your sources reveal?"
-        hide pc
+    show pc idle at right
+    pc "Insults aside, you have hooked. What do your sources reveal?"
+    hide pc
 
-        show janos idle at right
-        janos "The second inquisition has started to introduce radioactive isotopes to marked poritons of blood,
-        
-        distributed accross town at medical facilities of suspected activities.
-        
-        Ultimate with the quite decernable goal of locating the motions and geolcoations of said isotopes.
-        """
-        hide janos
+    show janos idle at right
+    janos """
+    The second inquisition has started to introduce radioactive isotopes to marked poritons of blood,
+    
+    distributed accross town at medical facilities of suspected activities.
+    
+    Ultimate with the quite decernable goal of locating the motions and geolcoations of said isotopes.
+    """
+    hide janos
 
-        show pc idle at right
-        pc "Shiiiit."
-        hide pc
+    show pc idle at right
+    pc "Shiiiit."
+    hide pc
 
-        show janos idle at right
-        janos """
-        The elloquence of your generation amases me.
-        
-        But essentially, yes. They are back on.
+    show janos idle at right
+    janos """
+    The elloquence of your generation amases me.
+    
+    But essentially, yes. They are back on.
 
-        So it happens that somebody has been aiding their distribution endevour.
-        """
-        hide janos
+    So it happens that somebody has been aiding their distribution endevour.
+    """
+    hide janos
 
-        if story_selling_blood:
-            centered "The recognition comes somewhat slowly."
+    if story_selling_blood:
+        centered "The recognition comes somewhat slowly."
 
-            centered "You lied to Janos that you have been selling blood to the kindred community from the hospital."
+        centered "You lied to Janos that you have been selling blood to the kindred community from the hospital."
 
-        show janos idle at right
-        janos """
-        The crime itself is punishible beyond a shadow of a doubt.
-        
-        The only factor to assertain is
+    show janos idle at right
+    janos """
+    The crime itself is punishible beyond a shadow of a doubt.
+    
+    The only factor to assertain is
 
-        whether it was commited inadvertantly or out of malice,
+    whether it was commited inadvertantly or out of malice,
 
-        you see.
-        """
-        hide janos
+    you see.
+    """
+    hide janos
 
-        show pc idle at right
-        pc "I am not sure."
-        hide pc
+    show pc idle at right
+    pc "I am not sure."
+    hide pc
 
-        show janos idle at right
-        janos "I any case. Where did you go once yoru haven has been breached?"
-        hide janos
+    show janos idle at right
+    janos "I any case. Where did you go once yoru haven has been breached?"
+    hide janos
 
-        show pc idle at right
-        pc "I needed help"
-        hide pc    
+    show pc idle at right
+    pc "I needed help"
+    hide pc    
 
     hide screen dynamic_stats
     scene black
