@@ -1,4 +1,4 @@
-label fight_1:
+label fight:
     centered "Janos grabs your arm."
 
     centered "You try to escape his grasp."
