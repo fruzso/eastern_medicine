@@ -1,4 +1,6 @@
 label fight_pc_start:  
+    #play music background_music_run_and_fight volume 0.5 loop
+    $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
     menu first_attack:
         "He might not think I have the audacity to strike an annointed sheriff."
         "Strike him":
@@ -92,6 +94,8 @@ label fight_pc_start:
     call final_fight
 
 label fight_janos_start:
+    #play music background_music_run_and_fight volume 0.5 loop
+    $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
     centered "You try to escape his grasp."
 
     $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL, janos_sheet.hunger, difficulty=0)
