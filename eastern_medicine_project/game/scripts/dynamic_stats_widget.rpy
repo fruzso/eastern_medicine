@@ -1,14 +1,18 @@
 screen dynamic_stats(character_name, character_clan, health_value, hunger_value, willpower_value):
     # Paintbrush background
     add "gui/dynamic_stats/meter_widget_[character_name].png" pos (0, 0) 
-    add "gui/dynamic_stats/clan_symbol_[character_clan].png" pos (75, 40) xysize (100, 100)
+    add "gui/dynamic_stats/clan_symbol_[character_clan].png" pos (60, 40) xysize (100, 100)
 
-    hbox xpos 150 ypos 45:
+    hbox xpos 165 ypos 35:
         vbox:
             text "WILLPOWER" size 14
             text "HEALTH" size 14
             text "HUNGER" size 14
-            textbutton "Character sheet" action Show("character_stats", sheet=pc_sheet, choosable=False)
+            textbutton "SHOW STATS":
+                action Show("character_stats", sheet=pc_sheet, choosable=False)
+                text_size 14
+                text_color "#FFFFFF"
+                text_hover_color "#3230bb"
             
         vbox: 
             text "[willpower_value]" size 14

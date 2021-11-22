@@ -45,17 +45,17 @@ label start:
     call variables # Non-story label
     # call test
 
-    #call rakpart
+    call rakpart
 
     call character_selection
 
-    #call interogation_1
+    call interogation_1
 
-    #call hospital
+    call hospital
 
-    #call interogation_2
+    call interogation_2
 
-    #call haven
+    call haven
 
     call interogation_3
 
@@ -71,6 +71,8 @@ label start:
 label variables:
     # Only programatic content, nothing to show
     # Game mechanics:
+
+    # Janos
     $ janos_strikes = 0
     $ janos_sheet = Janos()
 
