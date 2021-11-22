@@ -114,7 +114,7 @@ label carpark:
                             "What do you do?"
 
                             "Try and escape this filthy depressing basement":
-                                jump where_to_run
+                                jump run
 
                             "Attack Janos":
                                 jump fight_pc_start

@@ -120,7 +120,7 @@ label interogation_3:
                     janos "Hmm... Elemér, interesting accusation. I shall look into that later."
                     hide janos
 
-                    cnetered "Did he buy it?"
+                    centered "Did he buy it?"
 
     show janos idle at right
     janos """

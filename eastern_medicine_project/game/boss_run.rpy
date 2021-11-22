@@ -1,4 +1,6 @@
 label run:
+    play music background_music_run_and_fight volume 0.5 loop
+    
     centered """
     It's decided, you have to flee for your life.
     There will be no time to appeal to the prince.

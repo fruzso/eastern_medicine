@@ -15,6 +15,7 @@ define audio.background_music_carpark = "music/background_music_carpark.mp3"
 define audio.background_music_haven1 = "music/background_music_haven_1.mp3"
 define audio.background_music_haven2 = "music/background_music_haven_2.mp3"
 define audio.background_music_haven = "music/background_music_haven_possible.mp3"
+define audio.background_music_run_and_fight = "music/background_run_and_fight.mp3"
 define audio.background_music_victory = "music/background_music_victory.mp3"
 
 
