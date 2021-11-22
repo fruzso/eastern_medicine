@@ -50,7 +50,7 @@ label carpark:
 
             show pc idle at right
             pc """
-            I suddenly remember him slipping an envelope to me, whispering "Hide it. Now.".
+            I suddenly remember him slipping an envelope to me, whispering: Hide it. Now.
 
             So I naturally hid it. 
 
@@ -75,18 +75,36 @@ label carpark:
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.RESOLVE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
             $ roll_pc.roll()
 
-            if roll_pc.is_successful:
+            if roll_pc.is_success:
                 # PC escapes Dominate
                 centered """ You feel you touched on something important. You must have. He is trying to dominate you.
-                But he must be very frustrated by now because you escape his attempt to force youre mind. 
+                But he must be very frustrated by now because you escape his attempt to force your mind. 
+
+                Still the effort breaks your concentration.
                 """
+
+                scene black
+                with fade
+
+                scene background_video_interogation
+                with Dissolve(3.0)            
+
                 menu cooperation:
                     "Are you cooperating regardless?"
+
                     "Yes. You remember, afterall his judgment matters in this case":
                         show pc idle at right
                         pc "Alright, what do you wanna know?"
                         hide pc
+
+                        scene black
+                        with fade
+
+                        scene background_video_carpark
+                        with Dissolve(3.0)
+
                         jump carpark_minigame
+
                     "No way, it's time for him to leave me alone":
                         show pc idle at right
                         pc "That's quite enough for one night. You're gonna let me go now." 
@@ -94,8 +112,10 @@ label carpark:
                         
                         menu run_or_fight:
                             "What do you do?"
+
                             "Try and escape this filthy depressing basement":
                                 jump where_to_run
+
                             "Attack Janos":
                                 jump fight_pc_start
                             
@@ -184,7 +204,7 @@ label carpark:
                 pc """
                 A memory of Emilio, a Tremere friend popped into my mind. 
                 
-                I remembered him slipping an envelope to me, whispering "Hide it. Now.".
+                I remembered him slipping an envelope to me, whispering: Hide it. Now.
 
                 So I naturally hid it. 
 
@@ -198,9 +218,9 @@ label carpark:
                 jump carpark_minigame
 
 
-label carpark_minigame
+label carpark_minigame:
     show janos idle at right
-    janos "So tell me more."
+    janos "I am waiting. Continue."
     hide janos
 
     #TODO: CODE + STORY Insert minigame here

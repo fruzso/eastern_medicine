@@ -72,6 +72,7 @@ label variables:
     # Only programatic content, nothing to show
     # Game mechanics:
     $ janos_strikes = 0
+    $ janos_sheet = Janos()
 
     # Story events:
     # False by default and only switched if chosen 
