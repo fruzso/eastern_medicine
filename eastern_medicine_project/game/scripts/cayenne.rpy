@@ -25,7 +25,7 @@ init python:
 
             # Skills
             self.ATHLETICS = 3
-            self.BRAWL = 3
+            self.BRAWL = 1
             self.CRAFT = 1
             self.DRIVE = 0
             self.FIREARMS = 1

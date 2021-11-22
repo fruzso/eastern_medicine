@@ -62,11 +62,12 @@ label start:
     call carpark
 
     call interogation_4
-
-    scene black
-    with fade
-    return    
-
+    
+    label the_end:
+        scene black
+        with fade
+        return   
+        
 label variables:
     # Only programatic content, nothing to show
     # Game mechanics:

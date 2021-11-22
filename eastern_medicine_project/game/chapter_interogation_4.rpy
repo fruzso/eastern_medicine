@@ -122,7 +122,7 @@ label interogation_4:
         "Run, run, run!":
             call run
 
-        "I am no coward, fight!"
+        "I am no coward, fight!":
             call fight_pc_start
 
     show janos idle at right
@@ -139,6 +139,7 @@ label interogation_4:
         hide janos
 
         centered "It's to late to run."
+        centered "His filthy hand is already clutching your wrist."
         call fight_janos_start
 
     else:

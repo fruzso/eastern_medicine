@@ -50,7 +50,7 @@ label run:
                     $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
                     $ roll_pc.roll()
 
-                    centered "You sense that he is looking for you with the dark powers of sight".
+                    centered "You sense that he is looking for you with the dark powers of sight."
 
                     if roll_pc.is_success:
                         centered "But it is to no point. He cannot find you."

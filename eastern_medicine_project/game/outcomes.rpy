@@ -14,7 +14,7 @@ label victory:
 
     show pc idle at center
 
-    if story_janos_guilty:
+    if story_janos_condemns:
         centered "Janos tought you were guilty."
     else:
         centered "Janos thought you were innocent."
@@ -36,10 +36,7 @@ label victory:
 
     hide pc
 
-    scene black 
-    with fade
-
-    return
+    call the_end
 
 label willpower_defeat:
     # Game over
