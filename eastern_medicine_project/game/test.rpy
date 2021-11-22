@@ -5,6 +5,8 @@ label test:
     scene background_video_black_wheel_empty
     with Dissolve(3.0)
 
+    call screen letter
+
     $ pc_sheet = Almos()
     $ janos_sheet = Janos()
     

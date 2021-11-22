@@ -3,7 +3,7 @@ screen dynamic_stats(character_name, character_clan, health_value, hunger_value,
     add "gui/dynamic_stats/meter_widget_[character_name].png" pos (0, 0) 
     add "gui/dynamic_stats/clan_symbol_[character_clan].png" pos (60, 40) xysize (100, 100)
 
-    hbox xpos 165 ypos 35:
+    hbox xpos 165 ypos 31:
         vbox:
             text "WILLPOWER" size 14
             text "HEALTH" size 14
