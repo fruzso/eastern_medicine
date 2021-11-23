@@ -52,11 +52,11 @@ label interogation_1:
     """
 
     menu emotional_reading:
-        "Study his emotions":
+        "Study his emotions {image=dice}":
             centered "In a split second you catalogue his features, mannerisms and faint flickers of emotion in his eyes."
 
-            $ roll = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
-            $ roll.roll()
+            $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
+            $ roll_pc.roll()
 
             if roll.margin_of_success > -1:
                 centered "He is an open book to you."
@@ -249,7 +249,7 @@ label interogation_1:
             hide janos
 
         # USE: Dominate 1 - Compell
-        "Compell him to talk plainly (DOMINATE)" if pc_sheet.DOMINATE > 0:
+        "Compell him to talk plainly {image=dice}" if pc_sheet.DOMINATE > 0:
             centered "You try to catch his gaze"
 
             # Simple Roll
@@ -257,7 +257,7 @@ label interogation_1:
             $ roll_pc.roll()
 
             if roll_pc.is_success:
-                centered  "You meet Janos' eyes for a brief moment, but enough to utter the words:"
+                centered  "You meet Janos' eyes for a brief moment, enough to utter the words:"
 
                 # Contest Roll
                 $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
@@ -311,10 +311,11 @@ label interogation_1:
                 centered "He moves his eyes quickly just enough to make any further attempts impossible."
 
         # USE: Prsence 3 - Dread Gaze
-        "Present your fangs to mmake a point" if pc_sheet.PRESENCE >= 3:
+        "Present your fangs to mmake a point {image=dice}" if pc_sheet.PRESENCE >= 3:
             centered "You open wide and put on an intimigating display of your fangs, while focusing all your supernatural effect on Janos."
 
-            $ pc_sheet.rouse_check() # TODO: HUNGERCHECK
+            if not pc_sheet.rouse_check():
+                call change_dynamic_stats("worse") 
 
             # Contest Roll
             $ roll_janos = Roll(janos_sheet.COMPOSURE + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
@@ -365,7 +366,7 @@ label interogation_1:
     hide janos
 
     menu august_20:
-        "Tell a lie":
+        "Tell a lie {image=dice}":
             $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERSUASION, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
