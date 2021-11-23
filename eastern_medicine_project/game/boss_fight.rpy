@@ -3,7 +3,7 @@ label fight_pc_start:
     $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
     menu first_attack:
         "He might not think I have the audacity to strike an annointed sheriff."
-        "Strike him":
+        "Strike him {image=dice}":
             centered "You try to get a jump on him."
 
             # Roll fight
@@ -28,7 +28,7 @@ label fight_pc_start:
 
                 centered "He evades your attack, looking fierce and out for blood."  
 
-        "Confuse his mind (DEMENTATION)" if pc_sheet.DOMINATE >= 2 and pc_sheet.OBFUSCATE >= 2:
+        "Confuse his mind {image=dice}" if pc_sheet.DOMINATE >= 2 and pc_sheet.OBFUSCATE >= 2:
             # Rousecheck
             if not pc_sheet.rouse_check():
                 call change_dynamic_stats("worse")
@@ -96,7 +96,7 @@ label fight_pc_start:
 label fight_janos_start:
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
-    centered "You try to escape his grasp."
+    centered "You try to escape his grasp. {image=dice}"
 
     $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL, janos_sheet.hunger, difficulty=0)
     $ roll_janos.roll()

@@ -21,7 +21,7 @@ label run:
             call fight_janos_start
 
         # Discipline choices
-        "Vanish into thin air (OBFUSCATE)" if pc_sheet.OBFUSCATE >= 4:
+        "Vanish into thin air {image=dice}" if pc_sheet.OBFUSCATE >= 4:
             centered "Thank the Dark Father, you have the power to vanish."
             
             # Rousecheck

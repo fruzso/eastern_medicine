@@ -1,22 +1,8 @@
 label rakpart:
-    # Start scenne
     # Janos enters and ponders the crimes of the PC
 
-    scene black
-    with fade
-
-    play music background_music_rakpart volume 0.5 loop
-
-    centered "August 22, 2021 Budapest, Hungary."
-
-    centered "Time: GTM+1 23:00"
-
-    centered "Location: Somewhere near the seats of power that the Tzimische have cultivated for so long."
-
     scene background_video_rakpart
-    with Dissolve(3.0)
-
-    pause(2.0)
+    with Dissolve(1.0)
 
     show janos idle at right
 

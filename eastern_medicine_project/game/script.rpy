@@ -39,12 +39,19 @@ image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
 image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
 
+# Props
+transform dice_transform:
+    zoom 0.065
+image dice = At("images/d10.png", dice_transform)
+
 # The game starts here.
 label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     call variables # Non-story label
     # call test
+
+    call intro
 
     call rakpart
 
