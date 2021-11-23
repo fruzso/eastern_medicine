@@ -375,7 +375,115 @@ label hospital:
         jump blood_selling_3
 
     label blood_selling_3:
-            
+
+        # TODO: AUDIO Music back to the original
+
+        show janos idle at right
+        janos "Was your relationship with Cecilia purely about business?"
+        hide janos
+
+        menu:
+        "Was your relationship with Cecilia purely about business?"
+
+            "Yes":
+                show pc idle at right
+                pc """
+                She liked me very much, mo question about it.
+
+                But can you blame her?
+
+                In all honesty though, and what should I be in front of my sheriiff if not completely honest,
+
+                There is a kind of sentiment, that only the living, can inspire in us.
+
+                That lived in me - Ironic as that may sound.
+                """
+                hide pc
+
+            "No":
+
+                show pc idle at right
+                pc """
+                She liked me very much, mo question about it.
+
+                But can you blame her?
+
+                One look and you can fall in love with.
+
+                I am sure you feel the say way.
+
+                But honestly, for me it has always been about the blood.
+                """
+                hide pc
+                
+        show janos idle at right
+        janos """
+        I believe I have some understanding for that.
+
+        Additionally, may one ask, did you meet anyone besides her at the hospital?
+        """
+        hide janos
+
+        menu:
+            "Tell the truth":
+                show pc idle at right
+                pc "I also saw Emilio for a brief moment. He looked lost deep in thoughts, so I decided not to bother him."
+                hide pc
+
+            "Tell a lie {image=dice}":
+                $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
+                $ roll_janos.roll()
+                $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERSUASION, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+                $ roll_pc.roll()
+
+                if not roll_pc.margin_of_success > 0:
+                    centered "The words come very easily and smoothly for you."
+
+                    show pc idle at right
+                    pc "Anyone? Try everyone! It is a hospital for God's sake, full of people. If you really tried hard, you could even find the opoe there."
+                    hide pc
+
+                    centered """
+                    Rage. It never fails.
+                    
+                    You lean back with the pleasurable smile of achievement.
+                    """ 
+
+                else:
+                    cenetred """
+                    It is begining to be difficult to keep track of what's what's and all the lies.
+                    
+                    You find yourself confused.
+                    """
+
+                    show pc idle at right
+                    pc "I meet a few people."
+                    hide pc
+
+                    show janos idle at right
+                    janos "Who, precisely?"
+                    hide janos
+
+                    centered """
+                    You try to hide the only important name in a never ending stream of lies
+                    
+                    but he cathes is.
+                    """
+
+                    show janos idle at right
+                    janos "Emilio."
+                    hide janos
+
+                    centered "No use to hide it anymore."
+
+                    show pc idle at right
+                    pc "Yes."
+                    hide pc
+
+        show janos idle at right
+        janos "Noted."
+        hide janos
+                
     stop music fadeout 1.0
     hide screen dynamic_stats
     scene black
