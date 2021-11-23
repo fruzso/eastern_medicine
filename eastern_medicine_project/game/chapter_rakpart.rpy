@@ -29,10 +29,14 @@ label rakpart:
 
     Naturally someone must have invited them.
     """
+    hide janos
 
     play sound "sounds/rakpart_footsteps.mp3" fadein 1.0 volume 1.0
-    centered "Footsteps approach in the mist, thumping the ground with a growing determination of volume."
-
+    centered """
+    Footsteps approach in the mist, 
+    thumping the ground with a growing determination of volume.
+    """
+    show janos idle at right
     janos """
     Can it be our gracious party host?
 
