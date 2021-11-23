@@ -8,8 +8,6 @@ label carpark:
     play music background_music_carpark fadein 1.0 volume 1.0 loop
 
     centered """
-    Where did you go next?
-
     You remember the carpark distinctly.
     """
 
@@ -50,7 +48,7 @@ label carpark:
 
             show pc idle at right
             pc """
-            I suddenly remember him slipping an envelope to me, whispering: Hide it. Now.
+            I suddenly remember him slipping an envelope to me in the hospital, whispering: Hide it. Now.
 
             So I naturally hid it. 
 
@@ -67,7 +65,7 @@ label carpark:
             """
 
             show janos idle at right
-            janos "So the Tremere's name is Emilio. Tell me more. {image=dice}"
+            janos "So the Emilio, the Tremere... Again. Tell me more. {image=dice}"
             hide janos
 
             $ roll_janos = Roll(janos_sheet.CHARISMA + janos_sheet.DOMINATE, janos_sheet.hunger, difficulty=0)
@@ -204,7 +202,7 @@ label carpark:
                 pc """
                 A memory of Emilio, a Tremere friend popped into my mind. 
                 
-                I remembered him slipping an envelope to me, whispering: Hide it. Now.
+                I remembered him slipping an envelope in the hospital, whispering: Hide it. Now.
 
                 So I naturally hid it. 
 
@@ -223,13 +221,164 @@ label carpark_minigame:
     janos "I am waiting. Continue."
     hide janos
 
-    #TODO: STORY Connecting stroy
+    show pc idle at right
+    pc """
+    After I went home I took out the envelope from my pocket.
+
+    -In case of emergency-
+
+    is what it said.
+    """
+
+    menu open_envelope:
+        "Did you open it then?"
+        "Obviously":
+            pc "Obviously I opened it right away."
+            hide pc
+
+            show janos idle at right
+            janos "Would you say that you were in an emergency at that point then?"
+            hide janos
+            
+            show pc idle at right
+            pc """
+            No not really. 
+            
+            But I like to know my options. 
+            
+            You know, in case an emergency arises."
+            """
+
+        "Tried to resist {image=dice}":
+            $ roll_pc = Roll(pc_sheet.willpower, n_hunger_dice=0, difficulty=5)
+            $ roll_pc.roll()
+            
+            if roll_pc.is_success:
+                show pc idle at right
+                pc """
+                I am a curious creature but as I said:
+                    
+                I trust my Tremere friend. 
+
+                I opened it when I left the building that night. 
+                """
+              
+            else:
+                show pc idle at right
+                pc """
+                I was too curious to resist.
+                """
+                
+
+    pc """
+    There was an address on the other side of the envelope.
+
+    And inside there was a letter. 
+
+    At first I thought it was just a friendly note.
+    """
+    hide pc
+
+    show janos idle at right
+    janos """
+    I would be happy if you refrained from telling me all the unnecessary steps you took inside that labyrinth of your damned mind.
+    """
+    hide janos 
+
+    show pc idle at right
+    pc "Excuse me for not reading your mind for your wishes about the details."
+    hide pc 
+
+    show janos idle at right
+    janos "What was in the letter?"
+    hide janos
+
+    show pc idle at right
+    pc """
+    An address.
+
+    I realized this is not a coincidence, so I went there as fast as I could.
+
+    But it turned out to be a carpark. 
+    """
+    hide pc
+
+    centered "As you are reciting your memories you remember that however much you tried to get to the car you just couldn't."
     
-    centered "You remember you need three words spelled out in your blood to unlock the Emilo's seal."
+    show pc idle at right
+    pc """
+    This cannot be right - I thought. There must have been something deeper hidden here, something invisible for the bare eyes...
 
-    centered "It would be uncharacteristic of the Tremere not to have left you with some guidence."
+    But not to the seeing one. {image=roll}
+    """
+    hide pc
+    
+    $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.AUSPEX, pc_sheet.hunger, difficulty=4)
+    $ roll_pc.roll()
+    if roll_pc.is_success:
+        show pc idle at right
+        pc """
+        As I turned on my vision I suddenly saw those geometric lines and circles 
+        
+        so familiar to me by now drawn onto the wall.
+        """
+    else:
+        $ pc_sheet.lose_willpower(1)
+        call change_dynamic_stats("worse")
 
-    centered "The letter!"
+        show pc idle at right
+        pc """
+        I was pretty sure I needed to see something there but I was too shocked still to focus my powers in one sitting.
+
+        I tried several times with breaks when finally, I started to see them.
+
+        Those geometric lines and circles so familiar to me by now drawn onto the wall!
+        """
+        hide pc
+
+    show pc idle right 
+    pc "I used to see tons of these back then while working with Emilio."
+    hide pc
+
+    centered "Now, this is what you gain from being open to some that others would just call usurpers."
+    
+    centered "Pretty karmic - one could say if one believed in karma."
+    
+    centered "Although it is not too likely that another life would wait for you."
+    
+    centered "Maybe another death."
+
+    show janos idle at right 
+    janos """
+    That's most interesting. 
+    
+    So may I ask, how did those little scribbles let you in the car? 
+
+    Please do continue to fascinate me. 
+    """
+    hide janos
+
+    show pc idle at right
+    pc """
+    I remembered that particular magic ward. 
+    
+    I remembered I needed three words spelled out in my blood to unlock Emilio's seal.
+
+    That was there just to provide a safe place for me to stay - I was sure by then. 
+
+    It would be uncharacteristic of the Tremere not to have left me with some guidence.
+    """
+    hide pc
+
+    show janos idle at right 
+    janos """
+    So did Emilio come himself to guide you personally through this little workshop of his? 
+    """
+    hide janos
+
+    show pc idle at right 
+    pc "The letter!"
+    hide pc
 
     $ hit_count = 0
     

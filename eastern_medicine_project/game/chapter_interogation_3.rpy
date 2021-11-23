@@ -182,11 +182,16 @@ label interogation_3:
     hide pc
 
     show janos idle at right
-    janos "I any case. Where did you go once yoru haven has been breached?"
+    janos "I any case. Where did you go once your haven has been breached?"
     hide janos
 
     show pc idle at right
-    pc "I needed help"
+    pc """It was already so late. 
+
+    I needed a place to stay where they couldn't find me.
+
+    And I couldn't have risked going to any of my friends. 
+    """
     hide pc    
 
     hide screen dynamic_stats
