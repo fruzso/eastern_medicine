@@ -118,10 +118,9 @@ label interogation_1:
             
             show janos idle at right
             janos "Suit yourself. But we are going to be here for some time."
+            hide janos
     
-    if not story_seated:
-        show janos idle at right
-
+    show janos idle at right
     janos "Let's begin. Shall we?!"
     hide janos
 
@@ -139,7 +138,7 @@ label interogation_1:
 
     show janos idle at right
     janos """
-    -When- would reveal a bit more, perhaps.
+    {i}When{/i} would reveal a bit more, perhaps.
     
     Yet again, you are not here to ask questions.
 
@@ -153,13 +152,12 @@ label interogation_1:
 
     show janos idle at right
     janos "You would know if we did, I assure you. In any case, there is a point to your persistence, I confess."
+    hide janos
 
     if pc_sheet.CLAN == "Malkavian":
-        hide janos
-
         show pc idle at right
         pc """
-        Dead ladies and gentlemen of the jury,
+        {i}Dead{/i} ladies and gentlemen of the jury,
 
         the prosecution rests.
 
@@ -191,35 +189,51 @@ label interogation_1:
 
     if pc_sheet.CLAN == "Malkavian":
         show pc idle at right
-        pc """
-        Followed by what?
-        
-        Kindred?
+        pc "Followed by what?"
 
-        People?
+        menu:
+            "Kindred?":
+                pc """
+                Kindred?
+                
+                You?
+                """
+                hide pc
+            "People?":
+                pc "People? The kine?"
+                hide pc
+            "Or maybe time?":
+                pc """
+                Or maybe time?
+                
+                My past always follows me,
 
-        Or maybe time?
+                sometimes my future too.
+                """
+                hide pc
 
-        My past always follows me,
+    show janos idle at right
+    janos """
+    Please refrain from toying with me.
 
-        sometimes my future too.
-        """
-        hide pc
-
-        show janos idle at right
-        janos """
-        Please refrain from toying with me.
-
-        Followed by the kine. Specifically covert operatives.
-        """
-        hide janos
+    Followed by the kine. Specifically baldes in the dark.
+    """
+    hide janos
 
     show pc idle at right
-    pc "Rcently?"
+    pc "{i}blades in the dark?"
     hide pc
 
     show janos idle at right
-    janos "Shall we say in the last 3 weeks."
+    janos "Covert operatives of various government organizations jumbled together."
+    hide janos
+
+    show pc idle at right
+    pc "Recently?"
+    hide pc
+
+    show janos idle at right
+    janos "Shall we say in the last 3 days."
     hide janos
 
     show pc idle at right
@@ -242,6 +256,7 @@ label interogation_1:
             show pc idle at right
             pc "..."
             hide pc
+
         "Ask for a dictionary":
             show pc idle at right
             pc """
@@ -259,7 +274,7 @@ label interogation_1:
 
             Education is wasted on you.
 
-            Let us get back on point.
+            To the point.
             """
             hide janos
 
@@ -272,7 +287,7 @@ label interogation_1:
             $ roll_pc.roll()
 
             if roll_pc.is_success:
-                centered  "You meet Janos' eyes for a brief moment, enough to utter the words:"
+                centered  "You meet Janos' eyes for a brief moment, but it's enough to utter the words:"
 
                 # Contest Roll
                 $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.RESOLVE, janos_sheet.hunger, difficulty=0)
@@ -281,22 +296,60 @@ label interogation_1:
                 $ roll_pc.roll()
                 
                 if roll_pc.is_success:
-                    show pc idle at right
-                    pc "Talk to me plainly!"
-                    hide pc
+                    $ janos_strikes =+1
 
-                    show janos idle at right
-                    janos """
-                    Such a simple thing to do.
-                    
-                    One sentence, I believe, should suffice.
+                    menu:
+                        "Talk to me plainly":
+                            show pc idle at right
+                            pc "Talk to me plainly!"
+                            hide pc
 
-                    I advise you do not waste more energy on such attempts.
+                            show janos idle at right
+                            janos """
+                            Such a simple thing to do.
+                            
+                            One sentence, I believe, should suffice.
 
-                    I might not be so forgiving, next time.
-                    """
-                    hide janos
+                            I advise you do not waste more energy on such attempts.
 
+                            I might not be so forgiving, next time. Strike number [janos_strikes]
+                            """
+                            hide janos
+
+                        "Silence":
+                            show pc idle at right
+                            pc "Silence"
+                            hide pc 
+
+                            centered "Janos immediately stops talking, whilest staring deeply in your eyes."
+
+                            show janos idle
+
+                            centered """
+                            Yet slowly you grow uneasy, as his unyielding eyes are fixed on you.
+                            
+                            You begin to worry about the many repurcussions your actions might have.
+                            
+                            And finally you find an apologetic tone.
+                            """                         
+
+                            show pc idle at right
+                            pc "Please, forgive me. Let's continue our talks."
+                            hide pc
+
+                            show janos idle at right
+                            janos """
+                            You caught me off-guard. A better creature might even congratulate you on it
+                            
+                            and only arrange for your final destruction later.
+                            
+                            But not I.
+                            
+                            I'll simply say:
+                                
+                            This is strike [].
+                            """
+                            hide janos
                 else:
                     play sound "sounds/outside_alarm.mp3" fadein 1.0
                     centered "You feel your words missing their aim mid-air."
@@ -327,8 +380,12 @@ label interogation_1:
 
         # USE: Prsence 3 - Dread Gaze
         "Present your fangs to mmake a point {image=dice}" if pc_sheet.PRESENCE >= 3:
-            centered "You open wide and put on an intimigating display of your fangs, while focusing all your supernatural effect on Janos."
+            centered """
+            You open wide and put on an intimigating display of your fangs,
+            while focusing all your supernatural effect on Janos.
+            """
 
+            #Rouse check
             if not pc_sheet.rouse_check():
                 call change_dynamic_stats("worse") 
 
@@ -341,7 +398,7 @@ label interogation_1:
             if roll_pc.is_success:
                 centered "Your display of vampiric prowess instills supernatural fear in Janos' eyes."
 
-                centered "It's such a powerful effect as you are used to, but it will do."
+                centered "It's not such a powerful effect as you are used to, but it'll do."
 
                 show janos idle at right
                 janos """
@@ -349,7 +406,7 @@ label interogation_1:
 
                 I am big enough to admit, that we might have started this little tete-at-tete on the wrong foot.
 
-                Therefore let us assume a tone more fit for civilized creatures.
+                Let us assume a tone more fit for civilized creatures.
                 """
                 hide janos
 
@@ -397,7 +454,7 @@ label interogation_1:
                 
                 I was atop a corporate tower - forgive me, I forget which money-hungry conglomerate was it this time.
                 
-                But I tell you something, you cannot beat the view these fat cats afford their peons.
+                But I tell you something, you cannot beat the view these fat cats afford their underlings.
                 
                 There I was, taking in the night sky, and the sparkling dimonds on it.
                 """            
@@ -413,9 +470,9 @@ label interogation_1:
 
             else:
                 # Unsuccesful lie
-                "You have a story prepared just for this question."
+                centered "You have a story prepared just for this question."
 
-                "It's time to tell it."
+                centered "It's time to tell it."
                 
                 play sound "sounds/fireworks.mp3" fadein 1.0
                 
@@ -425,7 +482,7 @@ label interogation_1:
                 
                 I was atop a corporate tower - forgive me, I forget which money-hungry conglomerate was it this time.
                 
-                But I tell you something, you cannot beat the view these fat cats afford their peons.
+                But I tell you something, you cannot beat the view these fat cats afford their underlings.
                 
                 There I was, taking in the night sky, and the sparkling dimonds on it.
                 """            
