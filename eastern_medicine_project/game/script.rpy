@@ -85,7 +85,8 @@ label variables:
     $ janos_sheet = Janos()
 
     # Story events:
-    # False by default and only switched if chosen 
+    # False by default and only switched if chosen
+    $ story_seated = False 
     $ story_pc_guilty = False # Weather you think if yu are guilty
     $ story_janos_condemns = True # Weather Janos thinks you are guilty
     $ story_selling_blood = False

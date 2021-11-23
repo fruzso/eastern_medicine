@@ -4,7 +4,7 @@ label interogation_1:
     
     scene black 
     with fade 
-    centered "You follow the footsteps of Janos through what must be a dark corridor."
+    centered "You follow Janos' footsteps through what must be a dark corridor under a public square."
     
     play sound "sounds/interrogation_footsteps_and_door.mp3"
     pause(10.0)
@@ -48,12 +48,15 @@ label interogation_1:
         
     centered """
     Your eyes easily find the only chair singled out in the middle of the damp room, 
-    but you hesitate. The nosferatu's pale figure draws away your attention.
+    but you hesitate. The nosferatu's pale figure draws in your attention.
     """
 
     menu emotional_reading:
-        "Study his emotions {image=dice}":
-            centered "In a split second you catalogue his features, mannerisms and faint flickers of emotion in his eyes."
+        "Study his emotions":
+            centered """
+            In a split second you catalogue his features, 
+            mannerisms and faint flickers of emotion in his eyes.
+            """
 
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
             $ roll_pc.roll()
@@ -61,10 +64,13 @@ label interogation_1:
             if roll.margin_of_success > -1:
                 centered "He is an open book to you."
 
-                centered "He may be playing the tough guy, but you sense that something else is bothering him inside"
+                centered """
+                He may be playing the tough guy, but you sense that something else is bothering him inside,
+                probably you are not his biggest worry tonight.
+                """
             else:
                 centered """
-                He is hard to read. However hard you try to figure out 
+                He is difficult to read. However hard you try to figure out 
                 what is going on behind his deformed features, it is to no avail.
                 """
 
@@ -74,26 +80,35 @@ label interogation_1:
     menu seating_choice:
 
         "Sit down":
-            $ pc_seated = True
+            $ story_seated = True
 
             show pc idle at right
             pc "Well, if this is the best the house can offer, I don't mind if I do."
 
-            centered "You sit down and take your time to adjust in the chair"
-
-            pc "Never mind the squeks and the wait."
+            centered """
+            You sit down and take your time to adjust in the chair.
+            Never mind the squeks.
+            
+            Janos can wait a little.
+            """
             hide pc
 
             show janos idle at right
             janos "Are you sitting comfortably?"
             hide janos
 
-            show pc idle at right
-            pc "You could say that."
-            hide pc
+            menu:
+                "Comfortably":
+                    show pc idle at right
+                    pc "Comfortably enough."
+                    hide pc
+                "Uncomfortably":
+                    show pc idle at right
+                    pc "uncomfortably enough to want toget over this"
+                    hide pc
 
         "Remain standing":
-            $ pc_seated = False
+            $ story_seated = False
 
             show pc idle
             pc "Thanks, but no thanks. I prefere to stand."
@@ -104,7 +119,7 @@ label interogation_1:
             show janos idle at right
             janos "Suit yourself. But we are going to be here for some time."
     
-    if not pc_seated:
+    if not story_seated:
         show janos idle at right
 
     janos "Let's begin. Shall we?!"
