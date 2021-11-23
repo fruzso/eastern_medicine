@@ -223,8 +223,80 @@ label carpark_minigame:
     janos "I am waiting. Continue."
     hide janos
 
-    #TODO: CODE + STORY Insert minigame here
+    #TODO: STORY Connecting stroy
     
+    centered "You remember you need three words spelled out in your blood to unlock the Emilo's seal."
+
+    centered "It would be uncharacteristic of the Tremere not to have left you with some guidence."
+
+    centered "The letter!"
+
+    $ hit_count = 0
+    
+    call screen letter(choice="letter_choice_1")
+    
+    menu letter_choice_1:
+        "The first word"
+
+        "Take another look at the letter":
+            call screen letter(choice="letter_choice_1")
+        "Marylin the nosferatu":
+            jump letter_choice_2
+        "Magnet":
+            $ hit_count += 1
+            jump letter_choice_2
+        "Power":
+            jump letter_choice_2
+
+    menu letter_choice_2:
+        "The second word"
+
+        "Take another look at the letter":
+            call screen letter(choice="letter_choice_2")
+        "Safety":
+            $ hit_count += 1
+            jump letter_choice_3
+        "Friend":
+            jump letter_choice_3
+        "Mistress":
+            jump letter_choice_3
+
+    menu letter_choice_3:
+        "The third word"
+
+        "Take another look at the letter":
+            call screen letter(choice="letter_choice_3")
+        "Feather":
+            $ hit_count += 1
+        "Cain":
+            pass
+        "Protector":
+            pass
+
+    centered "You rip open a vein on your forearm and begin to paint."
+    if hit_count == 3:
+        centered """
+        The three words shine bright in your bloody handwriting.
+        
+        The doors of the car, as if by magic flung open.
+
+        It's not home, but sure as hell, it's nice to spend the remainder of the day in a light-tight wagon.
+        """
+    else:
+        $ pc_sheet.get_hungry(3 - hit_count)
+        call change_dynamic_stats("worse")
+
+        centered """
+        The three words look pale and ugly in your bloody handwriting.
+        
+        You cannot get closer to the car, the wards' defences hold fast.
+
+        You take a considerable amount of time and blood to figure out the words.
+
+        Finally, you get in.
+
+        At least you can wait out the day.
+        """
 
     hide screen dynamic_stats
     scene black

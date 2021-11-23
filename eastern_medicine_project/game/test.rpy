@@ -5,11 +5,9 @@ label test:
     scene background_video_black_wheel_empty
     with Dissolve(3.0)
 
-    call screen letter
-
     $ pc_sheet = Almos()
     $ janos_sheet = Janos()
-    
+
     call show_dynamic_stats
     
     play sound "sounds/outside_alarm.mp3" fadein 1.0
