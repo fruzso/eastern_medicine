@@ -52,7 +52,7 @@ label interogation_1:
     """
 
     menu emotional_reading:
-        "Study his emotions":
+        "Study his emotions {image=dice}":
             centered """
             In a split second you catalogue his features, 
             mannerisms and faint flickers of emotion in his eyes.
