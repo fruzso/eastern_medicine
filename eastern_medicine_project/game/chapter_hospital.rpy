@@ -87,7 +87,7 @@ label hospital:
             janos "Who?"
             hide janos
 
-        "Tell a lie":
+        "Tell a lie {image=dice}":
             $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERSUASION, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)

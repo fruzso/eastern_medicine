@@ -72,7 +72,7 @@ label interogation_4:
     menu interpret_janos:
         "Figure out what Janos thinks?"
 
-        "Yes, I want to know with every fiber of my being":
+        "Yes, I want to know with every fiber of my being {image=dice}":
             # Contest Roll
             $ roll_janos = Roll(janos_sheet.PERFORMANCE + janos_sheet.COMPOSURE, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()

@@ -62,7 +62,7 @@ label run:
                         centered "Shit. He's got you"
                         call fight_janos_start
 
-        "I've got speed (CELERITY)" if pc_sheet.CELERITY >= 3:
+        "I've got speed {image=dice}" if pc_sheet.CELERITY >= 3:
             centered "It does not really matter which way you go, the question is can you get there quickly enough."
             centered "You decide for the door."
 

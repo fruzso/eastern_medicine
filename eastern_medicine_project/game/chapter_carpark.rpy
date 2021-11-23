@@ -67,7 +67,7 @@ label carpark:
             """
 
             show janos idle at right
-            janos "So the Tremere's name is Emilio. Tell me more."
+            janos "So the Tremere's name is Emilio. Tell me more. {image=dice}"
             hide janos
 
             $ roll_janos = Roll(janos_sheet.CHARISMA + janos_sheet.DOMINATE, janos_sheet.hunger, difficulty=0)
@@ -136,7 +136,7 @@ label carpark:
 
                 jump carpark_minigame
             
-        "Tell a lie":
+        "Tell a lie {image=dice}":
             $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERSUASION, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)

@@ -34,7 +34,7 @@ label interogation_2:
 
     menu resist_dominate:
         "Do you try to resist?"
-        "Yes":
+        "Yes {image=dice}":
             # Contest Roll
             $ roll_janos = Roll(janos_sheet.CHARISMA + janos_sheet.DOMINATE, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
