@@ -42,7 +42,7 @@ label haven:
     hide janos
 
     call haven_intro
-    menu sensing_the_intrusion:
+    menu:
         "It was a piece of the door, landing in my...":
             call haven_violent_arrival
             call haven_interlude_1
@@ -53,7 +53,7 @@ label haven:
             call haven_friends_with_the_tremre
             call haven_interlude_1
             call haven_interlude_2
-            menu gear_up:
+            menu:
                 "My apartment was..."
                 "Full of gear":
                     call haven_full_of_gear
@@ -66,7 +66,7 @@ label haven:
             call haven_vision
             call haven_interlude_1
             call haven_interlude_2
-            menu gear_up:
+            menu:
                 "My apartment was..."
                 "Full of gear":
                     call haven_full_of_gear
@@ -276,7 +276,7 @@ label haven:
         show janos idle at right
         janos "My my, we are keeping up to date with technology"
 
-        if pc_sheet.CLAN "Toreador":
+        if pc_sheet.CLAN == "Toreador":
             janos "To be expected with your clan, tough"
         hide janos
 
