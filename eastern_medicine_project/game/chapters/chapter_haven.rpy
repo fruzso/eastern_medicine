@@ -316,13 +316,13 @@ label haven:
         I fired a volley in the walls, connecting to the neighbour.
         """
 
-        #TODO: AUDIO uzi gunfire sounds
+        play sound machine_gun_longer
 
         pc """It was drywall.
         
         Did not need more than gentle push, and there I was saying hi to a nice downtown family."""
 
-        #TODO: AUDIO small scale wall demolition
+        play sound wall_breaking
 
         pc """I got behind the bastards back.
 
@@ -366,7 +366,7 @@ label haven:
         scene white
         with fade
 
-        #TODO:AUDIO put in iiiiiii sound
+        play sound flashbang_high
 
         centered """{color=#000000}Smoke covers everything, as the trained agents of the second inquisition storm the room, all [story_remaining_si] of them.{/color} 
         """
@@ -417,7 +417,7 @@ label haven:
         $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
         $ roll_pc.roll()
 
-        centered "You take cover dehind the half blown-up table."
+        centered "You take cover behind the half blown-up table."
         if pc_roll.is_success:
             centered """It's nothing much, but it will do.
             
@@ -427,14 +427,14 @@ label haven:
 
             $ story_remaining_si -= 1
 
-            #TODO: AUDIO somesoundeffect maybe?
+            play sound smash_and_grunt
         
         else:
             centered """It's not good for shit.
 
             You suffer 2 shots to the arm."""
 
-            # TODO: AUDIO add 2 gunshots.
+            play sound machine_gun_single
 
             $ pc_sheet.lose_health(2)
             call change_dynamic_stats("worse")
@@ -480,14 +480,22 @@ label haven:
         if pc_roll.is_success and story_weapon == "Uzi": # Still using the last roll.
             centered "Noone can dodge 20 bullets per magazine when lunched from the back of their necks"
             $ story_remaining_si -= 3
-            #TODO: AUDIO: que in 3 uzi bullet burst sounds
+            
+            play sound machine_gun_single
+            play sound death_scream_1
+            play sound machine_gun_single
+            play sound death_scream_2
+            play sound machine_gun_single
+            play sound death_scream_3
+
             centered "3 agents fall to the ground almost simultanously."
-            #TODO: AUDIO que in 3 death screams
+
         if pc_roll.is_success and story_weapon == "Knife":
             centered "A kitchen knife is good enough if stand close enough to count the hairs on the backs of their necks."
             $ story_remaining_si -= 2
-            #TODO: AUDIO: que in knife slashes
-            #TODO: AUDIO que in 2 death screams
+            play sound knife_slash
+            play sound death_scream_1
+            play sound death_scream_3
         else:
             #any other case
             centered """You break necks,
@@ -514,7 +522,8 @@ label haven:
         $ roll_pc.roll()
 
         if roll_pc.margin_of_success <= 0:
-            #TODO: AUDIO: gunfigh sound
+            
+            play sound gunfight
 
             centered """
             Who are we kidding, you are no trained marksman.
@@ -529,18 +538,25 @@ label haven:
 
         elif pc_roll.margin_of_success == 1:
             $ story_remaining_si -= 1
-            #TODO: AUDIO: que in 1 uzi bullet burst sounds
+            
+            play sound machine_gun_single
+            
             centered "[roll_pc.margin_of_success] agent falls to the ground."
-            #TODO: AUDIO que in 1 death screams
+            
+            play sound death_scream_2
 
             $ pc_sheet.lose_health(1)
             call change_dynamic_stats("worse")
 
         else:
             $ story_remaining_si -= pc_roll.margin_of_success
-            #TODO: AUDIO: que in 3 uzi bullet burst sounds
+            
+            play sound machine_gun_single
+            play sound machine_gun_single
+            play sound machine_gun_single
+            
             centered "[pc_roll.margin_of_success] agents fall to the ground almost simultanously."
-            #TODO: AUDIO que in death scream
+            play sound death_scream_3
             
         return
 
@@ -555,7 +571,9 @@ label haven:
     label haven_outro:
         show pc idle at right
         if not story_remaining_si == 0:
-            #TODO: AUDIO Insetr frenzy sounds
+            
+            play sound beast_roar
+
             centered """ The smell of blood mixed with new age gunpowder fills the air.
 
             Your nostrils widen up, you could literally eat up the air, when all hell truly breaks out as you lose control,

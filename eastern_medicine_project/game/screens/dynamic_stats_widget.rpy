@@ -30,9 +30,9 @@ label change_dynamic_stats(direction):
     with Dissolve(0.5)
 
     if direction == "worse":
-        play sound "sounds/widget_lose_stat.mp3"
+        play sound widget_lose_stat
     elif direction == "better":
-        play sound "sounds/widget_gain_stat.mp3"
+        play sound widget_gain_stat
     
 
     if pc_sheet.willpower <= 0:

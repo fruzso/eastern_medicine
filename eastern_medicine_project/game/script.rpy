@@ -18,6 +18,25 @@ define audio.background_music_run_and_bossfight = "music/background_run_and_boss
 define audio.background_music_victory = "music/background_music_victory.mp3"
 define audio.nostalgia = "music/nostalgia.mp3"
 
+define audio.beast_roar = "sounds/beast_roar.mp3"
+define audio.death_scream_1 = "sounds/death_scream_1.mp3"
+define audio.death_scream_2 = "sounds/death_scream_2.mp3"
+define audio.death_scream_3 = "sounds/death_scream_3.mp3"
+define audio.fireworks = "sounds/fireworks.mp3"
+define audio.flashbang_high = "sounds/flashbang_high.mp3"
+define audio.flashbang_low = "sounds/flashbang_low.mp3"
+define audio.gunfight = "sounds/gunfight.mp3"
+define audio.interrogation_footsteps_and_door = "sounds/interrogation_footsteps_and_door.mp3"
+define audio.knife_slash = "sounds/knife_slash.mp3"
+define audio.machine_gun_single = "sounds/machine_gun_single.mp3"
+define audio.machine_gun_longer = "sounds/machine_gun_longer.mp3"
+define audio.outside_alarm = "sounds/outside_alarm.mp3"
+define audio.rakpart_footsteps = "sounds/rakpart_footsteps.mp3"
+define audio.smash_and_grunt = "sounds/smash_and_grunt.mp3"
+define audio.smoke_bomb = "sounds/smoke_bomb.mp3"
+define audio.wall_breaking = "sounds/wall_breaking.mp3"
+define audio.widget_gain_stat = "sounds/widget_gain_stat.mp3"
+define audio.widget_lose_stat = "sounds/widget_lose_stat.mp3"
 
 # dialogue settings
 define gui.dialogue_xpos = 250
@@ -50,7 +69,7 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     call variables # Non-story label
-    #call test
+    call test
 
     call intro
 
