@@ -6,15 +6,15 @@ label fight_pc_start:
         "He might not think I have the audacity to strike an annointed sheriff."
         "Strike him {image=dice}":
             call strike_janos_1
-            call strike_pc_1
+            call pc_hits_1
 
         "Confuse his mind {image=dice}" if pc_sheet.DOMINATE >= 2 and pc_sheet.OBFUSCATE >= 2:
             call dementation # Or call Victory
-            call strike_pc_1
+            call pc_hits_1
 
-    call strike_pc_1
+    call janos_hits_1
 
-label strike_janos_1:
+label pc_hits_1:
     centered "You try to get a jump on him."
 
     # Roll fight
@@ -24,11 +24,11 @@ label strike_janos_1:
     $ roll_pc.roll()
 
     if roll_pc.is_success:
-        show pc idle at right
-        pc "Hah!"
-        hide pc
-
-        centered "Your muscles cleverly obey your commands and you escape his grasp."
+        centered """Your muscles cleverly obey your command as courses through your nervous system,
+        
+        manifests in powerful blow
+        
+        and connects with Janos' already disfigured face."""
 
         $ janos_sheet.lose_health(roll_pc.margin_of_success)
         call check_janos_alive
@@ -104,7 +104,7 @@ label dementation:
 
         return
 
-label strike_pc_1:
+label janos_hits_1:
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
     centered "You try to escape his grasp. {image=dice}"
@@ -115,10 +115,6 @@ label strike_pc_1:
     $ roll_pc.roll()
 
     if roll_pc.is_success:
-        show pc idle at right
-        pc "Hah!"
-        hide pc
-
         centered "Your muscles cleverly obey your commands and you escape his grasp."
 
     else:
