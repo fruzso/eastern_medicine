@@ -31,6 +31,7 @@ label strike_janos_1:
         centered "Your muscles cleverly obey your commands and you escape his grasp."
 
         $ janos_sheet.lose_health(roll_pc.margin_of_success)
+        call check_janos_alive
 
     else:
         show pc idle at right
@@ -56,7 +57,7 @@ label dementation:
         pc """
         Quite a sheriff you are. Ventured as far as the basement of the most famous building in the city.
 
-        You didn'T know what you will find.
+        You didn't know what you will find.
 
         I guess you already presented to the prince that you know ALL about what happend.
 
