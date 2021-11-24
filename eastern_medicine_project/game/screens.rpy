@@ -412,6 +412,7 @@ screen main_menu():
     tag menu
 
     add gui.main_menu_background
+    add "gui/darkpack_logo_1000.png" xysize (500, 500) xalign 0.95 yalign 0.05 # Custom addition
 
     ## This empty frame darkens the main menu.
     frame:
@@ -443,7 +444,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    # background "gui/overlay/main_menu.png" # Custom edition
 
 style main_menu_vbox:
     xalign 1.0

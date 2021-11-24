@@ -474,7 +474,7 @@ label hospital:
                     """ 
 
                 else:
-                    cenetred """It is begining to be difficult to keep track of what's what and all the lies.
+                    centered """It is begining to be difficult to keep track of what's what and all the lies.
                     
                     You find yourself confused.
                     """

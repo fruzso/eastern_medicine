@@ -26,73 +26,73 @@ label run:
         "I've got speed {image=dice}" if pc_sheet.CELERITY >= 3:
             call run_celerity # call fight or victory
 
-        label run_obfuscate:
-            centered "Thank the Dark Father, you have the power to vanish."
-            
-            # Rousecheck
-            if not pc_sheet.rouse_check():
-                call change_dynamic_stats("worse")                   
+    label run_obfuscate:
+        centered "Thank the Dark Father, you have the power to vanish."
+        
+        # Rousecheck
+        if not pc_sheet.rouse_check():
+            call change_dynamic_stats("worse")                   
 
-            # Roll Vanish
-            $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AWARENESS, janos_sheet.hunger, difficulty=0)
-            $ roll_janos.roll()
-            $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
-            $ roll_pc.roll()
+        # Roll Vanish
+        $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AWARENESS, janos_sheet.hunger, difficulty=0)
+        $ roll_janos.roll()
+        $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+        $ roll_pc.roll()
 
-            if not roll_pc.is_success:
-                centered "You begin to fade in front of Janos' eyes, but the nosferatu cannot be fooled."
-                call fight_janos_start
-    
+        if not roll_pc.is_success:
+            centered "You begin to fade in front of Janos' eyes, but the nosferatu cannot be fooled."
+            call fight_janos_start
+
+        else:
+            centered "You vanish before Janos' eyes."
+
+            if janos_sheet.AUSPEX < 1:
+                centered "You escape through the door."                          
+                call victory
             else:
-                centered "You vanish before Janos' eyes."
+                # Roll Sense of the unseen
+                $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AUSPEX, janos_sheet.hunger, difficulty=0)
+                $ roll_janos.roll()
+                $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+                $ roll_pc.roll()
 
-                if janos_sheet.AUSPEX < 1:
-                    centered "You escape through the door."                          
+                centered "You sense that he is looking for you with the dark powers of sight."
+
+                if roll_pc.is_success:
+                    centered "But it is to no point. He cannot find you."
+                    centered "You escape through the door."
                     call victory
                 else:
-                    # Roll Sense of the unseen
-                    $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AUSPEX, janos_sheet.hunger, difficulty=0)
-                    $ roll_janos.roll()
-                    $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
-                    $ roll_pc.roll()
+                    centered "Shit. He's got you"
+                    call fight_janos_start
 
-                    centered "You sense that he is looking for you with the dark powers of sight."
+    label run_celerity:
+        centered "It does not really matter which way you go, the question is can you get there quickly enough."
+        centered "You decide for the door."
 
-                    if roll_pc.is_success:
-                        centered "But it is to no point. He cannot find you."
-                        centered "You escape through the door."
-                        call victory
-                    else:
-                        centered "Shit. He's got you"
-                        call fight_janos_start
+        # Rousecheck
+        if not pc_sheet.rouse_check():
+            call change_dynamic_stats("worse")   
 
-        label run_celerity:
-                        centered "It does not really matter which way you go, the question is can you get there quickly enough."
-            centered "You decide for the door."
+        # Roll Blink contest (potentially both are celerity users)
+        $ roll_janos = Roll(janos_sheet.DEXTERITY + pc_sheet.CELERITY + janos_sheet.ATHLETICS, janos_sheet.hunger, difficulty=0)
+        $ roll_janos.roll()
+        $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.CELERITY + pc_sheet.ATHLETICS, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+        $ roll_pc.roll()
 
-            # Rousecheck
-            if not pc_sheet.rouse_check():
-                call change_dynamic_stats("worse")   
+        # Success branch
+        if not roll_pc.is_success:
+            centered "You thought yourself to be quick as the wind."
+            centered "But Janos was quicker."
 
-            # Roll Blink contest (potentially both are celerity users)
-            $ roll_janos = Roll(janos_sheet.DEXTERITY + pc_sheet.CELERITY + janos_sheet.ATHLETICS, janos_sheet.hunger, difficulty=0)
-            $ roll_janos.roll()
-            $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.CELERITY + pc_sheet.ATHLETICS, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
-            $ roll_pc.roll()
+            call fight_janos_start
+        else:
+            centered "You thought yourself qucik and damn, right you were."
+            centered """
+            Within the blink of an eye, you place your hand on the door handle
+            press it down. Fresh air. Just what the doctor ordered.
+            """
+            centered "Politics you can't run out, but apperently Janos you could."
 
-            # Success branch
-            if not roll_pc.is_success:
-                centered "You thought yourself to be quick as the wind."
-                centered "But Janos was quicker."
-
-                call fight_janos_start
-            else:
-                centered "You thought yourself qucik and damn, right you were."
-                centered """
-                Within the blink of an eye, you place your hand on the door handle
-                press it down. Fresh air. Just what the doctor ordered.
-                """
-                centered "Politics you can't run out, but apperently Janos you could."
-
-                call victory
-                        
+            call victory
+                    
