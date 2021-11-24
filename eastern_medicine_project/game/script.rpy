@@ -5,7 +5,7 @@
 
 define janos = Character("Janos")
 define cecilia = Character("Cecilia")
-define agent = Character("SI Agent") # not used yet
+define agent = Character("Agent")
 # PC is defined in chapter_character_selction.rpy
 
 # Audio
@@ -39,6 +39,7 @@ image background_video_black_wheel_empty = Movie(play = "video/moive_character_s
 image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask = None)
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
 image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
+image white = "#ffff"
 
 # Props
 transform dice_transform:

@@ -18,7 +18,7 @@ label haven:
     centered "Yes, the day."
 
     if pc_sheet.CLAN == "Malkavian":
-        centered "Dreaming of a spier, fleshed out from darkness pulling medical strings with its leg over a hazy landscape."
+        centered "Dreaming of a spider, fleshed out from darkness pulling medical strings with its leg over a hazy landscape."
     else:
         centered "Dreamless, as always."
 
@@ -132,7 +132,7 @@ label haven:
 
         return
         
-    label freinds_with_the_tremere:
+    label haven_friends_with_the_tremre:
         show pc idle at right
         pc "I am friends with the Tremere, so I had an associate install wards and rituals just in case of something like this."
         hide pc
@@ -334,6 +334,8 @@ label haven:
         """
         hide pc
 
+        return
+
     label haven_empty:
         show pc idle at right
         $ story_weapon = "knife"
@@ -359,20 +361,18 @@ label haven:
         return
 
     label haven_agents_in_the_room_intro:
-        centered "You find yourself in the living room."
+        centered "And there you were in the living room."
 
         centered "First comes a blinding flash"
 
-        call hide screen dynamic_stats
+        hide screen dynamic_stats
 
         scene white
-        with fade(0.3)
+        with fade
 
         #TODO:AUDIO put in iiiiiii sound
 
-        centered """{color=#000000}Smoke covers everything,
-        
-        as the trained agents of the second inquisition storm the room, all [story_remaining_si] of them.{/color} 
+        centered """{color=#000000}Smoke covers everything, as the trained agents of the second inquisition storm the room, all [story_remaining_si] of them.{/color} 
         """
         return
 
@@ -396,7 +396,7 @@ label haven:
             if story_remaining_si >= 1:
                 show agent idle at right
                 agent "Man. Down, I repeat man down."
-                hide
+                hide agent
             else:
                 centered "That was the last of them."
         return
@@ -415,7 +415,7 @@ label haven:
             centered "It's daytime. Hard to stay alive and standing, let alone jump to the spot you have found is excuciating."
 
             $ pc_sheet.lose_willpower(1)
-            call change_dynamic_stats
+            call change_dynamic_stats("worse")
 
         # Roll manuevering to find a good sport
         $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
@@ -440,8 +440,8 @@ label haven:
 
             # TODO: AUDIO add 2 gunshots.
 
-            pc_sheet.lose_health(2)
-            call change_dynamic_stats
+            $ pc_sheet.lose_health(2)
+            call change_dynamic_stats("worse")
 
         return
     
@@ -471,12 +471,13 @@ label haven:
             To them, you are the ghost in the machine."""
 
         show agent idle at right
-        agent "search the room"
+        agent "Search the room!"
         hide agent
 
         show agent idle at left
         agent "Roger, Roger"
         hide agent
+
         return
 
         show pc ide at right
@@ -507,7 +508,6 @@ label haven:
 
         return
 
-
     label haven_shoot_em_up:
         call haven_reveal_the_room
 
@@ -529,7 +529,7 @@ label haven:
             """
 
             $ pc_sheet.lose_health(4)
-            call change_dynamic_stats
+            call change_dynamic_stats("worse")
 
         elif pc_roll.margin_of_success == 1:
             $ story_remaining_si -= 1
@@ -538,7 +538,7 @@ label haven:
             #TODO: AUDIO que in 1 death screams
 
             $ pc_sheet.lose_health(1)
-            call change_dynamic_stats
+            call change_dynamic_stats("worse")
 
         else:
             $ story_remaining_si -= pc_roll.margin_of_success
@@ -555,8 +555,7 @@ label haven:
         call show_dynamic_stats
 
         return
-              
-             
+                          
     label haven_outro:
         show pc idle at right
         if not story_remaining_si == 0:

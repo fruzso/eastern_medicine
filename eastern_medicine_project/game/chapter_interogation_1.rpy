@@ -296,14 +296,13 @@ label interogation_1:
                 $ roll_pc.roll()
                 
                 if roll_pc.is_success:
-                    $ janos_strikes =+1
-
                     menu:
                         "Talk to me plainly":
                             show pc idle at right
                             pc "Talk to me plainly!"
                             hide pc
 
+                            call increase_janos_strikes
                             show janos idle at right
                             janos """
                             Such a simple thing to do.
@@ -337,6 +336,7 @@ label interogation_1:
                             pc "Please, forgive me. Let's continue our talks."
                             hide pc
 
+                            call increase_janos_strikes
                             show janos idle at right
                             janos """
                             You caught me off-guard. A better creature might even congratulate you on it
@@ -347,7 +347,7 @@ label interogation_1:
                             
                             I'll simply say:
                                 
-                            This is strike [].
+                            This is strike [janos_strikes].
                             """
                             hide janos
                 else:
@@ -360,7 +360,7 @@ label interogation_1:
                     pc "Talk to me plainly!"
                     hide pc
 
-                    $ janos_strikes += 1
+                    call increase_janos_strikes
 
                     show janos idle at right
                     janos """

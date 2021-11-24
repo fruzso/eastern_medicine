@@ -64,8 +64,8 @@ label interogation_2:
                         he is ready to pounce no question about it.
                         """
                         
+                        call increase_janos_strikes
                         show janos idle at right
-                        $ janos_strikes += 1
                         janos "This is strike number [janos_strikes]."
                         hide janos
                         

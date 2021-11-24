@@ -64,9 +64,8 @@ label interogation_3:
                     show pc at right
                     pc "No fucking idea, asshole!"
                     hide pc
-
-                    $ janos_strikes += 1
-
+                    
+                    call increase_janos_strikes
                     show janos idle at right
                     janos "That is strike number [janos_strikes]."
                     hide janos
@@ -87,8 +86,7 @@ label interogation_3:
             """
             hide pc
 
-            $ janos_strikes += 1
-
+            call increase_janos_strikes
             show janos idle at right
             janos "That is strike number [janos_strikes]."
             hide janos

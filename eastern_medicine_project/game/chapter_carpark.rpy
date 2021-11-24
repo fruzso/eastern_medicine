@@ -58,10 +58,7 @@ label carpark:
                 janos "Hmm. Maybe I should rather be questioning Emilio."
                 hide janos
             else:
-                $ janos_strikes += 1
-                if janos_strikes == janos_strikes_limit:
-                    call fight_janos_start # TODO: CODE add janos strike check everywher
-
+                call increase_janos_strikes
                 janos """
                 Quite a revelation we are witnessing.
 
@@ -228,8 +225,7 @@ label carpark:
                 pc "I went to fireman's club. It was, I am not even sure how to describe it. You know how it is."
                 hide pc
 
-                $ janos_strikes += 1
-
+                call increase_janos_strikes
                 show janos idle at right
                 janos """
                 That is quite a turn of events.
@@ -267,9 +263,7 @@ label carpark:
                     janos "Hmm. Maybe I should rather be questioning Emilio."
                     hide janos
                 else:
-                    $ janos_strikes += 1
-                    if janos_strikes == janos_strikes_limit:
-                        call fight_janos_start # TODO: CODE add janos strike check everywher
+                    call increase_janos_strikes
 
                     janos """
                     Quite a revelation we are witnessing.
