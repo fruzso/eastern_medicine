@@ -29,25 +29,19 @@ label haven:
 
     call show_dynamic_stats
 
-    show pc idle at right
-    pc "I was doing what all godfearing kindred were: Laying in torpor."
-    hide pc
-
-    show janos idle at right
-    janos """
-    Let us not bring God in the picture, just yet.
-
-    How did you know that your haven has been breached?
-    """
-    hide janos
-
     call haven_intro
     menu:
         "It was a piece of the door, landing in my...":
             call haven_violent_arrival
             call haven_interlude_1
-            call haven_interlude_2
-            call haven_agents_in_the_living_room
+            call haven_agents_in_the_room_intro
+            menu:
+                "Attack the closest one {image=dice}":
+                    call haven_attack_closest
+                "Try to find cover {image=dice}":
+                    call haven_cover
+                "Vanish {image=dice}" if pc_sheet.OBFUSCATE >= 3:
+                    call haven_hidden_attack
 
         "I am friends with the Tremere...":
             call haven_friends_with_the_tremre
@@ -57,10 +51,24 @@ label haven:
                 "My apartment was..."
                 "Full of gear":
                     call haven_full_of_gear
-                    call haven_agents_in_the_living_room
+                    call haven_agents_in_the_room_intro
+                    menu:
+                        "Shoot 'em up {image=dice}":
+                            call haven_shoot_em_up
+                        "Try to find cover {image=dice}":
+                            call haven_cover
+                        "Vanish {image=dice}" if pc_sheet.OBFUSCATE >= 3:
+                            call haven_hidden_attack
                 "Not made for war":
                     call haven_empty
-                    call haven_agents_in_the_living_room
+                    call haven_agents_in_the_room_intro
+                    menu:
+                        "Attack the closest one {image=dice}":
+                            call haven_attack_closest
+                        "Try to find cover {image=dice}":
+                            call haven_cover
+                        "Vanish {image=dice}" if pc_sheet.OBFUSCATE >= 3:
+                            call haven_hidden_attack
 
         "I had a vision" if pc_sheet.AUSPEX >= 2:
             call haven_vision
@@ -70,15 +78,40 @@ label haven:
                 "My apartment was..."
                 "Full of gear":
                     call haven_full_of_gear
-                    call haven_agents_in_the_living_room
+                    call haven_agents_in_the_room_intro
+                    menu:
+                        "Attack the closest one {image=dice}":
+                            call haven_attack_closest
+                        "Try to find cover {image=dice}":
+                            call haven_cover
+                        "Vanish {image=dice}" if pc_sheet.OBFUSCATE >= 3:
+                            call haven_hidden_attack
+
                 "Not made for war":
                     call haven_empty
-                    call haven_agents_in_the_living_room
+                    call haven_agents_in_the_room_intro
+                    menu:
+                        "Attack the closest one {image=dice}":
+                            call haven_attack_closest
+                        "Try to find cover {image=dice}":
+                            call haven_cover
+                        "Vanish {image=dice}" if pc_sheet.OBFUSCATE >= 3:
+                            call haven_hidden_attack
 
     jump haven_outro
 
     label haven_intro:
-        "PALCEHOLDER"
+        show pc idle at right
+        pc "I was doing what all godfearing kindred were: Laying in torpor."
+        hide pc
+
+        show janos idle at right
+        janos """
+        Let us not bring God in the picture, just yet.
+
+        How did you know that your haven has been breached?
+        """
+        hide janos
         return
 
     label haven_violent_arrival:
@@ -325,14 +358,150 @@ label haven:
 
         return
 
-    label haven_agents_in_the_living_room:
-        "PLACEHOLDER"
+    label haven_agents_in_the_room_intro:
+        centered "You find yourself in the living room."
+
+        centered "First comes a blinding flash"
+
+        call hide screen dynamic_stats
+
+        scene white
+        with fade(0.3)
+
+        #TODO:AUDIO put in iiiiiii sound
+
+        centered """{color=#000000}Smoke covers everything,
+        
+        as the trained agents of the second inquisition storm the room, all [story_remaining_si] of them.{/color} 
+        """
+        return
+
+    label haven_attack_closest:
+        call haven_reveal_the_room
+        "PALCEHOLDER"
+        return
+
+    label haven_cover:
+        call haven_reveal_the_room
+        "PALCEHOLDER"
+        return
+    
+    label haven_hidden_attack:
+        call haven_reveal_the_room
+
+        centered "It's time to become unpercievable, hidden, ghost, or even less."
+
+        # Rousecheck
+        if not pc_sheet.rouse_check():
+            call change_dynamic_stats("worse")
+            centered "You feel the growing hunger pulse through your veins."                   
+
+        # Roll Vanish
+        $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AWARENESS, janos_sheet.hunger, difficulty=0)
+        $ roll_janos.roll()
+        $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+        $ roll_pc.roll()
+
+        if not roll_pc.is_success:
+        else:
+            centered """You have become truly invisible
+            
+            Well, at least that is what their brain is telling them.
+            
+            To them, you are the ghost in the machine."""
+
+        show agent idle at right
+        agent "search the room"
+        hide agent
+
+        show agent idle at left
+        agent "Roger, Roger"
+        hide agent
+        return
+
+        show pc ide at right
+        if pc_roll.is_success and story_weapon == "Uzi":
+            centered "Noone can dodge 20 bullets per magazine when lunched from the back of their necks"
+            $ story_remaining_si -= 3
+            #TODO: AUDIO: que in 3 uzi bullet burst sounds
+            centered "3 agents fall to the ground almost simultanously."
+            #TODO: AUDIO que in 3 death screams
+        if pc_roll.is_success and story_weapon == "Knife":
+            centered "A kitchen knife is good enough if stand close enough to count the hairs on the backs of their necks."
+            $ story_remaining_si -= 2
+            #TODO: AUDIO: que in knife slashes
+            #TODO: AUDIO que in 2 death screams
+        else:
+            #any other case
+            centered """You break necks,
+            
+            bite throats,
+            
+            tear of limbs and whatever you can find.
+            
+            At the same time you get your fair share of wounds as well."""
+            $ story_remaining_si -= 2
+            $ pc_sheet.lose_health(2)
+            call change_dynamic_stats("worse")
+        hide pc
 
         return
-                    
-    label haven_outro:
-        "PALCEHOLDER"
 
+
+    label haven_shoot_em_up:
+        call haven_reveal_the_room
+        "PALCEHOLDER"
+        return
+
+    label haven_reveal_the_room:
+        scene background_video_haven
+        with Dissolve(2.0)
+
+        call show_dynamic_stats
+
+        return
+              
+             
+    label haven_outro:
+        show pc idle at right
+        if not story_remaining_si == 0:
+            #TODO: AUDIO Insetr frenzy sounds
+            centered """ The smell of blood mixed with new age gunpowder fills the air.
+
+            Your nostrils widen up, you could literally eat up the air, when all hell truly breaks out as you lose control,
+
+            Disconnected images of bone, fangs, gunshot wounds swarm in your minds, yet nothing distinctive.
+
+            One thing is for sure, when you regain conciousness, you don't find anyone alive."""
+
+            $ pc_sheet.get_hungry(2)
+            $ pc_sheet.lose_health(3)
+            call change_dynamic_stats("worse")
+        
+        pc "I have to admit..."
+
+        menu:
+            "How are you feeling?"
+
+            "Proud":
+                pc """I feel fuckin proud. Not everyone could have done what I did.
+                
+                Team [pc_sheet.NAME]: 1
+
+                Second Inquisiion: 0
+
+                Fuck yeah!
+                """
+                hide pc
+
+            "Ashamed":
+                pc "I have to admint, this will remain as a stain on my soul forever. Considering everything, still, it was too brutal."
+                hide pc
+
+        show janos idle at right
+        janos """We have more important questions to adress.
+        
+        Let's continue"""
         return         
 
     hide screen dynamic_stats

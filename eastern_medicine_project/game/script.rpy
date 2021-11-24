@@ -5,7 +5,8 @@
 
 define janos = Character("Janos")
 define cecilia = Character("Cecilia")
-define agent = Character("Agent") # not used yet
+define agent = Character("SI Agent") # not used yet
+# PC is defined in chapter_character_selction.rpy
 
 # Audio
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
