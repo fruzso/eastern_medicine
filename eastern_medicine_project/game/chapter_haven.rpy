@@ -403,6 +403,7 @@ label haven:
         $ roll_pc.roll()
 
         if not roll_pc.is_success:
+            centered "Damn, these mother fuckers probably went to braincamp or something."
         else:
             centered """You have become truly invisible
             
@@ -420,7 +421,7 @@ label haven:
         return
 
         show pc ide at right
-        if pc_roll.is_success and story_weapon == "Uzi":
+        if pc_roll.is_success and story_weapon == "Uzi": # Still using the last roll.
             centered "Noone can dodge 20 bullets per magazine when lunched from the back of their necks"
             $ story_remaining_si -= 3
             #TODO: AUDIO: que in 3 uzi bullet burst sounds
@@ -450,7 +451,42 @@ label haven:
 
     label haven_shoot_em_up:
         call haven_reveal_the_room
-        "PALCEHOLDER"
+
+        centered "Quickly daashing around the room you spray them with all the bullets God created and more."
+        
+        # Roll Shoot
+        $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.FIREARMS, pc_sheet.hunger, difficulty=3)
+        $ roll_pc.roll()
+
+        if roll_pc.margin_of_success <= 0:
+            #TODO: AUDIO: gunfigh sound
+
+            centered """
+            Who are we kidding, you are no trained marksman.
+            
+            For all your attempts, none of them fall to the ground.
+
+            They, on the other hand, know how to handle a gun.
+            """
+
+            $ pc_sheet.lose_health(4)
+            call change_dynamic_stats
+
+        elif pc_roll.margin_of_success == 1:
+            $ story_remaining_si -= 1
+            #TODO: AUDIO: que in 1 uzi bullet burst sounds
+            centered "[roll_pc.margin_of_success] agent falls to the ground."
+            #TODO: AUDIO que in 1 death screams
+
+            $ pc_sheet.lose_health(1)
+            call change_dynamic_stats
+
+        else:
+            $ story_remaining_si -= pc_roll.margin_of_success
+            #TODO: AUDIO: que in 3 uzi bullet burst sounds
+            centered "[pc_roll.margin_of_success] agents fall to the ground almost simultanously."
+            #TODO: AUDIO que in death scream
+            
         return
 
     label haven_reveal_the_room:
