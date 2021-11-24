@@ -125,7 +125,7 @@ label hospital:
         It started so well.
         """
 
-        show janos idle right
+        show janos idle at right
         janos "So it was not only the tranquiltiy of hopsitals that drew you in?"
         hide janos
 

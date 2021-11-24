@@ -6,9 +6,16 @@ label carpark:
     with fade
 
     play music background_music_carpark fadein 1.0 volume 1.0 loop
+    
+    show pc idle at right
+    pc """ I needed a place to stay where they couldn't find me.
+
+    And I couldn't have risked going to any of my friends. 
+    """
+    hide pc
 
     centered """
-    You remember the carpark distinctly.
+    You remember the carpark distinctly. It was a little more than 4 blocks away.
     """
 
     scene background_video_carpark
@@ -16,12 +23,8 @@ label carpark:
 
     call show_dynamic_stats
 
-    show pc idle at right
-    pc "I waited out the daylight. At the break of night darted for the only place with answers."
-    hide pc
-
     menu:
-        "Do you tell him the truth?"
+        "Do you tell him about the carpark, too?"
 
         "Tell the truth":
             show pc idle at right
@@ -43,20 +46,48 @@ label carpark:
             hide pc
 
             show janos idle at right
-            janos "And what did this memory of Emilio did, if I may ask?"
+            janos "And what did this memory of Emilio do, if I may ask?"
             hide janos
 
             show pc idle at right
+            pc "I remembered him slipping an envelope into my pocket back in the hospital, whispering: Hide it. Now."
+            hide pc
+            
+            show janos idle at right
+            if story_mention_emilio:
+                janos "Hmm. Maybe I should rather be questioning Emilio."
+                hide janos
+            else:
+                $ janos_strikes += 1
+                if janos_strikes == janos_strikes_limit:
+                    call fight_janos_start # TODO: CODE add janos strike check everywher
+
+                janos """
+                Quite a revelation we are witnessing.
+
+                Hmm...
+
+                I am uncertain as to wheather you have realized this little slip of the tounge.
+
+                Tsk, tsk, tsk, failing to mention a meeting with a fellow kindred during interogation.
+
+                Strike number [janos_strikes].
+                """
+                hide janos
+
+                show pc idle at right
+                pc "Scaaary."
+                hide pc
+            
+            show pc idle at right
             pc """
-            I suddenly remember him slipping an envelope to me in the hospital, whispering: Hide it. Now.
+            So I naturally hid the envelope. 
 
-            So I naturally hid it. 
-
-            I trust him and there was no space for questions, but he looked a bit disturbed. 
+            He enjoys my complete trust and there was no space for questions, even tough he looked a bit disturbed. 
 
             Not disturbed as tremere look when they gibber their spells. 
 
-            Proper disturbed.    
+            Properly disturbed.    
             """
             hide pc
 
@@ -65,7 +96,7 @@ label carpark:
             """
 
             show janos idle at right
-            janos "So the Emilio, the Tremere... Again. Tell me more. {image=dice}"
+            janos "So this Emilio, the Tremere... Again. Do not even dare to leave the seemingly most insignificant of detail out! {image=dice}"
             hide janos
 
             $ roll_janos = Roll(janos_sheet.CHARISMA + janos_sheet.DOMINATE, janos_sheet.hunger, difficulty=0)
@@ -75,10 +106,13 @@ label carpark:
 
             if roll_pc.is_success:
                 # PC escapes Dominate
-                centered """ You feel you touched on something important. You must have. He is trying to dominate you.
+                centered """ You feel you touched on something important. You must have.
+                
+                He is trying to dominate you.
+                
                 But he must be very frustrated by now because you escape his attempt to force your mind. 
 
-                Still the effort breaks your concentration.
+                Still the effort breaks your concentration, for a moment you forget where you were in the story.
                 """
 
                 scene black
@@ -90,9 +124,9 @@ label carpark:
                 menu cooperation:
                     "Are you cooperating regardless?"
 
-                    "Yes. You remember, afterall his judgment matters in this case":
+                    "Yes. Afterall it's his judgment what matters in this case":
                         show pc idle at right
-                        pc "Alright, what do you wanna know?"
+                        pc "Alright, I'll tell you more."
                         hide pc
 
                         scene black
@@ -104,6 +138,12 @@ label carpark:
                         jump carpark_minigame
 
                     "No way, it's time for him to leave me alone":
+                        centered """ You feel that is has been grossly oversteppinn his jurisdiction to say the least
+                        
+                        You decide not to take his aggression anymore.
+                        
+                        It's tiem to stand your ground."""
+
                         show pc idle at right
                         pc "That's quite enough for one night. You're gonna let me go now." 
                         hide pc
@@ -116,21 +156,25 @@ label carpark:
 
                             "Attack Janos":
                                 jump fight_pc_start
-                            
-                    
                 
             else:
                 # PC is dominated
-                centered """ You feel you touched on something important. You must have. He is trying to dominate you.
-                But he must be very frustrated by now because his will crushes through all your mental defenses. 
+                centered """ You feel you touched on something important. You must have. 
+                
+                He is trying to dominate you.
+
+                But he must be very frustrated by now because his will crushes through all your mental defenses.
+
                 You have now choice but to obey. 
                 """
+
                 show pc idle at right
-                pc "Alright, alright. No need to be hostile. Afterall we are not enemies, am I right?"
+                pc "Alright, alright. No need to be hostile. Afterall we are not enemies, right?"
                 hide pc
                 
                 show janos idle at right
-                janos "That is hardly for you to decide at this moment."
+                janos "I shall reserve the right to make that judgement."
+                hide janos
 
                 jump carpark_minigame
             
@@ -151,17 +195,19 @@ label carpark:
                 hide pc
 
                 show janos idle at right
-                "And was this before or after you spent the night in this car?"
+                janos """And was this before or after you spent the night in this car?
+                """
                 hide janos
 
                 centered """He shows you a picture of a car. That's the car. You recognize it.
-                There is no question about it.""" 
+                There is no question about it.
                 
-                centered "He knows."
-
-                centered "You start to feel the tight look in his eyes while his fangs appear once again."
-
-                centered "It's not worth lying about this. Afterall it was just an innocent sleeping experience."
+                He knows.
+                
+                You start to feel the tight look in his eyes while his fangs appear once again.
+                
+                It's not worth lying about this further.
+                """
                 jump carpark_minigame
 
             else:
@@ -179,14 +225,14 @@ label carpark:
                 """
 
                 show pc idle at right
-                pc "I went to fireman's club. It was quite."
+                pc "I went to fireman's club. It was, I am not even sure how to describe it. You know how it is."
                 hide pc
 
                 $ janos_strikes += 1
 
                 show janos idle at right
                 janos """
-                That is quite a turn of evetns.
+                That is quite a turn of events.
                 
                 Considering that if my ghouls are to be believed,
                 
@@ -200,9 +246,11 @@ label carpark:
 
                 show pc idle at right
                 pc """
-                A memory of Emilio, a Tremere friend popped into my mind. 
+                So,
+
+                a memory of Emilio, a Tremere friend popped into my mind. 
                 
-                I remembered him slipping an envelope in the hospital, whispering: Hide it. Now.
+                I remembered him slipping an envelope into my pocket at the hospital, whispering: Hide it. Now.
 
                 So I naturally hid it. 
 
@@ -213,6 +261,33 @@ label carpark:
                 Proper disturbed. 
                 """
                 hide pc
+
+                show janos idle at right
+                if story_mention_emilio:
+                    janos "Hmm. Maybe I should rather be questioning Emilio."
+                    hide janos
+                else:
+                    $ janos_strikes += 1
+                    if janos_strikes == janos_strikes_limit:
+                        call fight_janos_start # TODO: CODE add janos strike check everywher
+
+                    janos """
+                    Quite a revelation we are witnessing.
+
+                    Hmm...
+
+                    I am uncertain as to wheather you have realized this little slip of the tounge.
+
+                    Tsk, tsk, tsk, failing to mention a meeting with a fellow kindred during interogation.
+
+                    Strike number [janos_strikes].
+                    """
+                    hide janos
+
+                    show pc idle at right
+                    pc "Scaaary."
+                    hide pc
+
                 jump carpark_minigame
 
 
@@ -286,11 +361,11 @@ label carpark_minigame:
     hide janos 
 
     show pc idle at right
-    pc "Excuse me for not reading your mind for your wishes about the details."
+    pc "Excuse me for not reading your mind."
     hide pc 
 
     show janos idle at right
-    janos "What was in the letter?"
+    janos "Damn it, what was in the letter?"
     hide janos
 
     show pc idle at right
@@ -303,50 +378,57 @@ label carpark_minigame:
     """
     hide pc
 
-    centered "As you are reciting your memories you remember that however much you tried to get to the car you just couldn't."
+    centered "As you are reciting your memories you remember however hard you tried getting to the car you simply couldn't."
     
     show pc idle at right
     pc """
-    This cannot be right - I thought. There must have been something deeper hidden here, something invisible for the bare eyes...
+    This cannot be right. There must be something more to this, something invisible to the naked eye...
 
-    But not to the seeing one. {image=roll}
+    I know what to do. {image=roll}
     """
     hide pc
     
     $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.AUSPEX, pc_sheet.hunger, difficulty=4)
     $ roll_pc.roll()
+
     if roll_pc.is_success:
         show pc idle at right
-        pc """
-        As I turned on my vision I suddenly saw those geometric lines and circles 
+        centered """
+        As you liberate your sense you suddenly see the geometric lines, circles and symbols
         
-        so familiar to me by now drawn onto the wall.
+        so familiar by now, casually drawn on the wall.
         """
     else:
         $ pc_sheet.lose_willpower(1)
         call change_dynamic_stats("worse")
 
         show pc idle at right
-        pc """
-        I was pretty sure I needed to see something there but I was too shocked still to focus my powers in one sitting.
+        centered """You are pretty sure you need to see something here,
+        
+        but nothing gives.
+        
+        Maybe you are still too much in shock, maybe you cannot do this in one sitting...
 
-        I tried several times with breaks when finally, I started to see them.
+        You try several times,
+        
+        when finally, you start seeing them:
 
-        Those geometric lines and circles so familiar to me by now drawn onto the wall!
+        The geometric lines, circles and symbols so familiar by now casually drawn on the wall!
         """
         hide pc
 
-    show pc idle right 
+    show pc idle at right 
     pc "I used to see tons of these back then while working with Emilio."
     hide pc
 
-    centered "Now, this is what you gain from being open to some that others would just call usurpers."
+    centered """Now, this is what you gain from being open to some that others would just call usurpers.
     
-    centered "Pretty karmic - one could say if one believed in karma."
+    Pretty karmic - one could say if one believed in karma.
     
-    centered "Although it is not too likely that another life would wait for you."
+    Although it is not too likely that another life would wait for you.
     
-    centered "Maybe another death."
+    Maybe another death.
+    """
 
     show janos idle at right 
     janos """
@@ -360,13 +442,12 @@ label carpark_minigame:
 
     show pc idle at right
     pc """
-    I remembered that particular magic ward. 
-    
+
     I remembered I needed three words spelled out in my blood to unlock Emilio's seal.
 
     That was there just to provide a safe place for me to stay - I was sure by then. 
 
-    It would be uncharacteristic of the Tremere not to have left me with some guidence.
+    It would have been uncharacteristic of the Tremere not to have left me with some guidence.
     """
     hide pc
 
@@ -377,7 +458,7 @@ label carpark_minigame:
     hide janos
 
     show pc idle at right 
-    pc "The letter!"
+    pc "Daah, he'd given me the letter!"
     hide pc
 
     $ hit_count = 0
@@ -446,6 +527,20 @@ label carpark_minigame:
 
         At least you can wait out the day.
         """
+    show pc idle at right
+    pc """ That's where I found refuge.
+
+    Once I felt confident enough, I went to Elysium, where I got word that you'd been looking for me.
+    """
+    hide pc
+
+    show janos idle at right
+    janos "And here we are."
+    hide janos
+
+    show pc idle at right
+    pc "Here we are."
+    hide pc
 
     hide screen dynamic_stats
     scene black

@@ -208,13 +208,34 @@ label interogation_3:
     hide janos
 
     show pc idle at right
-    pc """It was already so late. 
+    pc """It was still pretty early.
 
-    I needed a place to stay where they couldn't find me.
+    And daytime.
 
-    And I couldn't have risked going to any of my friends. 
+    First I navigated my building, hiding in corridors and stairstops, caretully avoiding the light."""
+
+    $ pc_sheet.lose_health(3)
+    call change_dynamic_stats("worse")
+
+    pc """
+    As much as I could.
+    
+    There have been a few accidents.
+    
+    Neither has it been easy to stay - should I say alive? awake?
+    """
+
+    $ pc_sheet.lose_willpower(1)
+    call change_dynamic_stats("worse")
+
+    pc """
+    I made my way into garage of teh building, and hid under a Volkswagen.
     """
     hide pc    
+
+    show janos idle at right
+    janos "Must have been quite a journey. Where did you go next?"
+    hide janos
 
     hide screen dynamic_stats
     scene black
