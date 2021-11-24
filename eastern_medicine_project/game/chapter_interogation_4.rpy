@@ -8,13 +8,13 @@ label interogation_4:
     play music background_music_interrogation volume 0.5 loop
 
     scene background_video_interogation
-    with Dissolve(3.0)
+    with Dissolve(2.0)
 
     call show_dynamic_stats
 
     call bossfight_intro
 
-    menu:
+    menu: # Ultimately every option leads to fight / run / victory
         "Ask him if he belives you."
         "Yes, It's time it ended, pop the question.":
             call bossfight_ask_for_judgement

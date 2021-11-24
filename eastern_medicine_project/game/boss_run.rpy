@@ -7,9 +7,8 @@ label run:
     It is now or never.
     """
 
-    menu where_to_run:
+    menu where_to_run: # Ultimately every option leads to fight or victory
         "Choose a direction!"
-
         "The door might be too obvious, but that's the surprise":
             centered "You get up and try to make your way to the door."
             centered "Buy Janos grabs you quickly."
@@ -22,6 +21,12 @@ label run:
 
         # Discipline choices
         "Vanish into thin air {image=dice}" if pc_sheet.OBFUSCATE >= 4:
+            call run_obfuscate # call fight or victory
+
+        "I've got speed {image=dice}" if pc_sheet.CELERITY >= 3:
+            call run_celerity # call fight or victory
+
+        label run_obfuscate:
             centered "Thank the Dark Father, you have the power to vanish."
             
             # Rousecheck
@@ -42,9 +47,8 @@ label run:
                 centered "You vanish before Janos' eyes."
 
                 if janos_sheet.AUSPEX < 1:
-                    call victory
                     centered "You escape through the door."                          
-
+                    call victory
                 else:
                     # Roll Sense of the unseen
                     $ roll_janos = Roll(janos_sheet.WITS + janos_sheet.AUSPEX, janos_sheet.hunger, difficulty=0)
@@ -62,8 +66,8 @@ label run:
                         centered "Shit. He's got you"
                         call fight_janos_start
 
-        "I've got speed {image=dice}" if pc_sheet.CELERITY >= 3:
-            centered "It does not really matter which way you go, the question is can you get there quickly enough."
+        label run_celerity:
+                        centered "It does not really matter which way you go, the question is can you get there quickly enough."
             centered "You decide for the door."
 
             # Rousecheck
@@ -76,6 +80,7 @@ label run:
             $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.CELERITY + pc_sheet.ATHLETICS, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
             $ roll_pc.roll()
 
+            # Success branch
             if not roll_pc.is_success:
                 centered "You thought yourself to be quick as the wind."
                 centered "But Janos was quicker."
@@ -90,3 +95,4 @@ label run:
                 centered "Politics you can't run out, but apperently Janos you could."
 
                 call victory
+                        
