@@ -10,13 +10,18 @@ label test:
 
     call show_dynamic_stats
     
-    play sound "sounds/outside_alarm.mp3" fadein 1.0
+    init python:
+        renpy.music.register_channel("music_nostalgia", "music", True)
+
+    play music background_music_hospital volume 0.5 loop
 
     centered "Test scene to test testable stuff. Hi!"
 
-    play sound "sounds/fireworks.mp3" fadein 1.0
+    play music_nostalgia nostalgia volume 0.2 loop
     
     centered "Tested something."
+
+    stop music_nostalgia fadeout 1.0
 
     centered "Tested another something."
 

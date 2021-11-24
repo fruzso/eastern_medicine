@@ -1,6 +1,3 @@
-init python:
-    renpy.music.register_channel("haven", "music", True)
-
 label haven:
     # A memory of the PC's haven
     # PLOTPOINTS: Fight with the S.I. Agents
@@ -8,8 +5,7 @@ label haven:
     scene black
     with fade
     
-    play music background_music_haven1 volume 0.5 loop
-    # play haven background_music_haven volume 0.5
+    play music background_music_haven volume 0.5 loop
 
     centered "Hearing Janos' words, you feel transported back to August 21."
 

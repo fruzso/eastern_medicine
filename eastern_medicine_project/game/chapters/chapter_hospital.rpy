@@ -1,3 +1,6 @@
+init python:
+    renpy.music.register_channel("music_nostalgia", "music", True)
+    
 label hospital:
     # A memmory of the Hospital
     # PLOTPOINTS: We learn about the stolen blood and the PC's relation to Cecila
@@ -295,7 +298,9 @@ label hospital:
         jump cecilia_1
     
     label cecilia_1:
-        #TODO: AUDIO change to nostalgic sort of happy music
+        
+        play music_nostalgia nostalgia volume 0.1 loop
+
         centered """
         Even now, under these circumstances you remember Cecilia fondly.
     
@@ -388,7 +393,8 @@ label hospital:
         jump blood_selling_3
 
     label blood_selling_3:
-        # TODO: AUDIO Music back to the original
+        
+        stop music_nostalgia fadeout 1.0
 
         show janos idle at right
         janos "Was your relationship with Cecilia purely about business?"
