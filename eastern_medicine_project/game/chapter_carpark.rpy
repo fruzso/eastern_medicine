@@ -246,7 +246,7 @@ label carpark_minigame:
             
             But I like to know my options. 
             
-            You know, in case an emergency arises."
+            You know, in case an emergency arises.
             """
 
         "Tried to resist {image=dice}":

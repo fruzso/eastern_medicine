@@ -95,7 +95,7 @@ label interogation_3:
 
         "They must have followed me":
             show pc idle at right
-            pc """I am no trained observered, but since I hadn't told them they must have followed me.
+            pc """I am no trained observer, but since I hadn't told them they must have followed me.
             
             Or, and this is the truly terrifying possiblity, someone lead them there.
             
@@ -113,7 +113,7 @@ label interogation_3:
                 "Stop talking":
                     centered "You stop talking."
                 "Cast the shadow of doubt on someone else":
-                    pc "It must have been Elemér."
+                    pc "It must have been Elemér." #TODO: STORY Zsarol with cecilia
                     hide pc
 
                     show janos idle at right
@@ -133,7 +133,7 @@ label interogation_3:
     hide janos
 
     show pc idle at right
-    pc "Insults aside, you have hooked. What do your sources reveal?"
+    pc "Insults aside, you have me hooked. What do your sources reveal?"
     hide pc
 
     show janos idle at right
@@ -160,10 +160,32 @@ label interogation_3:
     """
     hide janos
 
-    if story_selling_blood:
-        centered "The recognition comes somewhat slowly."
 
-        centered "You lied to Janos that you have been selling blood to the kindred community from the hospital."
+    if story_pc_guilty:
+        centered """
+        He knows quite a lot.
+
+        Let's see:
+
+        He knows I am selling the blood,
+
+        he knows I have a human connection to the hospital.
+
+        This ain't gonna be pretty.
+        """
+
+    else:
+        centerd """
+        The recognition comes somewhat slowly.
+
+        Shit.
+
+        You just told him a few minutes ago that you're selling blood to the kindred community from a hospital.
+
+        This does not look good.
+
+        By the way is that shit really tainted?
+        """
 
     show janos idle at right
     janos """

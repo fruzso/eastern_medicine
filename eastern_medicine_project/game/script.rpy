@@ -4,7 +4,7 @@
 # name of the character.
 
 define janos = Character("Janos")
-define cecila = Character("Cecilia") # not used yet
+define cecilia = Character("Cecilia")
 define agent = Character("Agent") # not used yet
 
 # Audio
@@ -86,9 +86,9 @@ label variables:
 
     # Story events:
     # False by default and only switched if chosen
+    $ story_mention_emilio = False
     $ story_seated = False 
     $ story_pc_guilty = False # Weather you think if yu are guilty
     $ story_janos_condemns = True # Weather Janos thinks you are guilty
-    $ story_selling_blood = False
     $ story_violent_arrival = False
     $ story_si_vision = False

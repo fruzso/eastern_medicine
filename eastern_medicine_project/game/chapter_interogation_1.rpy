@@ -61,7 +61,7 @@ label interogation_1:
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
             $ roll_pc.roll()
 
-            if roll.margin_of_success > -1:
+            if roll_pc.margin_of_success > -1:
                 centered "He is an open book to you."
 
                 centered """
@@ -104,7 +104,7 @@ label interogation_1:
                     hide pc
                 "Uncomfortably":
                     show pc idle at right
-                    pc "uncomfortably enough to want toget over this"
+                    pc "Uncomfortably enough to want to get over with this"
                     hide pc
 
         "Remain standing":
@@ -202,9 +202,9 @@ label interogation_1:
             "People?":
                 pc "People? The kine?"
                 hide pc
-            "Or maybe time?":
+            "Maybe time?":
                 pc """
-                Or maybe time?
+                Maybe time?
                 
                 My past always follows me,
 
@@ -216,12 +216,12 @@ label interogation_1:
     janos """
     Please refrain from toying with me.
 
-    Followed by the kine. Specifically baldes in the dark.
+    Followed by the kine. Specifically hired blades in the dark.
     """
     hide janos
 
     show pc idle at right
-    pc "{i}blades in the dark?"
+    pc "{i}Hired blades in the dark?"
     hide pc
 
     show janos idle at right
@@ -438,6 +438,8 @@ label interogation_1:
     hide janos
 
     menu august_20:
+        "Where were you on the 20th of August?"
+
         "Tell a lie {image=dice}":
             $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
@@ -456,7 +458,7 @@ label interogation_1:
                 
                 But I tell you something, you cannot beat the view these fat cats afford their underlings.
                 
-                There I was, taking in the night sky, and the sparkling dimonds on it.
+                There I was, taking in the night sky, and the sparkling diamonds on it.
                 """            
                 hide pc
 
@@ -502,7 +504,7 @@ label interogation_1:
 
                 show janos idle at right
                 janos "Curious. What would an underpaid nurse do atop a Fortune 500 company's private party?"
-                hide Janos
+                hide janos
 
                 centered "Shit."
                 $ pc_sheet.lose_willpower(1)
