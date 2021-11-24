@@ -9,21 +9,24 @@ label test:
     $ janos_sheet = Janos()
 
     call show_dynamic_stats
+
+    centered "Test scene to test testable stuff. Hi!"
+
+    play sound smoke_bomb
     
+    centered "Tested something."
+
+    centered "Tested another something."
+
+        
     init python:
         renpy.music.register_channel("music_nostalgia", "music", True)
 
     play music background_music_hospital volume 0.5 loop
-
-    centered "Test scene to test testable stuff. Hi!"
-
-    play music_nostalgia nostalgia volume 0.2 loop
-    
     centered "Tested something."
-
+    play music_nostalgia nostalgia volume 0.2 loop
+    centered "Tested something."
     stop music_nostalgia fadeout 1.0
-
-    centered "Tested another something."
 
     centered "This is still a test environment. Hihi"
     # pc "I'm Almos."

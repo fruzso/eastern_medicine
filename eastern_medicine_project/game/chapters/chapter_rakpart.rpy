@@ -31,7 +31,7 @@ label rakpart:
     """
     hide janos
 
-    play sound "sounds/rakpart_footsteps.mp3" fadein 1.0 volume 1.0
+    play sound rakpart_footsteps fadein 1.0 volume 1.0
     centered """
     Footsteps approach in the mist, 
     thumping the ground with a growing determination of volume.
