@@ -5,7 +5,8 @@
 
 define janos = Character("Janos")
 define cecilia = Character("Cecilia")
-define agent = Character("Agent") # not used yet
+define agent = Character("Agent")
+# PC is defined in chapter_character_selction.rpy
 
 # Audio
 define audio.background_music_rakpart = "music/background_music_rakpart.mp3"
@@ -38,6 +39,7 @@ image background_video_black_wheel_empty = Movie(play = "video/moive_character_s
 image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask = None)
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
 image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
+image white = "#ffff"
 
 # Props
 transform dice_transform:
@@ -88,8 +90,10 @@ label variables:
     # Story events:
     # False by default and only switched if chosen
     $ story_mention_emilio = False
-    $ story_seated = False 
+    $ story_seated = False # Whether the pc took to the chair
     $ story_pc_guilty = False # Weather you think if yu are guilty
     $ story_janos_condemns = True # Weather Janos thinks you are guilty
-    $ story_violent_arrival = False
-    $ story_si_vision = False
+    $ story_violent_arrival = False # Did the si agenets wake up the pc
+    $ story_si_vision = False # pc vision of the si agents
+    $ story_weapon = "Nothing"
+    $ story_remaining_si = 5

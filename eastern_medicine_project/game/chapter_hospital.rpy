@@ -466,8 +466,7 @@ label hospital:
                     pc "Anyone? Try everyone! It is a hospital for God's sake, full of people. If you really tried hard, you could even find the pope there."
                     hide pc
 
-                    centered """
-                    Rage. It never fails.
+                    centered """Rage. It never fails.
                     
                     You lean back with the pleasurable smile of achievement.
 
@@ -475,8 +474,7 @@ label hospital:
                     """ 
 
                 else:
-                    cenetred """
-                    It is begining to be difficult to keep track of what's what and all the lies.
+                    cenetred """It is begining to be difficult to keep track of what's what and all the lies.
                     
                     You find yourself confused.
                     """

@@ -1,99 +1,109 @@
 label fight_pc_start:  
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
+
     menu first_attack:
         "He might not think I have the audacity to strike an annointed sheriff."
         "Strike him {image=dice}":
-            centered "You try to get a jump on him."
-
-            # Roll fight
-            $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL, janos_sheet.hunger, difficulty=0)
-            $ roll_janos.roll()
-            $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.BRAWL, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
-            $ roll_pc.roll()
-
-            if roll_pc.is_success:
-                show pc idle at right
-                pc "Hah!"
-                hide pc
-
-                centered "Your muscles cleverly obey your commands and you escape his grasp."
-
-                $ janos_sheet.lose_health(roll_pc.margin_of_success)
-
-            else:
-                show pc idle at right
-                pc "Shit!"
-                hide pc
-
-                centered "He evades your attack, looking fierce and out for blood."  
+            call strike_janos_1
+            call strike_pc_1
 
         "Confuse his mind {image=dice}" if pc_sheet.DOMINATE >= 2 and pc_sheet.OBFUSCATE >= 2:
-            # Rousecheck
-            if not pc_sheet.rouse_check():
-                call change_dynamic_stats("worse")
+            call dementation # Or call Victory
+            call strike_pc_1
 
-            # Roll Dementation
-            $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.COMPOSURE, janos_sheet.hunger, difficulty=0)
-            $ roll_janos.roll()
-            $ roll_pc = Roll(pc_sheet.MANIPULATION + pc_sheet.DOMINATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
-            $ roll_pc.roll()
+    call strike_pc_1
 
-            if roll_pc.is_success:
-                show pc idle at right
-                pc """
-                Quite a sheriff you are. Ventured as far as the basement of the most famous building in the city.
+label strike_janos_1:
+    centered "You try to get a jump on him."
 
-                You didn'T know what you will find.
+    # Roll fight
+    $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL, janos_sheet.hunger, difficulty=0)
+    $ roll_janos.roll()
+    $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.BRAWL, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+    $ roll_pc.roll()
 
-                I guess you already presented to the prince that you know ALL about what happend.
+    if roll_pc.is_success:
+        show pc idle at right
+        pc "Hah!"
+        hide pc
 
-                And now, having listened to my account, you haven't got the foggiest. 
-                """
-                hide pc
+        centered "Your muscles cleverly obey your commands and you escape his grasp."
 
-                centered "You see rage building up in the nosferatu."
+        $ janos_sheet.lose_health(roll_pc.margin_of_success)
 
-                centered "You are hitting the right spots, just need to apply a bit mor epressure."
+    else:
+        show pc idle at right
+        pc "Shit!"
+        hide pc
 
-                show pc idle at right
-                pc """
-                Trapped in a time you don't really understand. With a language most jsut despise.
+        centered "He evades your attack, looking fierce and out for blood."  
+    return
+    
+label dementation:
+    # Rousecheck
+    if not pc_sheet.rouse_check():
+        call change_dynamic_stats("worse")
 
-                Serving as the tzimische's lapdog. And nothing more.
-                """
-                hide pc
+    # Roll Dementation
+    $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.COMPOSURE, janos_sheet.hunger, difficulty=0)
+    $ roll_janos.roll()
+    $ roll_pc = Roll(pc_sheet.MANIPULATION + pc_sheet.DOMINATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
+    $ roll_pc.roll()
 
-                show janos idle at right
-                janos "Stop. You have no idea what you are talking about."
-                hide janos
+    if roll_pc.is_success:
+        show pc idle at right
+        pc """
+        Quite a sheriff you are. Ventured as far as the basement of the most famous building in the city.
 
-                centered "You know this is just a feeble attempt to shield his mind."
+        You didn'T know what you will find.
 
-                show pc idle at right
-                pc "You know how to stop this."
-                hide pc
+        I guess you already presented to the prince that you know ALL about what happend.
 
-                centered "You get up and walk out of the door, leaving a petrified Janos behind."
+        And now, having listened to my account, you haven't got the foggiest. 
+        """
+        hide pc
 
-                call victory
+        centered "You see rage building up in the nosferatu."
 
-            else:
-                show pc idle at right
-                pc "Quite a sheriff you are. Ventured as far as the..."
-                hide pc
+        centered "You are hitting the right spots, just need to apply a bit mor epressure."
 
-                centered "He cuts you off mid-sentence."
+        show pc idle at right
+        pc """
+        Trapped in a time you don't really understand. With a language most jsut despise.
 
-                show janos idle at right
-                janos "I am not gonna stand here and listen to your demented mind."
-                hide janos
+        Serving as the tzimische's lapdog. And nothing more.
+        """
+        hide pc
 
-                call fight_janos_start
+        show janos idle at right
+        janos "Stop. You have no idea what you are talking about."
+        hide janos
 
-    call final_fight
+        centered "You know this is just a feeble attempt to shield his mind."
 
-label fight_janos_start:
+        show pc idle at right
+        pc "You know how to stop this."
+        hide pc
+
+        centered "You get up and walk out of the door, leaving a petrified Janos behind."
+
+        call victory
+
+    else:
+        show pc idle at right
+        pc "Quite a sheriff you are. Ventured as far as the..."
+        hide pc
+
+        centered "He cuts you off mid-sentence."
+
+        show janos idle at right
+        janos "I am not gonna stand here and listen to your demented mind."
+        hide janos
+
+        return
+
+label strike_pc_1:
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
     centered "You try to escape his grasp. {image=dice}"
@@ -118,9 +128,6 @@ label fight_janos_start:
         centered "His grasp hold firm."  
 
     "PLACEHOLDER" # TODO: STROY
-    call final_fight
-
-label final_fight:
-    "PLACEHOLDER" # TODO: STROY
-
+    return
+    
        
