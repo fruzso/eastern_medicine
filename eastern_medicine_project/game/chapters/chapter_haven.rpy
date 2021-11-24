@@ -195,6 +195,7 @@ label haven:
 
             So, naturally I had a pretty good idea what was going on.
             """
+            hide pc
 
             show janos idle at right
             janos "You still had to wake up."
@@ -279,7 +280,7 @@ label haven:
         pc """
         They were attacking my haven. So naturally it was fuck the masquerade time.
 
-        Grabbed the first weapon I could get my hands on from my emergency staff.
+        Grabbed the first weapon I could get my hands on from my emergency stash.
 
         My apartment was...
         """
