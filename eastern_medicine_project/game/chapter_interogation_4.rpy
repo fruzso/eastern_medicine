@@ -178,7 +178,7 @@ label interogation_4:
 
             centered "It's to late to run."
             centered "His filthy hand is already clutching your wrist."
-            call fight_janos_start
+            call strike_pc_1
 
         else:
             janos "Not guilty."
