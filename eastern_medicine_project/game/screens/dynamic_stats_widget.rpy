@@ -35,11 +35,11 @@ label change_dynamic_stats(direction):
         play sound "sounds/widget_gain_stat.mp3"
     
 
-    if pc_sheet.willpower == 0:
+    if pc_sheet.willpower <= 0:
         jump willpower_defeat
-    if pc_sheet.health == 0:
+    if pc_sheet.health <= 0:
         jump health_defeat
-    if pc_sheet.hunger == 5:
+    if pc_sheet.hunger >= 5:
         jump hunger_defeat
 
     call show_dynamic_stats

@@ -61,7 +61,7 @@ label interogation_3:
             menu:
                 "Choose your tone"
                 "Insult him":
-                    show pc at right
+                    show pc idle at right
                     pc "No fucking idea, asshole!"
                     hide pc
                     
@@ -71,7 +71,7 @@ label interogation_3:
                     hide janos
 
                 "Stay cordial":
-                    show pc at right
+                    show pc idle at right
                     pc "Sincerelly, I don't know."
                     hide pc
                 
@@ -160,8 +160,7 @@ label interogation_3:
 
 
     if story_pc_guilty:
-        centered """
-        He knows quite a lot.
+        centered """He knows quite a lot.
 
         Let's see:
 
@@ -173,8 +172,7 @@ label interogation_3:
         """
 
     else:
-        centerd """
-        The recognition comes somewhat slowly.
+        centered """The recognition comes somewhat slowly.
 
         Shit.
 

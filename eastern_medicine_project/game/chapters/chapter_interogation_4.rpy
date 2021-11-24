@@ -134,16 +134,13 @@ label interogation_4:
             centered "And you are fluent in it."
 
             if story_janos_condemns:
-                centered """
-                Thre is an evil smile on those lips.
+                centered """Thre is an evil smile on those lips.
                 They might be hanging by a thread, but they are telling a story of their own.
-                """
-
-                centered "A story that can only end poorly for you."
+                
+                A story that can only end poorly for you."""
 
                 if story_pc_guilty:
-                    centered "Shit, he knows it was you."
-                        
+                    centered "Shit, he knows it was you."        
                 else:
                     centered "Shit, he thinks it was you."
 
@@ -153,9 +150,9 @@ label interogation_4:
                 yet his face now gives you hope.
                 """
         else:
-            centered "No hope."
-
-            centered "Who knows what a nosferatu's deformed features hide."
+            centered """No hope.
+            
+            Who knows what a nosferatu's deformed features hide."""
         return
 
     label bossfight_intermission_2:

@@ -73,9 +73,16 @@ label start:
 
     call interogation_4
     
-    label the_end:
+    label the_end:       
         scene black
         with fade
+
+        centered """CREDITS:
+        
+        Created by 
+        
+        Fruzsina Zsólyomi and Bence Levente Bodó"""
+
         return   
         
 label variables:

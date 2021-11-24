@@ -36,36 +36,30 @@ label victory:
 
     hide pc
 
-    call the_end
+    jump the_end
 
 label willpower_defeat:
     # Game over
     scene black
     with fade
 
-    pause(1.0)
+    centered "You lost all your willpower."
 
-    centered "You lost all your willpower"
-
-    return
+    jump the_end
 
 label health_defeat:
     # Game over
     scene black
     with fade
 
-    pause(1.0)
+    centered "You lost all your health."
 
-    centered "You lost all your health"
-
-    return
+    jump the_end
 
 label hunger_defeat:
     # Game over
     scene black
     with fade
-
-    pause(1.0)
 
     centered "The beast takes over you."
 
@@ -73,7 +67,7 @@ label hunger_defeat:
 
     centered "And Janos' word cathes the artificial light."
 
-    return
+    jump the_end
 
 label voilent_defeat:
     # Game over
@@ -86,4 +80,4 @@ label voilent_defeat:
     centered "And the molecules of your body only bound together by the Dark Fathers curse perpetuated through the ages begin to give."
     
     # This ends the game.
-    return
+    jump the_end
