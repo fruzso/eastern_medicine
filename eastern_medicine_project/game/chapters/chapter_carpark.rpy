@@ -378,7 +378,7 @@ label carpark_minigame:
     pc """
     This cannot be right. There must be something more to this, something invisible to the naked eye...
 
-    I know what to do. {image=roll}
+    I know what to do. {image=dice}
     """
     hide pc
     

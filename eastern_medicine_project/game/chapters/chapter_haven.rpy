@@ -406,7 +406,7 @@ label haven:
         $ roll_pc = Roll(pc_sheet.willpower, pc_sheet.hunger, difficulty=5)
         $ roll_pc.roll()
 
-        if pc_roll.is_success:
+        if roll_pc.is_success:
             centered "Nothing can break your will."
         else:
             centered "It's daytime. Hard to stay alive and standing, let alone jump to the spot you have found is excuciating."
@@ -418,8 +418,8 @@ label haven:
         $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
         $ roll_pc.roll()
 
-        centered "You take cover behind the half blown-up table."
-        if pc_roll.is_success:
+        centered "You take cover dehind the half blown-up table."
+        if roll_pc.is_success:
             centered """It's nothing much, but it will do.
             
             You spot a man approaching.

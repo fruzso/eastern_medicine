@@ -447,10 +447,10 @@ style main_menu_frame:
     # background "gui/overlay/main_menu.png" # Custom edition
 
 style main_menu_vbox:
-    xalign 1.0
+    xalign 0.9
     xoffset -30
     xmaximum 1200
-    yalign 1.0
+    yalign 0.9
     yoffset -30
 
 style main_menu_text:
