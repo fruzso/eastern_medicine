@@ -378,12 +378,71 @@ label haven:
 
     label haven_attack_closest:
         call haven_reveal_the_room
-        "PALCEHOLDER"
+        
+        centered """There is no time to waste.
+        
+        You pounce at the closest agent.
+        """
+
+        # Roll to attack
+        $ roll_pc = Roll(pc_sheet.DEXTERITY, pc_sheet.BRAWL, difficulty=3)
+        $ roll_pc.roll()
+
+        if roll_pc.is_success:
+            centered "You've got one of them."
+
+            $ story_remaining_si -= 1
+
+            if story_remaining_si >= 1:
+                show agent idle at right
+                agent "Man. Down, I repeat man down."
+                hide
+            else:
+                centered "That was the last of them."
         return
 
     label haven_cover:
         call haven_reveal_the_room
-        "PALCEHOLDER"
+        centered """You try to rely on your familiarity ith the location, remembering where everything is supposed to be as you take cover."""
+        
+        # Roll willpower to stay awake
+        $ roll_pc = Roll(pc_sheet.willpower, pc_sheet.hunger, difficulty=5)
+        $ roll_pc.roll()
+
+        if pc_roll.is_success:
+            centered "Nothing can break your will."
+        else:
+            centered "It's daytime. Hard to stay alive and standing, let alone jump to the spot you have found is excuciating."
+
+            $ pc_sheet.lose_willpower(1)
+            call change_dynamic_stats
+
+        # Roll manuevering to find a good sport
+        $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
+        $ roll_pc.roll()
+
+        centered "You take cover dehind the half blown-up table."
+        if pc_roll.is_success:
+            centered """It's nothing much, but it will do.
+            
+            You spot a man approaching.
+            
+            Quickly grab his leg and tear him to the ground."""
+
+            $ story_remaining_si -= 1
+
+            #TODO: AUDIO somesoundeffect maybe?
+        
+        else:
+            centered """It's not good for shit.
+
+            You suffer 2 shots to the arm."""
+
+            # TODO: AUDIO add 2 gunshots.
+
+            pc_sheet.lose_health(2)
+            call change_dynamic_stats
+
         return
     
     label haven_hidden_attack:
