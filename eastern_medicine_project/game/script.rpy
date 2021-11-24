@@ -88,8 +88,10 @@ label variables:
     # Story events:
     # False by default and only switched if chosen
     $ story_mention_emilio = False
-    $ story_seated = False 
+    $ story_seated = False # Whether the pc took to the chair
     $ story_pc_guilty = False # Weather you think if yu are guilty
     $ story_janos_condemns = True # Weather Janos thinks you are guilty
-    $ story_violent_arrival = False
-    $ story_si_vision = False
+    $ story_violent_arrival = False # Did the si agenets wake up the pc
+    $ story_si_vision = False # pc vision of the si agents
+    $ story_weapon = "Nothing"
+    $ story_remaining_si = 5
