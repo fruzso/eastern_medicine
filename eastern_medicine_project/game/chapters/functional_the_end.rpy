@@ -3,7 +3,9 @@ label the_end:
     
     Created by 
     
-    Fruzsina Zsólyomi and Bence Levente Bodó"""
+    Fruzsina Zsólyomi and Bence Levente Bodó
+    
+    Thank you for playing: VTM: Eastern Medicine"""
     
     # $ renpy.quit()
     $ renpy.full_restart()
