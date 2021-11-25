@@ -19,6 +19,7 @@ label character_selection:
             call screen character_stats(pc_sheet, choosable=True)
         
     label chosen:
+        scene background_video_black_wheel_empty
         hide screen character_stats
               
         define pc = Character("[pc_sheet.NAME]") # The player character is defined, and can be reffered to as pc from hereon
@@ -34,6 +35,4 @@ label character_selection:
 
     stop music fadeout 1.0
     hide screen dynamic_stats
-    scene black
-    with fade
     return

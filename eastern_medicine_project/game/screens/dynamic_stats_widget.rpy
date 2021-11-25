@@ -34,7 +34,6 @@ label change_dynamic_stats(direction):
     elif direction == "better":
         play sound widget_gain_stat
     
-
     if pc_sheet.willpower <= 0:
         jump willpower_defeat
     if pc_sheet.health <= 0:

@@ -94,9 +94,9 @@ screen character_stats(sheet, choosable):
 
         hbox spacing 100:
             # Dynamic
-            text "Starter health: [sheet.health]"
-            text "Starter willpower: [sheet.willpower]"
-            text "Starter hunger: [sheet.hunger]"
+            text "Health: [sheet.health]"
+            text "Willpower: [sheet.willpower]"
+            text "Hunger: [sheet.hunger]"
 
     vbox xalign 0.9 yalign 0.5:
         # Buttons
