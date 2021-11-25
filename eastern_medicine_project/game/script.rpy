@@ -59,6 +59,11 @@ image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask =
 image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
 image white = "#ffff"
 
+# game variables
+
+
+
+
 # Props
 transform dice_transform:
     zoom 0.065
@@ -69,6 +74,7 @@ label start:
     # This is the selection of the entire game, where every scene connects and is callled
     
     call variables # Non-story label
+
     # call test
 
     call intro
@@ -91,18 +97,7 @@ label start:
 
     call interogation_4
     
-    label the_end:       
-        scene black
-        with fade
-
-        centered """CREDITS:
-        
-        Created by 
-        
-        Fruzsina Zsólyomi and Bence Levente Bodó"""
-        
-        $ renpy.quit()
-
+ 
         
 label variables:
     # Only programatic content, nothing to show
@@ -123,4 +118,6 @@ label variables:
     $ story_si_vision = False # pc vision of the si agents
     $ story_weapon = "Nothing"
     $ story_remaining_si = 5
+
+    return
 

@@ -69,7 +69,7 @@ label hunger_defeat:
 
     jump the_end
 
-label voilent_defeat:
+label vioient_defeat:
     # Game over
 
     scene background_video_black_wheel_empty

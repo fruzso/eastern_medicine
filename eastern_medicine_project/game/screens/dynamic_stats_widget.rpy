@@ -35,11 +35,14 @@ label change_dynamic_stats(direction):
         play sound widget_gain_stat
     
     if pc_sheet.willpower <= 0:
-        jump willpower_defeat
+        call willpower_defeat
+        # $ renpy.call_in_new_context("willpower_defeat")
     elif pc_sheet.health <= 0:
-        jump health_defeat
+        call health_defeat
+        # $ renpy.call_in_new_context("health_defeat")
     elif pc_sheet.hunger >= 5:
-        jump hunger_defeat
+        call hunger_defeat
+        # $ renpy.call_in_new_context("hunger_defeat")
     else:
         call show_dynamic_stats
         with Dissolve(0.5)

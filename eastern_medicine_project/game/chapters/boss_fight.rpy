@@ -175,7 +175,7 @@ label fight_interlude_1:
             
             and within the blink of an eye his fangs dig deep into your neck."""
 
-            call voilent_defeat
+            call vioient_defeat
 
         "Fight on":
             centered "You choose to fight on."
@@ -225,5 +225,5 @@ label closure:
         A fatal one.
         """
         # Janos wins
-        call voilent_defeat
+        call vioient_defeat
            
