@@ -135,7 +135,7 @@ label carpark:
                         jump carpark_minigame
 
                     "No way, it's time for him to leave me alone":
-                        centered """ You feel that is has been grossly oversteppinn his jurisdiction to say the least
+                        centered """ You feel that is has been grossly overstepping his jurisdiction to say the least
                         
                         You decide not to take his aggression anymore.
                         

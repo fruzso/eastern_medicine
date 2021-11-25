@@ -2,21 +2,16 @@ label fight_pc_start:
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
 
-    menu first_attack:
+    menu:
         "He might not think I have the audacity to strike an annointed sheriff."
         "Strike him {image=dice}":
-            call strike_janos_1
             call pc_hits_1
-            call janos_hits_1
+            call janos_hits_1 # calls fight interlude 1 or defeat
 
         "Confuse his mind {image=dice}" if pc_sheet.DOMINATE >= 2 and pc_sheet.OBFUSCATE >= 2:
             call dementation # Or call Victory
             call pc_hits_1
-            call janos_hits_1
-
-    call janos_hits_1
-    call fight_interlude_1
-    call closure
+            call janos_hits_1  # calls fight interlude 1 or defeat
 
 label pc_hits_1:
     centered "You try to get a jump on him. {image=dice}"
@@ -58,15 +53,13 @@ label dementation:
 
     if roll_pc.is_success:
         show pc idle at right
-        pc """
-        Quite a sheriff you are. Ventured as far as the basement of the most famous building in the city.
+        pc """Quite a sheriff you are. Ventured as far as the basement of the most famous building in the city.
 
         You didn't know what you will find.
 
         I guess you already presented to the prince that you know ALL about what happend.
 
-        And now, having listened to my account, you haven't got the foggiest. 
-        """
+        And now, having listened to my account, you haven't got the foggiest."""
         hide pc
 
         centered "You see rage building up in the nosferatu."
@@ -111,9 +104,9 @@ label dementation:
 label janos_hits_1:
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
-    centered """With incredible speed Janos launches agaist,
+    centered """With incredible speed Janos launches forward,
     
-    his claws, and fangs are out, and they deadly as fuck. {image=dice}"""
+    his claws, and fangs are out, and they are deadly as fuck. {image=dice}"""
 
     $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL + janos_sheet.CELERITY, janos_sheet.hunger, difficulty=0)
     $ roll_janos.roll()
@@ -125,9 +118,13 @@ label janos_hits_1:
 
         But you are quciker.
 
-        Your body flows around his in one fluid motion easthethics.
+        Your body flows around his in one fluid motion of easthethics.
 
-        And you take pleasure in how he hits the wall.
+        And you take pleasure in knowing he's going to hit the wall.
+
+        So it happens
+
+        with a loud splash of supernatural tissue and vitae.
         """
         
         $ janos_sheet.lose_health(roll_pc.margin_of_success)
@@ -141,9 +138,9 @@ label janos_hits_1:
         And you will have a nasty scar to testify to the fact.
         """
         $ pc_sheet.lose_health(abs(roll_pc.margin_of_success))
-        call change_dynamic_stats
+        call change_dynamic_stats("worse")
 
-    return
+    call fight_interlude_1
 
 label fight_interlude_1:
     $ age_difference = janos_sheet.AGE - pc_sheet.AGE
@@ -157,9 +154,9 @@ label fight_interlude_1:
     There is no remotely beneficial outcome for you."""
     hide janos
 
-    show pc idle at right
     menu:
         "Yield":
+            show pc idle at right
             pc """Stooop. 
             
             You are right, I cannot hope to achieve anything here."""
@@ -196,12 +193,13 @@ label fight_interlude_1:
                 janos "You inisignificant idiot!"
                 hide janos
 
-                centerd """He pulls a short wooden stake out from under his coat and stabs you leb with it.
+                centered """He pulls a short wooden stake out from under his coat and stabs your leg with it.
                 
                 You clearly feel the destruction he brought upon you."""
 
                 $ pc_sheet.lose_health(abs(roll_pc.margin_of_success))
-                call change_dynamic_stats
+                call change_dynamic_stats("worse")
+    call closure
 
 label closure:
     if pc_sheet.health > janos_sheet.health:
@@ -213,7 +211,7 @@ label closure:
         """
         # PC wins
         $ janos_sheet.lose_health(janos_sheet.health)
-        call check_janos_alive
+        call check_janos_alive # calls victory always
 
     else:
         centered """For all your effort, the clever and tactical moves and everything you can bring to the table
@@ -225,5 +223,4 @@ label closure:
         A fatal one.
         """
         # Janos wins
-        call vioient_defeat
-           
+        call vioient_defeat 

@@ -7,7 +7,7 @@ label victory:
 
     centered "You have escaped."
 
-    play music background_music_victory volume 0.5 loop
+    play music background_music_victory volume 1.0 loop
 
     scene background_video_rakpart
     with Dissolve(3.0)
