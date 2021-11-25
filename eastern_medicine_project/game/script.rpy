@@ -59,11 +59,6 @@ image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask =
 image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
 image white = "#ffff"
 
-# game variables
-
-
-
-
 # Props
 transform dice_transform:
     zoom 0.065
