@@ -3,7 +3,7 @@ label intro:
     scene black
     with fade
 
-    play music background_music_rakpart volume 0.5 loop
+    play music background_music_rakpart volume 0.3 loop
 
     centered """
     This game was created as a part of Vampire: The Masquerade game jam. 
@@ -26,4 +26,6 @@ label intro:
 
     centered "Somewhere near the seats of power that the Tzimische have cultivated for so long."
 
+    scene black
+    with fade
     

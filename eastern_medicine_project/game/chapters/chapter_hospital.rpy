@@ -7,7 +7,7 @@ label hospital:
     scene black 
     with fade 
     
-    play music background_music_hospital volume 0.5 loop
+    play music background_music_hospital volume 1.0 loop
 
     scene backgorund_video_hospital
     with Dissolve(2.0)
@@ -46,7 +46,7 @@ label hospital:
     janos """
     Yes. It illuminates.
     
-    So, illuminate
+    So, illuminate,
 
     please.
 
@@ -150,9 +150,9 @@ label hospital:
 
         centered "Maybe he is buying it."
 
-        pc "You know there is a certain beuty to a place like that."
+        pc "You know there is a certain beauty to a place like that."
 
-        centered "Shit. Beuty to a Hungarian hospital?"
+        centered "Shit. Beauty to a Hungarian hospital?"
         hide pc
 
         show janos idle at right
@@ -162,17 +162,17 @@ label hospital:
         show pc idle at right
         centered "Did he really buy that?!"
 
-        centered "I must press on"
-        pc "I know it is not for everybody's taste, but you need somethign to keep you going through the years"
+        centered "I must press on."
+        pc "I know it is not for everybody's taste but you need something to keep you going through the years."
         hide pc
 
         show janos idle at right
         janos """
         [pc_sheet.AGE] of them, to be exact.
 
-        So in [pc_sheet.AGE] years you have found that it is the ethemeral beauty of underfunded hospitals that,
+        So in [pc_sheet.AGE] years you have found that it is the ethemeral beauty of underfunded hospitals
         
-        how did you put it 'keeps you going'
+        that, how did you put it, {i}keeps you going{/i}.
         """
         hide janos
 
@@ -181,7 +181,7 @@ label hospital:
         hide pc
 
         show janos idle at right
-        janos "I think it disrespectful, when someone lies to my face."
+        janos "I think it disrespectful when someone lies to my face."
         hide janos
 
         centered "Burn."
@@ -299,7 +299,7 @@ label hospital:
     
     label cecilia_1:
         
-        play music_nostalgia nostalgia volume 0.1 loop
+        play music_nostalgia nostalgia volume 0.2 loop
 
         centered """
         Even now, under these circumstances you remember Cecilia fondly.
@@ -339,9 +339,9 @@ label hospital:
 
                 show cecilia idle at right
                 cecilia """
-                Just a few bags
+                Just a few bags.
                 
-                But I'm sure, with all the blood you're taking to those in need this will be enough now.
+                I'm sure, with all the blood you're taking to those in need this will be enough now.
                 """
                 hide cecilia
                     

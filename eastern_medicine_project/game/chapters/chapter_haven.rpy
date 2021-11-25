@@ -9,7 +9,7 @@ label haven:
 
     centered "Hearing Janos' words, you feel transported back to August 21."
 
-    centered "You remember yesturday."
+    centered "You remember yesterday."
 
     centered "Yes, the day."
 
@@ -202,8 +202,7 @@ label haven:
             hide janos
 
             show pc idle at right
-            pc """
-            quite so.
+            pc """Quite so.
             
             It was no picnic I have to admit.
 
@@ -216,7 +215,7 @@ label haven:
             hide janos
 
             show pc idle at right
-            pc "well, I did."
+            pc "Well, I did."
             hide pc
 
             $ pc_sheet.lose_willpower(1)
@@ -240,7 +239,7 @@ label haven:
 
                 show janos idle at right
                 janos """
-                Yes
+                Yes.
                 
                 Please, do share.
                 """

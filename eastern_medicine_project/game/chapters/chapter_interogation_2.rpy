@@ -20,15 +20,15 @@ label interogation_2:
 
     And please don't give me any of that patriotic bullshit,
 
-    nothing like - I snuggled up fondly with the memories of a great celebration and national glory - 
+    nothing like {i}I snuggled up fondly with the memories of a great celebration and national glory{/i}
     
     As you say, no bullshit.
     """
     hide janos
 
-    centered "You feel that there is more saind than simply words."
+    centered "You feel that there is more said than simply words."
 
-    centered "In a split second you realize that the power of the Dark father permiates trhough Janos' words."
+    centered "In a split second you realize that the power of the Dark father permiates through Janos' words."
 
     centered "He is trying to dominate you."
 
@@ -54,6 +54,8 @@ label interogation_2:
                         show pc idle at right
                         pc "Here follows an account of everything that happened:"
                         hide pc
+
+                        call end_interrogation_2
                     "No":
                         show pc idle at right
                         pc "Fuck off!"
@@ -71,15 +73,21 @@ label interogation_2:
                         
                         show pc idle at right
                         pc "Let me think for a moment."
-                        hide pc       
+                        hide pc
+
+                        call end_interrogation_2       
                     
         "No":
             centered """
             You start to search your memories for all the details of the event
             and communicate them as accurately as possible.
             """
+            call end_interrogation_2
         
+label end_interrogation_2:
+    stop music fadeout 1.0
     hide screen dynamic_stats
     scene black
     with fade
     return
+    

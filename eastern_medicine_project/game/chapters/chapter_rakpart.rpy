@@ -23,15 +23,15 @@ label rakpart:
 
     Eventually dawn comes anyway.
 
-    Of course, there is a bit more danger to it, if it's accompanied by a handfull of initiated agents, 
+    Naturally, there is a bit more danger to it, if it's accompanied by a handfull of initiated agents, 
     
     armed to the teeth - even if it's not the sharpest nature can provide - with wooden bullets and similarly lethal whatnots.
 
-    Naturally someone must have invited them.
+    Someone must have invited them.
     """
     hide janos
 
-    play sound rakpart_footsteps fadein 1.0 volume 1.0
+    play sound rakpart_footsteps fadein 1.0 volume 1.0 # TODO : thi sshould be much louder
     centered """
     Footsteps approach in the mist, 
     thumping the ground with a growing determination of volume.

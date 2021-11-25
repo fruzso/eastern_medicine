@@ -470,6 +470,9 @@ label interogation_1:
                 pc "What a dismal idea. Nothing could devalue the experience anymore."
                 hide pc
 
+                call end_interrogation_1
+
+
             else:
                 # Unsuccesful lie
                 centered "You have a story prepared just for this question."
@@ -514,6 +517,8 @@ label interogation_1:
                 pc "I thought she was a doctor."
                 hide pc
 
+                call end_interrogation_1
+
 
         "Tell the truth":
 
@@ -528,9 +533,13 @@ label interogation_1:
             show pc idle at right
             pc "I didn't go there to see the doctor."
             hide pc
+
+            call end_interrogation_1
             
-            stop music fadeout 1.0
-            hide screen dynamic_stats
-            scene black
-            with fade
-            return
+label end_interrogation_1:
+    stop music fadeout 1.0
+    hide screen dynamic_stats
+    scene black
+    with fade
+    return
+    
