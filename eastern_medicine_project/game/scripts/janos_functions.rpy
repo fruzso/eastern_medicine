@@ -16,3 +16,5 @@ label check_janos_alive:
         You have killed the sheriff
         """
         call victory
+    else:
+        return

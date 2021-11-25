@@ -1,6 +1,6 @@
 label fight_pc_start:  
     #play music background_music_run_and_fight volume 0.5 loop
-    $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
+    $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
 
     menu first_attack:
         "He might not think I have the audacity to strike an annointed sheriff."
@@ -110,7 +110,7 @@ label dementation:
 
 label janos_hits_1:
     #play music background_music_run_and_fight volume 0.5 loop
-    $ renpy.music.play(audio.background_music_run_and_fight, relative_volume=0.5, loop=True, if_changed=True)
+    $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
     centered """With incredible speed Janos launches agaist,
     
     his claws, and fangs are out, and they deadly as fuck. {image=dice}"""
@@ -125,7 +125,7 @@ label janos_hits_1:
 
         But you are quciker.
 
-        Your body flows aroudn his in one fluid motion easthethics.
+        Your body flows around his in one fluid motion easthethics.
 
         And you take pleasure in how he hits the wall.
         """

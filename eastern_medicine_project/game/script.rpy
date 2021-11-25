@@ -100,8 +100,9 @@ label start:
         Created by 
         
         Fruzsina Zsólyomi and Bence Levente Bodó"""
+        
+        $ renpy.quit()
 
-        return   
         
 label variables:
     # Only programatic content, nothing to show
@@ -122,3 +123,4 @@ label variables:
     $ story_si_vision = False # pc vision of the si agents
     $ story_weapon = "Nothing"
     $ story_remaining_si = 5
+

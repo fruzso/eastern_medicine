@@ -36,12 +36,12 @@ label change_dynamic_stats(direction):
     
     if pc_sheet.willpower <= 0:
         jump willpower_defeat
-    if pc_sheet.health <= 0:
+    elif pc_sheet.health <= 0:
         jump health_defeat
-    if pc_sheet.hunger >= 5:
+    elif pc_sheet.hunger >= 5:
         jump hunger_defeat
+    else:
+        call show_dynamic_stats
+        with Dissolve(0.5)
 
-    call show_dynamic_stats
-    with Dissolve(0.5)
-
-    return
+        return

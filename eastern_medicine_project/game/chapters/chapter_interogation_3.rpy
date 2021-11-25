@@ -208,9 +208,9 @@ label interogation_3:
 
     And daytime.
 
-    First I navigated my building, hiding in corridors and stairstops, caretully avoiding the light."""
+    First I navigated my building, hiding in corridors and stairstops, carefully avoiding the light."""
 
-    $ pc_sheet.lose_health(3)
+    $ pc_sheet.lose_health(1)
     call change_dynamic_stats("worse")
 
     pc """

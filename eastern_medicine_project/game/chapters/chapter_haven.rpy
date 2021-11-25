@@ -185,7 +185,7 @@ label haven:
             janos "Yes, naturally."
             hide janos
 
-            centered "you notice that Janos would like to say something else, but he chooses to remain silent"
+            centered "You notice that Janos would like to say something else, but he chooses to remain silent"
 
             show pc idle at right
             pc """
@@ -193,7 +193,7 @@ label haven:
             
             But that is just not my style.
 
-            So, naturally I had a pretty good idea what was going on.
+            So, I had a pretty good idea what was going on.
             """
             hide pc
 
@@ -204,7 +204,7 @@ label haven:
             show pc idle at right
             pc """Quite so.
             
-            It was no picnic I have to admit.
+            It was no picnic, I have to admit.
 
             But when you know, you know, you know.
             """
@@ -234,7 +234,7 @@ label haven:
 
             "I knew something was wrong" if not story_violent_arrival:
                 show pc idle at right
-                pc "There was no question question about it, something sinister was going on."
+                pc "There was no question about it, something sinister was going on."
                 hide pc
 
                 show janos idle at right
@@ -277,12 +277,9 @@ label haven:
 
         show pc idle at right
         pc """
-        They were attacking my haven. So naturally it was fuck the masquerade time.
+        They were attacking my haven. So I thought it was fuck the masquerade time.
 
-        Grabbed the first weapon I could get my hands on from my emergency stash.
-
-        My apartment was...
-        """
+        Grabbed the first weapon I could get my hands on from my emergency stash."""
         hide pc
         
         return
@@ -292,42 +289,45 @@ label haven:
 
         show pc idle at right
         pc """
-        I am a [pc_sheet.ASSUMED_GENDER] who likes to be prepared, you see
+        I am a [pc_sheet.ASSUMED_GENDER] who likes to be prepared, you see.
 
-        I firmly believe that the attack is the best form of defence
+        I firmly believe that the attack is the best form of defence.
 
-        in any case it never hurts if you have an arsenal at the ready bellow the nightstand.
+        In any case it never hurts if you have an arsenal at the ready bellow the nightstand.
 
         My choice fell on my trusted uzi-machine gun.
         """
         hide pc
 
         show janos idle at right
-        janos "My my, we are keeping up to date with technology"
+        janos "My my, we are keeping up to date with technology."
 
         if pc_sheet.CLAN == "Toreador":
-            janos "To be expected with your clan, tough"
+            janos "To be expected with your clan, tough."
         hide janos
 
         $ story_remaining_si -= 2
         show pc idle at right
-        pc """The good thing about modern construction is that they use shit for materials.
-        
-        I fired a volley in the walls, connecting to the neighbour.
-        """
+        pc "The good thing about modern construction is that they use shit for materials."
 
         play sound machine_gun_longer
-
-        pc """It was drywall.
         
-        Did not need more than gentle push, and there I was saying hi to a nice downtown family."""
+        pc "I fired a volley in the walls, connecting to the neighbour."
+
+        pc "It was drywall."
 
         play sound wall_breaking
+        
+        pc "Did not need more than gentle push, and there I was saying hi to a nice downtown family."
 
-        pc """I got behind the bastards back.
+        pc "I got behind the bastards back."
 
-        Took out two without any complications. That's what I call surgical preicsion.
-        """
+        play sound machine_gun_single
+        queue sound death_scream_2
+        queue sound machine_gun_single
+        queue sound death_scream_3
+
+        pc "Took out two without any complications. That's what I call surgical precision."
         hide pc
 
         return
@@ -366,7 +366,7 @@ label haven:
         scene white
         with fade
 
-        play sound flashbang_high
+        play sound flashbang_low
 
         centered """{color=#000000}Smoke covers everything, as the trained agents of the second inquisition storm the room, all [story_remaining_si] of them.{/color} 
         """
@@ -375,6 +375,7 @@ label haven:
     label haven_attack_closest:
         call haven_reveal_the_room
         
+        show agent idle at left
         centered """There is no time to waste.
         
         You pounce at the closest agent.
@@ -385,8 +386,10 @@ label haven:
         $ roll_pc.roll()
 
         if roll_pc.is_success:
+            play sound smash_and_grunt
+            queue sound death_scream_2
             centered "You've got one of them."
-
+            
             $ story_remaining_si -= 1
 
             if story_remaining_si >= 1:
@@ -482,11 +485,11 @@ label haven:
             $ story_remaining_si -= 3
             
             play sound machine_gun_single
-            play sound death_scream_1
-            play sound machine_gun_single
-            play sound death_scream_2
-            play sound machine_gun_single
-            play sound death_scream_3
+            queue sound death_scream_1
+            queue sound machine_gun_single
+            queue sound death_scream_2
+            queue sound machine_gun_single
+            queue sound death_scream_3
 
             centered "3 agents fall to the ground almost simultanously."
 
@@ -494,8 +497,8 @@ label haven:
             centered "A kitchen knife is good enough if stand close enough to count the hairs on the backs of their necks."
             $ story_remaining_si -= 2
             play sound knife_slash
-            play sound death_scream_1
-            play sound death_scream_3
+            queue sound death_scream_1
+            queue sound death_scream_3
         else:
             #any other case
             centered """You break necks,
@@ -552,8 +555,8 @@ label haven:
             $ story_remaining_si -= pc_roll.margin_of_success
             
             play sound machine_gun_single
-            play sound machine_gun_single
-            play sound machine_gun_single
+            queue sound machine_gun_single
+            queue sound machine_gun_single
             
             centered "[pc_roll.margin_of_success] agents fall to the ground almost simultanously."
             play sound death_scream_3
@@ -571,19 +574,16 @@ label haven:
     label haven_outro:
         show pc idle at right
         if not story_remaining_si == 0:
-            
+            centered """The smell of blood mixed with new age gunpowder fills everything.
+
+            Your nostrils widen up, you could literally eat up the air, when all hell truly breaks out as you lose control,"""
             play sound beast_roar
-
-            centered """ The smell of blood mixed with new age gunpowder fills the air.
-
-            Your nostrils widen up, you could literally eat up the air, when all hell truly breaks out as you lose control,
-
-            Disconnected images of bone, fangs, gunshot wounds swarm in your minds, yet nothing distinctive.
+            centered """Disconnected images of bone, fangs, gunshot wounds swarm in your minds, yet nothing distinctive.
 
             One thing is for sure, when you regain conciousness, you don't find anyone alive."""
 
             $ pc_sheet.get_hungry(2)
-            $ pc_sheet.lose_health(3)
+            $ pc_sheet.lose_health(story_remaining_si)
             call change_dynamic_stats("worse")
         
         pc "I have to admit..."
@@ -596,7 +596,7 @@ label haven:
                 
                 Team [pc_sheet.NAME]: 1
 
-                Second Inquisiion: 0
+                Second Inquisition: 0
 
                 Fuck yeah!
                 """
@@ -607,11 +607,13 @@ label haven:
                 hide pc
 
         show janos idle at right
-        janos """We have more important questions to adress.
+        janos """We have more important questions to address.
         
-        Let's continue"""
-        return         
+        Let's continue..."""
+        call end_haven
 
+label end_haven:             
+    stop music fadeout 1.0
     hide screen dynamic_stats
     scene black
     with fade

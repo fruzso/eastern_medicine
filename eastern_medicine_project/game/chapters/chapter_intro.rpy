@@ -3,7 +3,7 @@ label intro:
     scene black
     with fade
 
-    play music background_music_rakpart volume 0.3 loop
+    play music background_music_rakpart volume 1.0 loop
 
     centered """
     This game was created as a part of Vampire: The Masquerade game jam. 

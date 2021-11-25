@@ -1,5 +1,5 @@
 label run:
-    play music background_music_run_and_fight volume 0.5 loop
+    play music background_music_run_and_bossfight volume 0.5 loop
     
     centered """
     It's decided, you have to flee for your life.
@@ -87,7 +87,7 @@ label run:
 
             call fight_janos_start
         else:
-            centered "You thought yourself qucik and damn, right you were."
+            centered "You thought yourself quick and damn, right you were."
             centered """
             Within the blink of an eye, you place your hand on the door handle
             press it down. Fresh air. Just what the doctor ordered.
