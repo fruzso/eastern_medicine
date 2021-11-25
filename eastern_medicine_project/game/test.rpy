@@ -8,9 +8,15 @@ label test:
     $ pc_sheet = Almos()
     $ janos_sheet = Janos()
 
+    centered "Something"
+    jump the_end
+
     call show_dynamic_stats
 
     centered "Test scene to test testable stuff. Hi!"
+
+    $ pc_sheet.lose_health(10)
+    # call change_dynamic_stats("worse")
 
     play sound smoke_bomb
     
