@@ -139,3 +139,19 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+eastern_medicine_project/game/script.rpy.bak
+eastern_medicine_project/game/test.rpy.bak
+eastern_medicine_project/game/chapters/boss_fight.rpy.bak
+eastern_medicine_project/game/chapters/boss_run.rpy.bak
+eastern_medicine_project/game/chapters/chapter_carpark.rpy.bak
+eastern_medicine_project/game/chapters/chapter_character_selection.rpy.bak
+eastern_medicine_project/game/chapters/chapter_haven.rpy.bak
+eastern_medicine_project/game/chapters/chapter_hospital.rpy.bak
+eastern_medicine_project/game/chapters/chapter_interogation_1.rpy.bak
+eastern_medicine_project/game/chapters/chapter_interogation_2.rpy.bak
+eastern_medicine_project/game/chapters/chapter_interogation_3.rpy.bak
+eastern_medicine_project/game/chapters/chapter_interogation_4.rpy.bak
+eastern_medicine_project/game/custom_screens/dynamic_stats_widget.rpy.bak
+eastern_medicine_project/game/scripts/janos_functions.rpy.bak
+eastern_medicine_project-1.0-dists/eastern_medicine_project-1.0-mac.zip
+eastern_medicine_project-1.0-dists/eastern_medicine_project-1.0-pc.zip
