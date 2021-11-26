@@ -21,13 +21,11 @@ label interogation_3:
     hide pc
 
     show janos idle at right
-    janos """
-    Me'thought the question was fairly obvious.
+    janos """Me'thought the question was fairly obvious.
 
-    Considering all the facts. I should have risen self evidently,
+    Considering all the facts. It should have risen self evidently,
 
-    for the trained eye of the observer.
-    """
+    for the trained eye of the observer."""
     hide janos
 
     show pc idle at right
@@ -140,8 +138,9 @@ label interogation_3:
     
     distributed accross town at medical facilities of suspected activities.
     
-    Ultimate with the quite decernable goal of locating the motions and geolcoations of said isotopes.
-    """
+    Ultimately, with the quite decernable goal of locating the motions and geolcoations of said isotopes
+
+    and if it wasn't obvious those dear kindred who have consumed said isotopes."""
     hide janos
 
     show pc idle at right
@@ -154,8 +153,7 @@ label interogation_3:
     
     But essentially, yes. They are back on.
 
-    So it happens that somebody has been aiding their distribution endevour.
-    """
+    So it happens that somebody has been aiding their distribution endevour."""
     hide janos
 
 

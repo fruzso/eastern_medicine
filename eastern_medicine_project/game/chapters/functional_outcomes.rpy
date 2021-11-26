@@ -43,7 +43,20 @@ label willpower_defeat:
     scene black
     with fade
 
-    centered "You lost all your willpower."
+    show pc idle at center
+    centered """You weekened to the ground. 
+
+    Anyome aroudn might think it is a sign of weekness,
+
+    but inside you that it is the strength of the beast that makes your undying heart beat.
+
+    Yet, you cannot control it anymroe.
+
+    Knowing that there is no comming back from here you over to him
+
+    having finally lost your to hold it at bay."""
+    hide pc
+    with Dissolve(1.0)
 
     jump the_end
 
@@ -52,7 +65,16 @@ label health_defeat:
     scene black
     with fade
 
-    centered "You lost all your health."
+    show pc idle at center
+    centered """This was the last blow.
+
+    Yes, at times, when well fed you can stitch back together wounded and demorphed flesh.
+
+    Not any more.
+    
+    Not that it matters, when your molecules are dissintegrating with the first gust of wind."""
+    hide pc
+    with Dissolve(1.0)
 
     jump the_end
 
@@ -61,11 +83,22 @@ label hunger_defeat:
     scene black
     with fade
 
-    centered "The beast takes over you."
+    show pc idle at center
+    centered """There is a noise rattling inside your skull,
 
-    centered "There flashes of rampaging around in the room."
+    nothing can silence it evermore,
 
-    centered "And Janos' word cathes the artificial light."
+    nothign can hold it back evermore.
+
+    The smell of blood fills your nostrils.
+
+    The beast takes over you.
+    
+    There're flashes of rampaging around in the room.
+    
+    And Janos' word cathes the artificial light."""
+    hide pc
+    with Dissolve(1.0)
 
     jump the_end
 
@@ -75,9 +108,20 @@ label vioient_defeat:
     scene background_video_black_wheel_empty
     with Dissolve(3.0)
 
-    centered "Janos grabs you swiftly"
-    centered "His motions are too quick even for your eyes to follow"
-    centered "And the molecules of your body only bound together by the Dark Fathers curse perpetuated through the ages begin to give."
+    show janos idle at center
+    centered """You have made a fatal mistake. 
+
+    Not sure where, though.
+
+    Maybe it was somethign you sait. Maybe something you didnt.
+
+    But is does not matter anymore.
+    
+    Janos grabbed you swiftly, with motions too quick even for your eyes to follow
+
+    And the molecules of your body only bound together by the Dark Fathers curse perpetuated through the ages begin to give."""
+    hide janos
+    with Dissolve(1.0)
     
     # This ends the game.
     jump the_end

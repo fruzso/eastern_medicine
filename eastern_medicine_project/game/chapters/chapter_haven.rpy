@@ -597,10 +597,9 @@ label haven:
                 
                 Team [pc_sheet.NAME]: 1
 
-                Second Inquisition: 0
+                Team botherseom motherfuckers: 0
 
-                Fuck yeah!
-                """
+                Fuck yeah!"""
                 hide pc
 
             "Ashamed":
