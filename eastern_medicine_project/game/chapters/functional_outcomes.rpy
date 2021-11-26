@@ -44,15 +44,15 @@ label willpower_defeat:
     with fade
 
     show pc idle at center
-    centered """You weekened to the ground. 
+    centered """You fall to the ground. 
 
-    Anyome aroudn might think it is a sign of weekness,
+    Anyone around might think it is a sign of weekness,
 
     but inside you that it is the strength of the beast that makes your undying heart beat.
 
-    Yet, you cannot control it anymroe.
+    Yet, you cannot control it anymore.
 
-    Knowing that there is no comming back from here you over to him
+    Knowing that there is no comming back from here you give all control over to him,
 
     having finally lost your to hold it at bay."""
     hide pc

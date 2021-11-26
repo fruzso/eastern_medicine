@@ -6,6 +6,7 @@ label increase_janos_strikes:
 
 label check_janos_alive:
     if janos_sheet.health <= 0:
+        show pc at center
         cenetred """In one infinitessimal moment, the heat of the battle dissapears,
 
         leaving a pile of insignificant dust in the shape of Janos before you on the floor.
@@ -13,6 +14,9 @@ label check_janos_alive:
         Great.
 
         You have killed the sheriff"""
+        hide pc
+        with Dissolve(1.0)
+        
         call victory
     else:
         return
