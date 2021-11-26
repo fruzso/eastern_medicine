@@ -13,14 +13,16 @@ label character_selection:
         "Choose your character"
         "Almos":
             $ pc_sheet = Almos()
+            scene black
             call screen character_stats(pc_sheet, choosable=True)
         "Cayenne":
+            scene black
             $ pc_sheet = Cayenne()
             call screen character_stats(pc_sheet, choosable=True)
         
     label chosen:
-        scene background_video_black_wheel_empty
         hide screen character_stats
+        scene background_video_black_wheel_empty
               
         define pc = Character("[pc_sheet.NAME]") # The player character is defined, and can be reffered to as pc from hereon
         image pc idle = "[pc_sheet.NAME] idle.png"

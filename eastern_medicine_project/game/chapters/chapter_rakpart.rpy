@@ -6,8 +6,7 @@ label rakpart:
 
     show janos idle at right
 
-    janos """
-    What an ungodly hour to work for the living, and most certainly for the everlasting.
+    janos """What an ungodly hour to work for the living, and most certainly for the everlasting.
     
     or for the undying, or whatever you will call us.
 
@@ -37,17 +36,14 @@ label rakpart:
     thumping the ground with a growing determination of volume.
     """
     show janos idle at right
-    janos """
-    Can it be our gracious party host?
+    janos """Can it be our gracious party host?
 
-    or
-
-    just another kindred, whose ignorance puts them to the screws.
+    or just another kindred, whose ignorance puts them to the screws.
 
     Wouldn't be the first of its kind.
 
-    Certainly not the last.
-    """
+    Certainly not the last."""
+
     stop sound fadeout 1.0
     hide janos
     scene black

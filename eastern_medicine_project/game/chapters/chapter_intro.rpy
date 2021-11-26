@@ -12,6 +12,7 @@ label intro:
 
     centered """
     This game is a work of fiction. Any resemblences to reallife person, events, institutions, etc. is coincidence.
+    It contains course langauge and violent sounds.
     """
 
     centered "Sajtosstangli presents"

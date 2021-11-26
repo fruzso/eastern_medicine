@@ -185,19 +185,16 @@ label hospital:
         hide janos
 
         centered "Burn."
-        $ pc_sheet.lose_willpower(1)
-        call change_dynamic_stats("worse")
+        call increase_janos_strikes
 
         show janos idle at right
-        janos """
-        So much effort without success.
+        janos """So much effort without success.
 
         I wonder why.
 
         Maybe you were visiting someone on a regular basis.
 
-        But who?
-        """
+        But who?"""
         hide janos
 
         jump blood_selling_1
@@ -292,7 +289,7 @@ label hospital:
         hide janos
             
         show pc idle at right
-        pc "It was Cecilia."
+        pc "It was Cecilia Kormoran."
         hide pc
 
         jump cecilia_1
@@ -476,8 +473,7 @@ label hospital:
                     
                     You lean back with the pleasurable smile of achievement.
 
-                    You're happy you could keep Emilio out of this.
-                    """ 
+                    You're happy you could keep Emilio out of this.""" 
 
                 else:
                     centered """It is begining to be difficult to keep track of what's what and all the lies.
@@ -503,6 +499,7 @@ label hospital:
                     janos "Emilio."
                     hide janos
 
+                    call increase_janos_strikes
                     $ story_mention_emilio = True
 
                     centered "No use to hide it anymore."

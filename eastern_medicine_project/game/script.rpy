@@ -100,7 +100,7 @@ label variables:
 
     # Janos
     $ janos_strikes = 0
-    $ janos_strikes_limit = 4
+    $ janos_strikes_limit = 3
     $ janos_sheet = Janos()
 
     # Story events:

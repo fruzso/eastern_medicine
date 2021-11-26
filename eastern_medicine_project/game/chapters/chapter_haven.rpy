@@ -424,14 +424,15 @@ label haven:
         if roll_pc.is_success:
             centered """It's nothing much, but it will do.
             
-            You spot a man approaching.
-            
-            Quickly grab his leg and tear him to the ground."""
+            You spot a man approaching."""
 
+            show agent idle at left
             $ story_remaining_si -= 1
-
             play sound smash_and_grunt
-        
+
+            centered """Quickly grab his leg and tear him to the ground."""
+
+            hide agent        
         else:
             centered """It's not good for shit.
 
