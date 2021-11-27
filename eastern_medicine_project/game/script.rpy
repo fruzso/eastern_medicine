@@ -18,6 +18,9 @@ define audio.background_music_run_and_bossfight = "music/background_run_and_boss
 define audio.background_music_victory = "music/background_music_victory.mp3"
 define audio.nostalgia = "music/nostalgia.mp3"
 
+define audio.background_noise_hospital = "music/background_hospital_noises.mp3"
+define audio.background_noise_carpark = "music/background_carpark_noises.mp3"
+
 define audio.beast_roar = "sounds/beast_roar.mp3"
 define audio.death_scream_1 = "sounds/death_scream_1.mp3"
 define audio.death_scream_2 = "sounds/death_scream_2.mp3"

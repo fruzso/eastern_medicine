@@ -1,6 +1,7 @@
 init python:
+    renpy.music.register_channel("noise_hospital", "music", True)
     renpy.music.register_channel("music_nostalgia", "music", True)
-    
+
 label hospital:
     # A memmory of the Hospital
     # PLOTPOINTS: We learn about the stolen blood and the PC's relation to Cecila
@@ -8,6 +9,7 @@ label hospital:
     with fade 
     
     play music background_music_hospital volume 1.0 loop
+    play noise_hospital background_noise_hospital fadein 1.0 volume 0.5 loop
 
     scene backgorund_video_hospital
     with Dissolve(2.0)
@@ -87,13 +89,7 @@ label hospital:
         """
         hide janos
 
-        show pc idle at right
-        pc "I was visiting someone."
-        hide pc
-
-        show janos idle at right
-        janos "Who?"
-        hide janos
+        blood_selling_1
         
     label lie_about_the_hospital:
         $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
@@ -118,22 +114,115 @@ label hospital:
 
         I like to visit places where people are in their purest form and hide less from all the bullshit of the world.
 
-        There is a morbid tranquility to them, especially in the form of some of the staff.        
+        There is a morbid tranquility to them.  
         """
         hide pc
 
+        show janos idle at right
+        """
+        Curious.
+        """
+        hide janos 
+
         centered """
-        Shit.
+        The Nosferatu suddenly stops talking.
+
+        He is looking at you. Silently. 
         
-        It started so well.
+        Not saying a word. 
+
+        Heavy seconds pass. 
+
+        You know you lied. 
+
+        It's like he can see inside your mind.
+
+        Although at this point you have no idea if he actually does so.
+
+        He must have learnt this technique back in the party-loyal secret police. 
         """
 
-        show janos idle at right
-        janos "So it was not only the tranquiltiy of hopsitals that drew you in?"
-        hide janos
+        menu optional_name:
+            "Do you do something?"
+            "Try to hold onto your lie {image:dice}":
+                $ roll_pc = Roll(pc_sheet.willpower, n_hunger_dice=0, difficulty=4)
+                $ roll_pc.roll()
 
-        jump blood_selling_1
-           
+                if roll_pc.is_success:
+                    centered "You keep the eyecontact for 10 seconds more when he finally starts talking."
+
+                    show janos idle at right
+                    janos """
+                    Interesting. 
+
+                    Interesting how it all makes sense, yet my notes says otherwise. 
+
+                    I'm givig you a last chance to tell me more details. 
+                    """
+                    hide janos
+
+                    centered """
+                    You suddenly realize - you have no way of knowing what pieces of information he has on your case.
+                    """
+
+                    if story_pc_guilty:
+                        centered """
+                        Maybe coming clean would lower his suspicion. Afterall, you could have sold the blood cluelessly.
+                        """
+                    else:
+                        centered """
+                        Maybe it's not worth toying with truth and lie here. Afterall, you didn't do anything wrong.
+                        """
+                    
+                    jump blood_selling_1
+
+                else:
+                    centered """
+                    You try to keep up the confident act. 
+
+                    But you're too intimidated. 
+                    """
+                    show pc idle at right
+                    pc "It's the... You know, it's... It's like..."
+                    hide pc
+
+                    centered """
+                    He hold his notebook up. 
+                    
+                    Afterall you know that you have no way of knowing what information he has. 
+
+                    It's not worth it.
+                    """
+
+                    show pc idle at right
+                    pc "Alright, alright. No need to use your bloody torturing techniques."
+                    hide pc
+
+                    call increase_janos_strikes
+
+                    show janos idle at right
+                    janos "Unfortunately this would be strike number {janos_strikes}. When will you learn?"
+                    hide Janos
+                    
+                    jump blood_selling_1
+
+            "Tell the truth":
+                show pc idle at right
+                pc "Alright, alright. No need to use your bloody torturing techniques."
+                hide pc
+
+                show janos idle at right
+                janos """
+                Don't be ridiculous. I have not put in any torturing efforts yet.
+
+                But if I were you I would be careful.
+                """
+                hide janos
+
+                centered "He holds his notebook up indicating that you can never know what he has in there."
+
+                jump blood_selling_1
+
     label failed_hospital_lie:
         centered "You try to act confidently, but you it's hard to lie to your own sheriff."
 
@@ -190,7 +279,9 @@ label hospital:
         show janos idle at right
         janos """So much effort without success.
 
-        I wonder why.
+        I wonder why. 
+
+        I can't even take this one seriously.
 
         Maybe you were visiting someone on a regular basis.
 
@@ -203,8 +294,6 @@ label hospital:
         if not pc_sheet.CLAN == "Malkavian":
             show pc idle at right
             pc """
-            You caught me.
-
             I have a little something going on, on the side.
 
             There are certain kindred who are willing to pay top-money for the right vitae.
@@ -296,7 +385,7 @@ label hospital:
     
     label cecilia_1:
         
-        play music_nostalgia nostalgia volume 0.2 loop
+        play music_nostalgia nostalgia volume 1.0 loop
 
         centered """
         Even now, under these circumstances you remember Cecilia fondly.
