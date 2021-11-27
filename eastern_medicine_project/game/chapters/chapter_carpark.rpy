@@ -1,3 +1,6 @@
+init python:
+    renpy.music.register_channel("noise_carpark", "music", True)
+
 label carpark:
     # A memory of the Carpark
     # PLOTPOINTS: the mentors letter
@@ -6,6 +9,7 @@ label carpark:
     with fade
 
     play music background_music_carpark fadein 1.0 volume 1.0 loop
+    play noise_carpark background_noise_carpark fadein 1.0 volume 0.5 loop
     
     show pc idle at right
     pc """ I needed a place to stay where they couldn't find me.
@@ -541,6 +545,9 @@ label carpark_minigame:
     hide pc
 
     hide screen dynamic_stats
+
+    stop music fadeout 1.0
+    stop noise_carpark fadeout 1.0
     scene black
     with fade
     return

@@ -602,6 +602,7 @@ label hospital:
         hide janos
                 
     stop music fadeout 1.0
+    stop noise_hospital fadeout 1.0
     hide screen dynamic_stats
     scene black
     with fade
