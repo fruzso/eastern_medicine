@@ -71,6 +71,7 @@ init python:
 
             # Other
             self.BLOOD_POTENCY = 1 # actual dicepool for rouse check
+            self.MAX_WILLPOWER = self.COMPOSURE + self.RESOLVE
 
         def lose_health(self, damage):
             self.health -= damage
@@ -82,7 +83,10 @@ init python:
             self.willpower -= willpower_lost
         
         def gain_willpower(self, willpower_gained):
-            self.willpower += willpower_gained
+            if (self.willpower + willpower_gained) > self.MAX_WILLPOWER:
+                self.willpower = self.MAX_WILLPOWER
+            else:
+                self.willpower += willpower_gained
 
         def get_hungry(self, plus_hunger_points):
             self.hunger += plus_hunger_points

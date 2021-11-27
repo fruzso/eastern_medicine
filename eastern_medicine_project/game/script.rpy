@@ -103,19 +103,20 @@ label variables:
 
     # Janos
     $ janos_strikes = 0
-    $ janos_strikes_limit = 3
+    $ janos_strikes_limit = 4
     $ janos_sheet = Janos()
+    $ janos_suspicion_score = 0
 
     # Story events:
     # False by default and only switched if chosen
-    $ story_mention_emilio = False
-    $ story_seated = False # Whether the pc took to the chair
-    $ story_pc_guilty = False # Weather you think if yu are guilty
+    $ story_mention_emilio = False # To be able to act upon when Emilio comes up for the first time
+    $ story_seated = False # Whether the pc sat down to the chair
+    $ story_pc_guilty = False # Weather you think you are guilty
     $ story_janos_condemns = True # Weather Janos thinks you are guilty
     $ story_violent_arrival = False # Did the si agenets wake up the pc
     $ story_si_vision = False # pc vision of the si agents
     $ story_weapon = "Nothing"
-    $ story_remaining_si = 5
+    $ story_remaining_si = 5 # Second Inquisition agent in the Haven scene
 
     return
 
