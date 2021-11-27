@@ -378,6 +378,8 @@ screen navigation():
 
         textbutton _("About") action ShowMenu("about")
 
+        textbutton _("Credits") action ShowMenu("credits")
+
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
@@ -620,6 +622,47 @@ screen about():
                 text "[gui.about!t]\n"
 
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+
+
+style about_label is gui_label
+style about_label_text is gui_label_text
+style about_text is gui_text
+
+style about_label_text:
+    size gui.label_text_size
+
+
+## Credits screen ################################################################
+##
+## This screen gives credit and copyright information about the game and Ren'Py.
+
+screen credits():
+
+    tag menu
+
+    ## This use statement includes the game_menu screen inside this one. The
+    ## vbox child is then included inside the viewport inside the game_menu
+    ## screen.
+    use game_menu(_("About"), scroll="viewport"):
+
+        style_prefix "about"
+
+        vbox:
+
+            text _("CREDITS\n\n")
+
+            text _("This game was created for the November, 2021 World of Darkness, Vampire Game jam\n")
+            text _("CREATORS\n")
+            text _("Bence Levente Bodó: visual art, story, coding")
+            text _("Fruzsina Zsólyomi: sound design, story, coding\n")
+
+            text _("Special thanks to our friends who helped with testing: Tamás Renicke, Bence Szenderák\n")
+
+            text _("The codebase is available as a public GitHub repository: {a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n")
+            text _("SOURCES\n")
+            text _("The base of some visual were obtained from ... under a ... licence")
+            text _("Sound effects were obtained from {a=https://freesound.org/}https://freesound.org/{/a}")
+            text _("Backrgound music loops were obtained from {a=https:/https://www.looperman.com//}https://www.looperman.com/{/a}")
 
 
 style about_label is gui_label

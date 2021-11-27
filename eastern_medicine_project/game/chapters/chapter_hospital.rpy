@@ -89,7 +89,7 @@ label hospital:
         """
         hide janos
 
-        blood_selling_1
+        jump blood_selling_1
         
     label lie_about_the_hospital:
         $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)

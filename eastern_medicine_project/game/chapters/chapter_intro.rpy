@@ -6,7 +6,7 @@ label intro:
     play music background_music_rakpart volume 1.0 loop
 
     centered """
-    This game was created as a part of Vampire: The Masquerade game jam. 
+    This game was created as a part of Vampire: The Masquerade game jam, November, 2021. 
     Events portrayed in this game are not canon within World of Darkness universe
     """
 
