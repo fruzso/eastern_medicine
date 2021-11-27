@@ -425,13 +425,14 @@ screen main_menu():
     ## contents of the main menu are in the navigation screen.
     use navigation
 
-    if gui.show_name:
+    if gui.show_name: # currently disabled
 
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            # text "[config.name!t]":
+            #     style "main_menu_title"
+            # Commented out, because the title is integrated into the background video
 
             text "[config.version]":
                 style "main_menu_version"
@@ -450,10 +451,10 @@ style main_menu_frame:
     # background "gui/overlay/main_menu.png" # Custom edition
 
 style main_menu_vbox:
-    xalign 0.9
+    xalign 0.95
     xoffset -30
     xmaximum 1200
-    yalign 0.9
+    yalign 0.95
     yoffset -30
 
 style main_menu_text:
