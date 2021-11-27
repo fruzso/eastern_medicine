@@ -15,7 +15,9 @@ label carpark:
     hide pc
 
     centered """
-    You remember the carpark distinctly. It was a little more than 4 blocks away.
+    You remember the carpark distinctly. 
+    
+    It was a little more than 4 blocks away.
     """
 
     scene background_video_carpark
@@ -24,7 +26,7 @@ label carpark:
     call show_dynamic_stats
 
     menu:
-        "Do you tell him about the carpark, too?"
+        "Do you tell him about the carpark?"
 
         "Tell the truth":
             show pc idle at right
@@ -46,11 +48,11 @@ label carpark:
             hide pc
 
             show janos idle at right
-            janos "And what did this memory of Emilio do, if I may ask?"
+            janos "And what did this memory of Emilio do, may I ask?"
             hide janos
 
             show pc idle at right
-            pc "I remembered him slipping an envelope into my pocket back in the hospital, whispering: Hide it. Now."
+            pc "I remembered him slipping an envelope into my pocket back in the hospital, quickly whispering: Hide it. Now."
             hide pc
             
             show janos idle at right
@@ -64,9 +66,11 @@ label carpark:
 
                 Hmm...
 
-                I am uncertain as to wheather you have realized this little slip of the tounge.
+                I am uncertain as to wheather you have realized this little slip of the tounge
 
-                Tsk, tsk, tsk, failing to mention a meeting with a fellow kindred during interogation.
+                or rather, inconsistency. 
+
+                Tsk, tsk, tsk, failing to mention a meeting with a fellow kindred during interrogation.
 
                 Strike number [janos_strikes].
                 """
@@ -340,7 +344,7 @@ label carpark_minigame:
                 
 
     pc """
-    There was an address on the other side of the envelope.
+    There was an address in the envelope, written on a torn piece of paper.
 
     And inside there was a letter. 
 
@@ -364,7 +368,7 @@ label carpark_minigame:
 
     show pc idle at right
     pc """
-    An address.
+    First of all, an address.
 
     I realized this is not a coincidence, so I went there as fast as I could.
 
