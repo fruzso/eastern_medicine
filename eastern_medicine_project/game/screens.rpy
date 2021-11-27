@@ -287,6 +287,7 @@ style choice_button is default:
 
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
+    ypos 8    
 
 
 ## Quick Menu screen ###########################################################

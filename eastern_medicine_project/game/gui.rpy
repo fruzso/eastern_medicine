@@ -33,7 +33,7 @@ define gui.idle_color = u'#888888'
 define gui.idle_small_color = u'#aaaaaa'
 
 ## The color that is used for buttons and bars that are hovered.
-define gui.hover_color = u'#66a3e0'
+define gui.hover_color = u'#264e60'
 
 ## The color used for a text button when it is selected but not focused. A
 ## button is selected if it is the current screen or preference value.

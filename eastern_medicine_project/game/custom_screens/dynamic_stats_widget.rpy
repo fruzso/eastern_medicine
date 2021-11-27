@@ -12,7 +12,7 @@ screen dynamic_stats(character_name, character_clan, health_value, hunger_value,
                 action Show("character_stats", sheet=pc_sheet, choosable=False)
                 text_size 14
                 text_color "#FFFFFF"
-                text_hover_color "#3230bb"
+                text_hover_color "#264e60"
             
         vbox: 
             text "[willpower_value]" size 14
