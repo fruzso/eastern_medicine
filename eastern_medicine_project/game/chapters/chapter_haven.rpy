@@ -531,7 +531,7 @@ label haven:
 
         return
 
-        show pc ide at right
+        show pc idle at right
         if roll_pc.is_success and story_weapon == "Uzi": # Still using the last roll.
             centered "Noone can dodge 20 bullets per magazine when lunched from the back of their necks"
             $ story_remaining_si -= 3
