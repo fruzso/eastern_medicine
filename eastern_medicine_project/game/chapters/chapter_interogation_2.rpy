@@ -14,8 +14,7 @@ label interogation_2:
 
     show janos idle at right
     with Dissolve(1.0)
-    janos """
-    So, the big one.
+    janos """So, the big one.
     
     What do you remember of August 21?
 

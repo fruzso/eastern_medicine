@@ -1,4 +1,5 @@
 screen dynamic_stats(character_name, character_clan, health_value, hunger_value, willpower_value):
+    
     # Paintbrush background
     add "gui/dynamic_stats/meter_widget_[character_name].png" pos (0, 0) xysize (410, 195)
 
@@ -23,28 +24,29 @@ screen dynamic_stats(character_name, character_clan, health_value, hunger_value,
 
     frame xpos 80 ypos 140:
         background None
-        textbutton "HEAL":
-            action Call("heal")
-            text_size 15
-            text_color "#FFFFFF"
-            text_hover_color "#264e60"
-        textbutton "STATS":
-            action Show("character_stats", sheet=pc_sheet, choosable=False)
-            text_size 15
-            text_color "#FFFFFF"
-            text_hover_color "#264e60"
+        hbox:
+            textbutton "HEAL":
+                action Call("heal")
+                text_size 15
+                text_color "#FFFFFF"
+                text_hover_color "#264e60"
+            textbutton "STATS":
+                action Show("character_stats", sheet=pc_sheet, choosable=False)
+                text_size 15
+                text_color "#FFFFFF"
+                text_hover_color "#264e60"
+
 
 label heal:
     # Increase health at the cost of doing a rouse check
-    # Rousecheck
-    if pc_sheet.rouse_check():
-        $ pc_sheet.heal(1)
-        call change_dynamic_stats("better") 
-    else:
-        $ pc_sheet.heal(1)
-        call change_dynamic_stats("worse")
+    # if pc_sheet.health < pc_sheet.MAX_HEALTH:
+    $ pc_sheet.heal(1)
+    call change_dynamic_stats("better")
+
+    # if not pc_sheet.rouse_check():
+    #     action Call(change_dynamic_stats, direction="worse")
+    return 
     
-    return
     
 label show_dynamic_stats:
     show screen dynamic_stats(character_name=pc_sheet.NAME, character_clan=pc_sheet.CLAN, health_value=pc_sheet.health, hunger_value=pc_sheet.hunger, willpower_value=pc_sheet.willpower)

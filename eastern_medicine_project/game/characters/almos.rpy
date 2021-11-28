@@ -72,13 +72,13 @@ init python:
             # Other
             self.BLOOD_POTENCY = 1 # actual dicepool for rouse check
             self.MAX_WILLPOWER = self.COMPOSURE + self.RESOLVE
+            self.MAX_HEALTH = self.STAMINA + 3 + self.FORTITUDE
         
         def lose_health(self, damage):
             self.health -= damage
         
         def heal(self, health_points_gained):
-            if (self.STAMINA + 3 >= self.health):
-                self.health += health_points_gained
+            self.health += health_points_gained
 
         def lose_willpower(self, willpower_lost):
             self.willpower -= willpower_lost
