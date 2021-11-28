@@ -24,7 +24,7 @@ label pc_hits_1:
     $ roll_pc.roll()
 
     if roll_pc.is_success:
-        centered """Your muscles cleverly obey your command as courses through your nervous system,
+        centered """Your muscles cleverly obey your command as it courses through your nervous system,
         
         manifests in powerful blow
         
@@ -54,24 +54,30 @@ label dementation:
 
     if roll_pc.is_success:
         show pc idle at right
-        pc """Quite a sheriff you are. Ventured as far as the basement of the most famous building in the city.
+        pc """Quite a sheriff you are. 
+        
+        Ventured as far as the basement of the most famous building in the city.
 
         You didn't know what you will find.
 
-        I guess you already presented to the prince that you know ALL about what happend.
+        I guess you have already presented to the prince
+        
+        that you know {i}aaaaaall{/i} about what's happend.
 
         And now, having listened to my account, you haven't got the foggiest."""
         hide pc
 
-        centered "You see rage building up in the nosferatu."
+        centered "You see rage building up in the Nosferatu."
 
-        centered "You are hitting the right spots, just need to apply a bit mor epressure."
+        centered "You are hitting the right spots, just need to apply a bit more pressure."
 
         show pc idle at right
         pc """
-        Trapped in a time you don't really understand. With a language most jsut despise.
+        Trapped in a time you don't really understand. With a language most just despise.
 
-        Serving as the tzimische's lapdog. And nothing more.
+        Serving as the Tzimische's lapdog.
+        
+        And nothing more.
         """
         hide pc
 
@@ -97,8 +103,12 @@ label dementation:
         centered "He cuts you off mid-sentence."
 
         show janos idle at right
-        janos "I am not gonna stand here and listen to your demented mind."
+        janos "I am not going to stand here and listen to your demented mind."
         hide janos
+
+        centered """There is no way out of this
+        
+        but to fight."""
 
         return
 
