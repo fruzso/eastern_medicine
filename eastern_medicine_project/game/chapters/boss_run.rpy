@@ -42,7 +42,7 @@ label run_obfuscate:
     $ roll_pc.roll()
 
     if not roll_pc.is_success:
-        centered "You begin to fade in front of Janos' eyes, but the nosferatu cannot be fooled."
+        centered "You begin to fade in front of Janos' eyes, but the Nosferatu cannot be fooled."
         call janos_hits_1
 
     else:
@@ -58,14 +58,14 @@ label run_obfuscate:
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.OBFUSCATE, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
             $ roll_pc.roll()
 
-            centered "You sense that he is looking for you with the dark powers of sight."
+            centered "You sense that he is looking for you with the dark powers of sight. {image=dice}"
 
             if roll_pc.is_success:
                 centered "But it is to no point. He cannot find you."
                 centered "You escape through the door."
                 call victory
             else:
-                centered "Shit. He's got you"
+                centered "Shit. He's got you!"
                 call janos_hits_1
 
 label run_celerity:

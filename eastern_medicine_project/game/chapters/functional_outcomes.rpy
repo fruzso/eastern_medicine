@@ -56,7 +56,7 @@ label willpower_defeat:
 
     having finally lost your to hold it at bay."""
     hide pc
-    with Dissolve(1.0)
+    with Dissolve(3.0)
 
     jump the_end
 
@@ -71,11 +71,11 @@ label health_defeat:
 
     Yes, at times, when well fed you can stitch back together wounded and demorphed flesh.
 
-    Not any more.
+    Not anymore.
     
-    Not that it matters, when your molecules are dissintegrating with the first gust of wind."""
+    Not that it matters, when your molecules are disintegrating with the first gust of wind."""
     hide pc
-    with Dissolve(1.0)
+    with Dissolve(3.0)
 
     jump the_end
 
@@ -99,30 +99,32 @@ label hunger_defeat:
     
     And Janos' word cathes the artificial light."""
     hide pc
-    with Dissolve(1.0)
+    with Dissolve(3.0)
 
     jump the_end
 
-label vioient_defeat:
+label violent_defeat:
     # Game over
 
     scene background_video_black_wheel_empty
-    with Dissolve(3.0)
+    with Dissolve(1.0)
 
     show janos idle at center
     centered """You have made a fatal mistake. 
 
     Not sure where, though.
 
-    Maybe it was somethign you sait. Maybe something you didnt.
+    Maybe it was something you said. Maybe something you didn't.
 
     But is does not matter anymore.
     
-    Janos grabbed you swiftly, with motions too quick even for your eyes to follow
+    Janos grabs you swiftly, with motions too quick even for your eyes to follow.
 
-    And the molecules of your body only bound together by the Dark Fathers curse perpetuated through the ages begin to give."""
+    Consequently, the molecules of your body only bound together by the Dark Father's curse,
+    
+    perpetuated through the ages begin to give."""
     hide janos
-    with Dissolve(1.0)
+    with Dissolve(3.0)
     
     # This ends the game.
     jump the_end

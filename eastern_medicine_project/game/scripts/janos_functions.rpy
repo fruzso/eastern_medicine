@@ -12,7 +12,7 @@ label increase_janos_strikes:
 label check_janos_alive:
     if janos_sheet.health <= 0:
         show pc at center
-        centered """In one infinitessimal moment, the heat of the battle dissapears,
+        centered """In one infinitesimal moment, the heat of the battle disappears,
 
         leaving a pile of insignificant dust in the shape of Janos before you on the floor.
 

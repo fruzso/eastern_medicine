@@ -158,9 +158,13 @@ label carpark:
                             "What do you do?"
 
                             "Try and escape this filthy depressing basement":
+                                stop music fadeout 1.0
+                                stop noise_carpark fadeout 1.0
                                 jump run
 
                             "Attack Janos":
+                                stop music fadeout 1.0
+                                stop noise_carpark fadeout 1.0
                                 jump fight_pc_start
                 
             else:

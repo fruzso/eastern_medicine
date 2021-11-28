@@ -1,4 +1,6 @@
 label the_end:
+    show background_video_rakpart
+    with Dissolve(1.0)
     centered """CREDITS:
         
     This game was created for the November, 2021 Vampire: the Masquerade Game jam

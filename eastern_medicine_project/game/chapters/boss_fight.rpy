@@ -1,6 +1,7 @@
 label fight_pc_start:  
-    #play music background_music_run_and_fight volume 0.5 loop
-    $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
+    # Outside pc started fights come here
+    # play music background_music_run_and_fight volume 0.5 loop
+    $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=1.0, loop=True, if_changed=True)
 
     menu:
         "He might not think I have the audacity to strike an annointed sheriff."
@@ -103,7 +104,7 @@ label dementation:
 
 label janos_hits_1:
     #play music background_music_run_and_fight volume 0.5 loop
-    $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
+    $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=1.0, loop=True, if_changed=True)
 
     show janos idle at center
     centered """With incredible speed Janos launches forward,
@@ -140,7 +141,7 @@ label janos_hits_1:
         call check_janos_alive
 
     else:
-        centered """He is definately quicker.
+        centered """He is definitely quicker.
 
         No question about it.
 
@@ -166,7 +167,7 @@ label fight_interlude_1:
     menu:
         "Yield":
             show pc idle at right
-            pc """Stooop. 
+            pc """Stooop! 
             
             You are right, I cannot hope to achieve anything here."""
             hide pc
@@ -174,14 +175,14 @@ label fight_interlude_1:
             show janos idle at right
             janos "I am glad you chose to see reason.
             
-            Till will be better for all parties concerned."
+            This will be better for all parties concerned."
             hide janos
 
             centered """He steps closer
             
             and within the blink of an eye his fangs dig deep into your neck."""
 
-            call vioient_defeat
+            call violent_defeat
 
         "Fight on":
             centered "You choose to fight on."
@@ -192,7 +193,7 @@ label fight_interlude_1:
             $ roll_pc.roll()
 
             if roll_pc.is_success:
-                centered """Your muscles tense up as you try to tear trough his body"""
+                centered """Your muscles tense up as you try to tear through his body."""
 
                 $ janos_sheet.lose_health(roll_pc.margin_of_success)
                 call check_janos_alive
@@ -212,14 +213,14 @@ label fight_interlude_1:
 
 label closure:
     if pc_sheet.health > janos_sheet.health:
-        centered """For all his effort you have clever and tactical rely.
+        centered """Against all his efforts you have a clever and tactical reply.
         
         He may be stronger and older, but his hubris blinds him.
         
-        And you are always there to seize the opportunities however small they be.
+        And you are always there to seize the opportunities, however small they be.
         """
         # PC wins
-        $ janos_sheet.lose_health(janos_sheet.health)
+        $ janos_sheet.lose_health(janos_sheet.health) # Janos loses as his remaining health
         call check_janos_alive # calls victory always
 
     else:
@@ -232,4 +233,4 @@ label closure:
         A fatal one.
         """
         # Janos wins
-        call vioient_defeat 
+        call violent_defeat 
