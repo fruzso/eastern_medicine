@@ -336,7 +336,7 @@ label haven:
         janos "My my, we are keeping up to date with technology."
 
         if pc_sheet.CLAN == "Toreador":
-            janos "To be expected with your clan, tough."
+            janos "It's to be expected with your clan, tough."
         hide janos
 
         $ story_remaining_si -= 2
@@ -351,9 +351,9 @@ label haven:
 
         play sound wall_breaking
         
-        pc "Did not need more than gentle push, and there I was saying hi to a nice downtown family."
+        pc "Did not need more than a gentle push, and there I was saying hi to a nice downtown family next door."
 
-        pc "I got behind the bastards back."
+        pc "I got behind the bastards' back."
 
         play sound machine_gun_single
         queue sound death_scream_2
@@ -569,17 +569,16 @@ label haven:
 
     label haven_shoot_em_up:
         call haven_reveal_the_room
-
-        centered "Quickly daashing around the room you spray them with all the bullets God created and more."
+        play sound gunfight
+        
+        centered "Quickly dashing around the room you spray them with all the bullets God created and more."
         
         # Roll Shoot
         $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.FIREARMS, pc_sheet.hunger, difficulty=3)
         $ roll_pc.roll()
 
         if roll_pc.margin_of_success <= 0:
-            
-            play sound gunfight
-
+    
             centered """
             Who are we kidding, you are no trained marksman.
             
@@ -588,7 +587,7 @@ label haven:
             They, on the other hand, know how to handle a gun.
             """
 
-            $ pc_sheet.lose_health(4)
+            $ pc_sheet.lose_health(story_remaining_si)
             call change_dynamic_stats("worse")
 
         elif roll_pc.margin_of_success == 1:
@@ -607,9 +606,9 @@ label haven:
             $ story_remaining_si -= roll_pc.margin_of_success
             
             play sound machine_gun_single
+            queue sound death_scream_2
             queue sound machine_gun_single
-            queue sound machine_gun_single
-            
+       
             centered "[roll_pc.margin_of_success] agents fall to the ground almost simultanously."
             play sound death_scream_3
             
@@ -665,7 +664,7 @@ label haven:
                 
                 Team [pc_sheet.NAME]: 1
 
-                Team botherseom motherfuckers: 0
+                Team bothersome motherfuckers: 0
 
                 Fuck yeah!"""
                 hide pc
