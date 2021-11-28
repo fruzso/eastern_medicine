@@ -26,11 +26,11 @@ label interogation_3:
 
     Considering all the facts. It should have risen self evidently,
 
-    for the trained eye of the observer."""
+    at least for the trained eye of the observer."""
     hide janos
 
     show pc idle at right
-    pc "Let's jsut pretend that I don't have the 'trained eye of the observer'."
+    pc "Let's just pretend that I don't have the {i}trained eye of the observer{/i}."
     hide pc
 
     show janos idle at right
@@ -41,8 +41,30 @@ label interogation_3:
     pc "..."
     hide pc
 
+    if story_pc_guilty:
+        show janos idle at right
+        janos "How do you think the agents of the second inquisition learnt your haven's location? {image=dice}"
+        hide janos
+
+        $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERFORMANCE, n_hunger_dice=pc_sheet.hunger, difficulty=4)
+        $ roll_pc.roll()
+
+        if not roll_pc.is_success:
+            $ janos_suspicion_meter += 1
+
+    else:
+        show janos idle at right
+        janos "How did the agents of the second inquisition learn of your haven's location?"
+        hide janos
+
+    show pc idle at right
+    pc "Second inquisition???"
+    hide pc
+
     show janos idle at right
-    janos "How did the agents of the second inquisition learn of your haven's location?"
+    janos """Yes.
+    
+    Let's proceed."""
     hide janos
 
     menu how_did_they_find_the_pc:
@@ -79,7 +101,7 @@ label interogation_3:
             pc """
             That's asking me to do your job for you.
 
-            Figure it out.
+            Figure it out!
 
             How the fuck should I know?
             """
@@ -92,9 +114,9 @@ label interogation_3:
 
         "They must have followed me":
             show pc idle at right
-            pc """I am no trained observer, but since I hadn't told them they must have followed me.
+            pc """I am no {i}trained observer{/i}, but since I hadn't told them they must have followed me.
             
-            Or, and this is the truly terrifying possiblity, someone lead them there.
+            Or, and this is the truly terrifying possiblity, someone led them there.
             
             It had to have been someone who knew, where my haven was.
             """
@@ -135,11 +157,11 @@ label interogation_3:
 
     show janos idle at right
     janos """
-    The second inquisition has started to introduce radioactive isotopes to marked poritons of blood,
+    The second inquisition has started to introduce radioactive isotopes to marked portions of blood,
     
     distributed accross town at medical facilities of suspected activities.
     
-    Ultimately, with the quite decernable goal of locating the motions and geolcoations of said isotopes
+    Ultimately, with the quite discernible goal of locating the motions and geolcoations of said isotopes
 
     and if it wasn't obvious those dear kindred who have consumed said isotopes."""
     hide janos
@@ -154,7 +176,7 @@ label interogation_3:
     
     But essentially, yes. They are back on.
 
-    So it happens that somebody has been aiding their distribution endevour."""
+    So it happens that somebody has been aiding their distribution endevours."""
     hide janos
 
 
@@ -184,7 +206,7 @@ label interogation_3:
 
     show janos idle at right
     janos """
-    The crime itself is punishible beyond a shadow of a doubt.
+    The crime itself is punishible so much is certain.
     
     The only factor to assertain is
 
@@ -216,15 +238,13 @@ label interogation_3:
     As much as I could.
     
     There have been a few accidents.
-    
-    Neither has it been easy to stay - should I say alive? awake?
     """
 
     $ pc_sheet.lose_willpower(1)
     call change_dynamic_stats("worse")
 
     pc """
-    I made my way into garage of teh building, and hid under a Volkswagen.
+    I made my way into the garage of the building, and hid under a Volkswagen.
     """
     hide pc    
 
