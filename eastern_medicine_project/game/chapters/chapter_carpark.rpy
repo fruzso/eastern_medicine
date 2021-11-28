@@ -35,11 +35,9 @@ label carpark:
 
         "Tell the truth":
             show pc idle at right
-            pc """
-            Suddenly, Emilio appeared before my eyes.
+            pc """Suddenly, Emilio appeared before my eyes.
 
-            Not the real Emilio of course. 
-            """
+            Not the real Emilio of course."""
             hide pc
 
             show janos idle at right
@@ -47,9 +45,7 @@ label carpark:
             hide janos
 
             show pc idle at right
-            pc """
-            A memory. An inverse vision, if you will. 
-            """
+            pc """A memory. An inverse vision, if you will."""
             hide pc
 
             show janos idle at right
@@ -91,7 +87,7 @@ label carpark:
 
             He enjoys my complete trust and there was no space for questions, even tough he looked a bit disturbed. 
 
-            Not disturbed as tremere look when they gibber their spells. 
+            Not disturbed as the Tremere look when they gibber their spells. 
 
             Properly disturbed.    
             """
@@ -102,7 +98,9 @@ label carpark:
             """
 
             show janos idle at right
-            janos "So this Emilio, the Tremere... Again. Do not even dare to leave the seemingly most insignificant of detail out! {image=dice}"
+            janos """So this Emilio, the Tremere... Again. 
+            
+            Do not even dare to leave the seemingly most insignificant of detail out! {image=dice}"""
             hide janos
 
             $ roll_janos = Roll(janos_sheet.CHARISMA + janos_sheet.DOMINATE, janos_sheet.hunger, difficulty=0)
@@ -118,7 +116,9 @@ label carpark:
                 
                 But he must be very frustrated by now because you escape his attempt to force your mind. 
 
-                Still the effort breaks your concentration, for a moment you forget where you were in the story.
+                Still the effort breaks your concentration, 
+                
+                for a moment you forget where you were in the story.
                 """
 
                 scene black
@@ -148,7 +148,7 @@ label carpark:
                         
                         You decide not to take his aggression anymore.
                         
-                        It's tiem to stand your ground."""
+                        It's time to stand your ground."""
 
                         show pc idle at right
                         pc "That's quite enough for one night. You're gonna let me go now." 
@@ -301,31 +301,34 @@ label carpark_minigame:
 
     show pc idle at right
     pc """
-    After I went home I took out the envelope from my pocket.
+    After I went home from the hospital I took out the envelope from my pocket.
 
     -In case of emergency-
 
     is what it said.
     """
+    hide pc
 
     menu open_envelope:
         "Did you open it then?"
         "Obviously":
+            show pc idle at right
             pc "Obviously I opened it right away."
             hide pc
 
             show janos idle at right
-            janos "Would you say that you were in an emergency at that point then?"
+            janos "Would you say that you were in an emergency at that point?"
             hide janos
             
             show pc idle at right
             pc """
-            No not really. 
+            No, not really. 
             
             But I like to know my options. 
             
             You know, in case an emergency arises.
             """
+            hide pc
 
         "Tried to resist {image=dice}":
             $ roll_pc = Roll(pc_sheet.willpower, n_hunger_dice=0, difficulty=5)
@@ -340,18 +343,17 @@ label carpark_minigame:
 
                 I opened it when I left the building that night. 
                 """
+                hide pc
               
             else:
                 show pc idle at right
                 pc """
                 I was too curious to resist.
                 """
+                hide pc
                 
-
-    pc """
-    There was an address in the envelope, written on a torn piece of paper.
-
-    And inside there was a letter. 
+    show pc idle at right
+    pc """And inside there was a letter. 
 
     At first I thought it was just a friendly note.
     """
@@ -359,7 +361,7 @@ label carpark_minigame:
 
     show janos idle at right
     janos """
-    I would be happy if you refrained from telling me all the unnecessary steps you took inside that labyrinth of your damned mind.
+    I would be happy if you refrained from telling me all the unnecessary steps you took inside the labyrinth of your damned mind.
     """
     hide janos 
 
@@ -500,9 +502,9 @@ label carpark_minigame:
         "Take another look at the letter":
             call screen letter(choice="letter_choice_3")
         "Feather":
-            $ hit_count += 1
-        "Cain":
             pass
+        "Cain":
+            $ hit_count += 1
         "Protector":
             pass
 
@@ -511,7 +513,7 @@ label carpark_minigame:
         centered """
         The three words shine bright in your bloody handwriting.
         
-        The doors of the car, as if by magic flung open.
+        The doors of the car, as if by magic, fling open.
 
         It's not home, but sure as hell, it's nice to spend the remainder of the day in a light-tight wagon.
         """

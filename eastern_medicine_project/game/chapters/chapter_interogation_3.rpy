@@ -120,6 +120,7 @@ label interogation_3:
             
             It had to have been someone who knew, where my haven was.
             """
+            hide pc
             
             centered "For example and official like Janos."
 
@@ -253,6 +254,7 @@ label interogation_3:
     hide janos
 
     hide screen dynamic_stats
+    stop music fadeout 1.0
     scene black
     with fade
     return
