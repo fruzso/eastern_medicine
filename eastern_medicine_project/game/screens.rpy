@@ -661,7 +661,7 @@ screen credits():
 
             text _("The codebase is available as a public GitHub repository: {a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n")
             text _("SOURCES\n")
-            text _("The base of some visual were obtained from ... under a ... licence")
+            text _("The base of some visual were obtained from {a=https://www.pexels.com/}https://www.pexels.com/{/a} as free stopck images and heavily modified later")
             text _("Sound effects were obtained from {a=https://freesound.org/}https://freesound.org/{/a}")
             text _("Backrgound music loops were obtained from {a=https:/https://www.looperman.com//}https://www.looperman.com/{/a}")
 
