@@ -30,9 +30,9 @@ label victory:
     else:
         centered "You were innocent and you made it out."
         centered "Just as it should be."
-        centered "Who says there is no justice amond the kindred."
-        centered "Pricely, justice is the privilage of the kindred."
-        centered "You wonder tough, who the guilty party was..."
+        centered "Who says there is no justice among the kindred."
+        centered "Precisely, justice is the privilage of the kindred."
+        centered "You wonder though, who the guilty party was..."
 
     hide pc
 

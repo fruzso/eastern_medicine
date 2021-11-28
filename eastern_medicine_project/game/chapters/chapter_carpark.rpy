@@ -471,7 +471,7 @@ label carpark_minigame:
     call screen letter(choice="letter_choice_1")
     
     menu letter_choice_1:
-        "The first word"
+        "The first. I seem to remember a riddle."
 
         "Take another look at the letter":
             call screen letter(choice="letter_choice_1")
@@ -484,7 +484,7 @@ label carpark_minigame:
             jump letter_choice_2
 
     menu letter_choice_2:
-        "The second word"
+        "The second word: I don't think I've seen this exact one."
 
         "Take another look at the letter":
             call screen letter(choice="letter_choice_2")
@@ -497,7 +497,7 @@ label carpark_minigame:
             jump letter_choice_3
 
     menu letter_choice_3:
-        "The third word"
+        "The third word:"
 
         "Take another look at the letter":
             call screen letter(choice="letter_choice_3")

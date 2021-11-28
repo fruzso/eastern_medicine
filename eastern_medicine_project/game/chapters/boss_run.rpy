@@ -1,9 +1,11 @@
 label run:
-    play music background_music_run_and_bossfight volume 0.5 loop
+    play music background_music_run_and_bossfight volume 1.0 loop
     
     centered """
     It's decided, you have to flee for your life.
+
     There will be no time to appeal to the prince.
+
     It is now or never.
     """
 
@@ -11,12 +13,12 @@ label run:
         "Choose a direction!"
         "The door might be too obvious, but that's the surprise":
             centered "You get up and try to make your way to the door."
-            centered "Buy Janos grabs you quickly."
+            centered "But Janos grabs you quickly."
             call janos_hits_1
 
         "The window will do just fine":
             centered "You get up and try to make your way to the window."
-            centered "Buy Janos grabs you quickly."
+            centered "But Janos grabs you quickly."
             call janos_hits_1
 
         # Discipline choices
@@ -67,8 +69,9 @@ label run_obfuscate:
                 call janos_hits_1
 
 label run_celerity:
-        centered "It does not really matter which way you go, the question is can you get there quickly enough."
-        centered "You decide for the door."
+        centered """It does not really matter which way you go, 
+        
+        the question is can you get there quickly enough."""
 
         # Rousecheck
         if not pc_sheet.rouse_check():
@@ -87,14 +90,15 @@ label run_celerity:
 
             call janos_hits_1
         else:
-            centered "You thought yourself quick and damn, right you were."
-            centered """
-            Within the blink of an eye, you place your hand on the door handle
+            centered """You thought yourself quick and damn, right you were.
+
+            Within the blink of an eye, you place your hand on the door handle,
+
             press it down.
             
             Fresh air. Just what the doctor ordered.
-            """
-            centered "Politics you can't run out, but apperently Janos you could."
+            
+            Politics you can't run out, but apperently Janos you could."""
 
             call victory
                     

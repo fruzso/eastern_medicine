@@ -26,7 +26,7 @@ label interogation_4:
                     call bossfight_intermission_2 #
                     call bossfight_judgement #
                 "Patience is a virtue":
-                    centered "Who knows what a nosferatu's deformed features hide."
+                    centered "Who knows what a Nosferatu's deformed features hide."
                     call bossfight_intermission_2 #
                     menu:
                         "Do you try to run for it?"
@@ -50,7 +50,7 @@ label interogation_4:
                     call bossfight_intermission_2 #
                     call bossfight_judgement #
                 "Patience is a virtue":
-                    centered "Who knows what a nosferatu's deformed features hide."
+                    centered "Who knows what a Nosferatu's deformed features hide."
                     call bossfight_intermission_2 #
                     menu:
                         "Do you try to run for it?"
@@ -135,12 +135,15 @@ label bossfight_read_janos:
     $ roll_pc.roll()
 
     if roll_pc.is_success:
-        centered "He might be an ugly mother fucker, but emotions are a universal language."
+        centered "He might be an ugly motherfucker, but emotions are a universal language."
 
         centered "And you are fluent in it."
+        
+        call evaluation # no visible content, only decies the guilt of the pc
 
         if story_janos_condemns:
-            centered """Thre is an evil smile on those lips.
+            centered """There is an evil smile on those lips.
+
             They might be hanging by a thread, but they are telling a story of their own.
             
             A story that can only end poorly for you."""
@@ -152,17 +155,17 @@ label bossfight_read_janos:
 
         else:
             centered """
-            The nosferatu might be the ugliest thing you have ever seen,
+            The Nosferatu might be the ugliest thing you have ever seen,
             yet his face now gives you hope.
             """
     else:
         centered """No hope.
         
-        Who knows what a nosferatu's deformed features hide."""
+        Who knows what a Nosferatu's deformed features hide."""
     return
 
 label bossfight_intermission_2:
-    centered "The nosferatu opens his abhorent lips to pass judgement."
+    centered "The Nosferatu opens his abhorent lips to pass judgement."
     return
 
 label bossfight_judgement:
@@ -175,11 +178,7 @@ label bossfight_judgement:
     The hour is nigh, and you are:
     """
 
-    #TODO: CODE Evalute janos' judgement   
-    if janos_suspicion_meter + janos_strikes >= janos_guilt_critera:
-        $ story_janos_condemns = True
-    else:
-        $ story_janos_condemns = False
+    call evaluation
     
     if story_janos_condemns:
         janos "Guilty."
@@ -193,3 +192,10 @@ label bossfight_judgement:
         hide janos
 
         call victory # The End.
+
+label evaluation:
+    if janos_suspicion_meter + janos_strikes >= janos_guilt_critera:
+        $ story_janos_condemns = True
+    else:
+        $ story_janos_condemns = False
+    return       

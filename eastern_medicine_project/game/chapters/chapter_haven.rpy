@@ -513,9 +513,9 @@ label haven:
         $ roll_pc.roll()
 
         if not roll_pc.is_success:
-            centered "Damn, these mother fuckers probably went to braincamp or something."
+            centered "Damn, these motherfuckers probably went to braincamp or something."
         else:
-            centered """You have become truly invisible
+            centered """You have become truly invisible.
             
             Well, at least that is what their brain is telling them.
             

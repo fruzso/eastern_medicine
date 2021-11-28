@@ -122,7 +122,7 @@ label janos_hits_1:
 
         But you are quciker.
 
-        Your body flows around his in one fluid motion of easthethics.
+        Your body flows around his in one fluid motion of aesthethics.
 
         And you take pleasure in knowing he's going to hit the wall.
 

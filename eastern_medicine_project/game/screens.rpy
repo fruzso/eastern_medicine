@@ -663,7 +663,7 @@ screen credits():
             text _("CONTACT US AT:\n")
             text _("bodo.bence.levente@gmail.com and zsfruzsi@gmail.com\n")
 
-            text _("Special thanks to our friends who helped with the testing: \nBence Szenderák, Tamás Baricz, Márton Csirik, Tamás Reinicke, \n")
+            text _("Special thanks to our friends who helped with the testing: \nÁgnes Bonácz, Bence Szenderák, Márton Csirik, Tamás Baricz, Tamás Reinicke\n")
 
             text _("The codebase is available as a public GitHub repository: \n{a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n\n")
             text _("SOURCES\n")
