@@ -623,7 +623,7 @@ label hospital:
                     hide pc
 
         show janos idle at right
-        janos "Let me jsut quickly make a note of that."
+        janos "Let me just quickly make a note of that."
         hide janos
                 
     stop music fadeout 1.0

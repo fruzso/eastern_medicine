@@ -13,7 +13,7 @@ init python:
             # Attributes
             self.STRENGTH = 3
             self.DEXTERITY = 3
-            self.STAMINA = 3
+            self.STAMINA = 4
 
             self.CHARISMA = 4
             self.MANIPULATION = 3
@@ -59,7 +59,7 @@ init python:
             self.AUSPEX = 3
             self.CELERITY = 3
             self.DOMINATE = 0
-            self.FORTITUDE = 1
+            self.FORTITUDE = 0
             self.OBFUSCATE = 0
             self.PRESENCE = 3
             self.POTENCE = 0
@@ -77,7 +77,8 @@ init python:
             self.health -= damage
         
         def heal(self, health_points_gained):
-            self.health += health_points_gained
+            if (self.STAMINA + 3 >= self.health):
+                self.health += health_points_gained
 
         def lose_willpower(self, willpower_lost):
             self.willpower -= willpower_lost

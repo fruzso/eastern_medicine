@@ -657,7 +657,7 @@ screen credits():
             text _("Bence Levente Bodó: visual art, story, coding")
             text _("Fruzsina Zsólyomi: sound design, story, coding\n")
 
-            text _("Special thanks to our friends who helped with testing: Tamás Reinicke, Bence Szenderák\n")
+            text _("Special thanks to our friends who helped with testing: Bence Szenderák, Tamás Baricz, Márton Csirik, Tamás Reinicke, \n")
 
             text _("The codebase is available as a public GitHub repository: {a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n")
             text _("SOURCES\n")
