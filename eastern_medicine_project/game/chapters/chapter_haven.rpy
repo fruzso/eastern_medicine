@@ -481,7 +481,7 @@ label haven:
         return
 
         show pc ide at right
-        if pc_roll.is_success and story_weapon == "Uzi": # Still using the last roll.
+        if roll_pc.is_success and story_weapon == "Uzi": # Still using the last roll.
             centered "Noone can dodge 20 bullets per magazine when lunched from the back of their necks"
             $ story_remaining_si -= 3
             
@@ -494,7 +494,7 @@ label haven:
 
             centered "3 agents fall to the ground almost simultanously."
 
-        if pc_roll.is_success and story_weapon == "Knife":
+        if roll_pc.is_success and story_weapon == "Knife":
             centered "A kitchen knife is good enough if stand close enough to count the hairs on the backs of their necks."
             $ story_remaining_si -= 2
             play sound knife_slash
@@ -540,7 +540,7 @@ label haven:
             $ pc_sheet.lose_health(4)
             call change_dynamic_stats("worse")
 
-        elif pc_roll.margin_of_success == 1:
+        elif roll_pc.margin_of_success == 1:
             $ story_remaining_si -= 1
             
             play sound machine_gun_single
@@ -553,13 +553,13 @@ label haven:
             call change_dynamic_stats("worse")
 
         else:
-            $ story_remaining_si -= pc_roll.margin_of_success
+            $ story_remaining_si -= roll_pc.margin_of_success
             
             play sound machine_gun_single
             queue sound machine_gun_single
             queue sound machine_gun_single
             
-            centered "[pc_roll.margin_of_success] agents fall to the ground almost simultanously."
+            centered "[roll_pc.margin_of_success] agents fall to the ground almost simultanously."
             play sound death_scream_3
             
         return

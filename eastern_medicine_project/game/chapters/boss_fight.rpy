@@ -104,9 +104,12 @@ label dementation:
 label janos_hits_1:
     #play music background_music_run_and_fight volume 0.5 loop
     $ renpy.music.play(audio.background_music_run_and_bossfight, relative_volume=0.5, loop=True, if_changed=True)
+
+    show janos idle center
     centered """With incredible speed Janos launches forward,
     
     his claws, and fangs are out, and they are deadly as fuck. {image=dice}"""
+    hide janos
 
     $ roll_janos = Roll(janos_sheet.DEXTERITY + janos_sheet.BRAWL + janos_sheet.CELERITY, janos_sheet.hunger, difficulty=0)
     $ roll_janos.roll()
@@ -114,6 +117,7 @@ label janos_hits_1:
     $ roll_pc.roll()
 
     if roll_pc.is_success:
+        show pc idle at center
         centered """He is qucik
 
         But you are quciker.
@@ -126,6 +130,11 @@ label janos_hits_1:
 
         with a loud splash of supernatural tissue and vitae.
         """
+        hide pc
+
+        show janos idle at right
+        janos "You will pay for this, little miscreant!"
+        hide janos
         
         $ janos_sheet.lose_health(roll_pc.margin_of_success)
         call check_janos_alive

@@ -170,6 +170,10 @@ label bossfight_judgement:
     """
 
     #TODO: CODE Evalute janos' judgement   
+    if janos_suspicion_meter + janos_strikes >= janos_guilt_critera:
+        $ story_janos_condemns = True
+    else:
+        $ story_janos_condemns = False
     
     if story_janos_condemns:
         janos "Guilty."

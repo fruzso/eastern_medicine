@@ -106,9 +106,10 @@ label variables:
 
     # Janos
     $ janos_strikes = 0
-    $ janos_strikes_limit = 4
+    $ janos_strikes_limit = 3
     $ janos_sheet = Janos()
     $ janos_suspicion_meter = 0
+    $ janos_guilt_critera = 3
 
     # Story events:
     # False by default and only switched if chosen
@@ -119,7 +120,7 @@ label variables:
     $ story_violent_arrival = False # Did the si agenets wake up the pc
     $ story_si_vision = False # pc vision of the si agents
     $ story_weapon = "Nothing"
-    $ story_remaining_si = 5 # Second Inquisition agent in the Haven scene
+    $ story_remaining_si = 4 # Second Inquisition agent in the Haven scene
 
     return
 

@@ -391,7 +391,7 @@ label carpark_minigame:
     """
     hide pc
     
-    $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.AUSPEX, pc_sheet.hunger, difficulty=4)
+    $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.AUSPEX, pc_sheet.hunger, difficulty=3)
     $ roll_pc.roll()
 
     if roll_pc.is_success:

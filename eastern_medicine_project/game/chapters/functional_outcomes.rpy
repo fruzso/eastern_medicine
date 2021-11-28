@@ -62,6 +62,7 @@ label willpower_defeat:
 
 label health_defeat:
     # Game over
+    hide screen dynamic_stats
     scene black
     with fade
 
