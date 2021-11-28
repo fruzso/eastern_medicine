@@ -43,6 +43,7 @@ define audio.widget_lose_stat = "sounds/widget_lose_stat.mp3"
 define audio.pulse = "sounds/pulse.mp3"
 define audio.hiss = "sounds/hiss.mp3"
 define audio.heal = "sounds/heal.mp3"
+define audio.memory = "sounds/memory.mp3"
 
 # dialogue settings
 define gui.dialogue_xpos = 250

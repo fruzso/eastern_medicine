@@ -522,7 +522,7 @@ label interogation_1:
                     pc "What a dismal idea. Nothing could devalue the experience anymore."
                     hide pc
 
-                show janos ide at right
+                show janos idle at right
                 janos """
                 Politics and debates on aesthetics aside, my sources report 
 

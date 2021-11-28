@@ -102,9 +102,28 @@ label haven:
         hide pc
 
         show janos idle at right
-        janos """
-        Let us not bring God in the picture, just yet.
+        janos """Let us not bring God in the picture, just yet."""
+        hide janos
 
+        if pc_sheet.CLAN == "Malkavian":
+            show pc idle at right
+            pc "Fang God!"
+            hide pc
+
+            show janos idle at right
+            janos "..."
+            hide janos
+
+            show pc idle at right
+            pc "C'mon, no reaction?"
+            hide pc
+        else:
+            show pc idle at right
+            pc "Never picked you for a religious vampire."
+            hide pc
+        
+        show janos idle at right
+        janos """
         How did you know that your haven has been breached?
         """
         hide janos
@@ -114,9 +133,9 @@ label haven:
         $ story_violent_arrival = True
 
         show pc idle at right
-        pc """It was a piece of the door, landing in my abdomen.
+        pc """It was a piece of the door landing in my abdomen.
 
-        Pain can be a pretty handy wake-up call, you see."""
+        Pain can be a pretty handy wake-up call."""
         hide pc
 
         $ pc_sheet.lose_health(1)
@@ -138,7 +157,7 @@ label haven:
         hide janos
 
         show pc idle at right
-        pc "Emilio"
+        pc "Emilio."
         hide pc
 
         if story_mention_emilio:
@@ -146,6 +165,8 @@ label haven:
             janos "We seem to be comming back to him."
         else: 
             show janos idle at right
+        
+        $ story_mention_emilio = True
 
         janos "Carry on, no need to spare the details."
         hide janos
@@ -220,6 +241,18 @@ label haven:
 
             $ pc_sheet.lose_willpower(1)
             call show_dynamic_stats
+        
+        else:
+            pc """
+            I don't usually dream, you see. 
+
+            But that day I had these very clear visions entering my mind. 
+
+            Visions of an armed S.W.A.T. team gearing up in front of my apartment door.  
+
+            Not what the doctor would recommend. 
+            """
+            hide pc
           
     label haven_interlude_1:
         show janos idle at right
@@ -258,7 +291,7 @@ label haven:
 
                 It was still quite unbelievable that an attack on it was immanent.
 
-                Yet I mustered all my resolve and started to stratagize.
+                Yet I mustered all my resolve and started to strategize.
                 """
                 hide pc
 
@@ -293,7 +326,7 @@ label haven:
 
         I firmly believe that the attack is the best form of defence.
 
-        In any case it never hurts if you have an arsenal at the ready bellow the nightstand.
+        In any case it never hurts if you have an arsenal at the ready below the nightstand.
 
         My choice fell on my trusted uzi-machine gun.
         """
@@ -338,7 +371,7 @@ label haven:
         pc """
         I mean, I did not really think I had anything to fear.
 
-        Trully, is it not your job, actually, to stop all sort of shit like this form going on.
+        Truly, is it not your job, actually, to stop all sorts of shit like this form going on.
 
         Anyway, no use crying over spilt milk.
 
@@ -346,7 +379,7 @@ label haven:
 
         So my weapon of choice was a kitchen knife.
 
-        Good thing, I had a ghoul live there with me back than at the fall of the iron curtain.
+        Good thing, I had a ghoul living there with me back then at the fall of the iron curtain.
         """
         hide pc
 
@@ -359,7 +392,7 @@ label haven:
     label haven_agents_in_the_room_intro:
         centered "And there you were in the living room."
 
-        centered "First comes a blinding flash"
+        centered "First comes a blinding flash."
 
         hide screen dynamic_stats
 
@@ -380,6 +413,7 @@ label haven:
         
         You pounce at the closest agent.
         """
+        hide agent
 
         # Roll to attack
         $ roll_pc = Roll(pc_sheet.DEXTERITY, pc_sheet.BRAWL, difficulty=3)
@@ -398,20 +432,36 @@ label haven:
                 hide agent
             else:
                 centered "That was the last of them."
+        else:
+            show pc idle at center
+            centered """Daaamn!
+            
+            These motherfuckers have got serious training.
+            
+            You try to pin him to the ground, but he gets the better of you."""
+            hide pc
+
+            $ pc_sheet.lose_health(1)
+            call change_dynamic_stats("worse")
+
         return
 
     label haven_cover:
         call haven_reveal_the_room
-        centered """You try to rely on your familiarity ith the location, remembering where everything is supposed to be as you take cover."""
+        centered """You try to rely on your familiarity with the location, 
+        
+        remembering where everything is supposed to be as you take cover.
+        
+        It is still the day so staying awake has its own challanges. {image=dice}"""
         
         # Roll willpower to stay awake
         $ roll_pc = Roll(pc_sheet.willpower, pc_sheet.hunger, difficulty=5)
         $ roll_pc.roll()
 
         if roll_pc.is_success:
-            centered "Nothing can break your will."
+            centered "But nothing can break your will."
         else:
-            centered "It's daytime. Hard to stay alive and standing, let alone jump to the spot you have found is excuciating."
+            centered "It's hard to stay alive and standing, let alone jump to the spot you have found."
 
             $ pc_sheet.lose_willpower(1)
             call change_dynamic_stats("worse")
@@ -420,9 +470,9 @@ label haven:
         $ roll_pc = Roll(pc_sheet.DEXTERITY + pc_sheet.AWARENESS, pc_sheet.hunger, difficulty=5)
         $ roll_pc.roll()
 
-        centered "You take cover dehind the half blown-up table."
+        centered "You take cover behind the half blown-up table."
         if roll_pc.is_success:
-            centered """It's nothing much, but it will do.
+            centered """It's not much, but it will do.
             
             You spot a man approaching."""
 
@@ -430,9 +480,10 @@ label haven:
             $ story_remaining_si -= 1
             play sound smash_and_grunt
 
-            centered """Quickly grab his leg and tear him to the ground."""
+            centered """You quickly grab his leg and tear him to the ground."""
 
-            hide agent        
+            hide agent
+       
         else:
             centered """It's not good for shit.
 
@@ -573,27 +624,44 @@ label haven:
         return
                           
     label haven_outro:
-        show pc idle at right
+        show pc idle at center
         if not story_remaining_si == 0:
             centered """The smell of blood mixed with new age gunpowder fills everything.
 
-            Your nostrils widen up, you could literally eat up the air, when all hell truly breaks out as you lose control,"""
+            Your nostrils widen up, you could literally eat up the air when all hell truly breaks out."""
             play sound beast_roar
-            centered """Disconnected images of bone, fangs, gunshot wounds swarm in your minds, yet nothing distinctive.
+            queue sound gunfight
+            
+            hide pc
 
-            One thing is for sure, when you regain conciousness, you don't find anyone alive."""
+            show pc idle at right
+            pc """
+            I cannot truly describe to you what happened next.
+
+            I was in control throughout the whole thing.
+
+            I tore them to pieces.
+            """
+            hide pc
+
+            centered """In your mind you can still see
+            
+            the disconnected images of bone, fangs, gunshot wounds, etc...
+
+            One thing is for sure, when the whole thing ended, you don't find anyone alive."""
 
             $ pc_sheet.get_hungry(2)
             $ pc_sheet.lose_health(story_remaining_si)
             call change_dynamic_stats("worse")
         
+        show pc idle at right
         pc "I have to admit..."
 
         menu:
             "How are you feeling?"
 
             "Proud":
-                pc """I feel fuckin proud. Not everyone could have done what I did.
+                pc """I feel fuckin' proud. Not everyone could have done what I did.
                 
                 Team [pc_sheet.NAME]: 1
 

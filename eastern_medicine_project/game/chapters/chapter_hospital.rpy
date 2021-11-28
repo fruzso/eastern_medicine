@@ -7,7 +7,6 @@ label hospital:
     # PLOTPOINTS: We learn about the stolen blood and the PC's relation to Cecila
     scene black 
     with fade 
-    
     play music background_music_hospital volume 1.0 loop
     play noise_hospital background_noise_hospital fadein 1.0 volume 0.5 loop
 
@@ -205,7 +204,7 @@ label hospital:
                     $ janos_suspicion_meter +=1
 
                     show janos idle at right
-                    janos "Unfortunately this would be strike number {janos_strikes}."
+                    janos "Unfortunately this would be strike number [janos_strikes]."
                     janos "When will you learn?"
                     hide janos
                     

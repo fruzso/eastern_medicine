@@ -20,13 +20,11 @@ label interogation_2:
 
     And please don't give me any of that patriotic bullshit,
 
-    nothing like {i}I snuggled up fondly with the memories of a great celebration and national glory{/i}
-    
-    As you say, no bullshit.
+    nothing like {i}I snuggled up fondly with the memories of a great celebration and national glory{/i}.
     """
     hide janos
 
-    centered "You feel that there is more said than simply words."
+    centered "Something is wrong."
 
     centered "In a split second you realize that the power of the Dark father permiates through Janos' words."
 
@@ -42,8 +40,8 @@ label interogation_2:
             $ roll_pc.roll()
 
             if roll_pc.is_success:
-                centered "He may be your elder or is it just frustration, nevertheless this is not his lucky day."
-                centered "You ressist his attempt."
+                centered "He may be your elder or just frustrated, nevertheless this is not his lucky day."
+                centered "You resist his attempt."
 
                 $ pc_sheet.gain_willpower(1)
                 call change_dynamic_stats("better")
@@ -61,10 +59,12 @@ label interogation_2:
                         pc "Fuck off!"
                         hide pc
 
+                        show janos idle at center
                         centered """
                         You meet an ungodly display of the nosferatu's fangs,
                         he is ready to pounce no question about it.
                         """
+                        hide janos
                         
                         call increase_janos_strikes
                         show janos idle at right
@@ -75,7 +75,16 @@ label interogation_2:
                         pc "Let me think for a moment."
                         hide pc
 
-                        call end_interrogation_2       
+                        call end_interrogation_2   
+            else:
+                $ janos_suspicion_meter +=1
+                centered """
+                He's dug his claws deep inside your mind.
+
+                You start to search your memories for all the details of the event
+                and communicate them as accurately as possible.
+                """
+                call end_interrogation_2    
                     
         "No":
             centered """
