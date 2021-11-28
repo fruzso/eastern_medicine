@@ -652,12 +652,12 @@ screen credits():
 
             text _("CREDITS\n\n")
 
-            text _("This game was created for the November, 2021 World of Darkness, Vampire Game jam\n")
+            text _("This game was created for the November, 2021 Vampire: the Masquerade Game jam\n")
             text _("CREATORS\n")
             text _("Bence Levente Bodó: visual art, story, coding")
             text _("Fruzsina Zsólyomi: sound design, story, coding\n")
 
-            text _("Special thanks to our friends who helped with testing: Tamás Renicke, Bence Szenderák\n")
+            text _("Special thanks to our friends who helped with testing: Tamás Reinicke, Bence Szenderák\n")
 
             text _("The codebase is available as a public GitHub repository: {a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n")
             text _("SOURCES\n")

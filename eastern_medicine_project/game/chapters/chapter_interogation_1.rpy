@@ -18,19 +18,22 @@ label interogation_1:
     call show_dynamic_stats
 
     show janos idle at right
+    with Dissolve(1.0)
     janos "Take a seat!"
     hide janos
 
     centered "You consider the room, knowing inside that you are:"
 
     menu pc_guilty:
-        "You are"
         "Guilty":
             $ story_pc_guilty = True
             centered """
             A few rationalizations of your crime run through your head.
+
             In the end all what matters is if you can get away with it.
+            
             And why couldn't you?
+
             It was the right thing to do anyway.
             """
             
@@ -47,78 +50,120 @@ label interogation_1:
     hide pc  
         
     centered """
-    Your eyes easily find the only chair singled out in the middle of the damp room, 
-    but you hesitate. The nosferatu's pale figure draws in your attention.
+    Your eyes easily find the only chair singled out in the middle of the damp room 
+    
+    but you hesitate. 
+    
+    The nosferatu's pale figure demands your attention.
     """
 
     menu emotional_reading:
         "Study his emotions {image=dice}":
-            centered """
-            In a split second you catalogue his features, 
-            mannerisms and faint flickers of emotion in his eyes.
-            """
+            centered """In a split second you catalogue his features, 
+            mannerisms and faint flickers of emotion in his eyes."""
 
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.INSIGHT, pc_sheet.hunger, difficulty=3)
             $ roll_pc.roll()
 
-            if roll_pc.margin_of_success > -1:
+            if roll_pc.is_success:
                 centered "He is an open book to you."
 
-                centered """
-                He may be playing the tough guy, but you sense that something else is bothering him inside,
-                probably you are not his biggest worry tonight.
-                """
+                centered """He may be playing the tough guy, but you sense that something else is bothering him inside.
+
+                Probably you are not his biggest worry tonight."""
             else:
-                centered """
-                He is difficult to read. However hard you try to figure out 
-                what is going on behind his deformed features, it is to no avail.
-                """
+                centered """He is difficult to read. 
+                
+                However hard you try to figure out 
+                what is going on behind his deformed features, it is to no avail."""
 
         "Who gives a fuck":
             jump seating_choice
 
-    menu seating_choice:
-
-        "Sit down":
-            $ story_seated = True
-
+    label seating_choice:
+        if pc_sheet.CLAN == "Toreador":
             show pc idle at right
-            pc "Well, if this is the best the house can offer, I don't mind if I do."
-
-            centered """
-            You sit down and take your time to adjust in the chair.
-            Never mind the squeks.
-            
-            Janos can wait a little.
-            """
+            pc "I am not sure, my delicate complection is most suited for this locale. {image=dice}"
             hide pc
 
             show janos idle at right
-            janos "Are you sitting comfortably?"
+            janos "Look, the rose is about to bleed."
+            janos "The horror!"
             hide janos
 
-            menu:
-                "Comfortably":
-                    show pc idle at right
-                    pc "Comfortably enough."
-                    hide pc
-                "Uncomfortably":
-                    show pc idle at right
-                    pc "Uncomfortably enough to want to get over with this"
-                    hide pc
+            $ roll_pc = Roll(pc_sheet.willpower, n_hunger_dice=0, difficulty=5)
+            $ roll_pc.roll()
 
-        "Remain standing":
-            $ story_seated = False
+            if roll_pc.is_success:
+                centered """You muster all your inner strength, though the place is horrendous
+                
+                you might just be able to withstand the pain of being here."""
+            else:
+                centered """This place is an indescribable shithole.
+                
+                You shouldn't have to spend a moment here."""
 
-            show pc idle
-            pc "Thanks, but no thanks. I prefere to stand."
-
-            centered "You remain standing."
-            hide pc
+                $ pc_sheet.lose_willpower(1)
+                call change_dynamic_stats("worse")
+        
+        if pc_sheet.CLAN == "Malkavian":
+            show pc idle at right
+            pc """Wait!
             
+            A vision!
+            
+            I'm getting something!
+            
+            You are about to ask if I want to sit down, right?"""
+            hide pc
+
             show janos idle at right
-            janos "Suit yourself. But we are going to be here for some time."
+            janos "..."
             hide janos
+
+        menu:
+            "Sit down":
+                $ story_seated = True
+
+                show pc idle at right
+                pc "Well, if this is the best the house can offer..."
+
+                centered """
+                You sit down and take your time to adjust in the chair.
+                
+                Never mind the squeks.
+                
+                Janos can wait a little.
+                """
+                hide pc
+
+                show janos idle at right
+                janos "Are you sitting comfortably?"
+                hide janos
+
+                menu:
+                    "Comfortably":
+                        show pc idle at right
+                        pc "Comfortably enough."
+                        hide pc
+                    "Uncomfortably":
+                        show pc idle at right
+                        pc "Uncomfortably enough to want to get over with this."
+                        hide pc
+
+            "Remain standing":
+                $ story_seated = False
+
+                show pc idle
+                pc "Thanks, but no thanks. I prefer to stand."
+
+                if pc_sheet.CLAN == "Toreador":
+                    centered "You are true Toreador, no chance you are sitting down in squalor."
+                hide pc
+                
+                show janos idle at right
+                janos "Suit yourself. But we are going to be here for some time."
+                hide janos
     
     show janos idle at right
     janos "Let's begin. Shall we?!"
@@ -129,7 +174,7 @@ label interogation_1:
     hide pc
 
     show janos idle at right
-    janos "The young are always so hasty, and trouble follows posthaste"
+    janos "The young are always so hasty, and trouble follows posthaste."
     hide janos
 
     show pc idle at right
@@ -151,7 +196,9 @@ label interogation_1:
     hide pc
 
     show janos idle at right
-    janos "You would know if we did, I assure you. In any case, there is a point to your persistence, I confess."
+    janos """You would know if we did, I assure you. 
+    
+    In any case, there is a point to your persistence, I have to confess."""
     hide janos
 
     if pc_sheet.CLAN == "Malkavian":
@@ -212,16 +259,18 @@ label interogation_1:
                 """
                 hide pc
 
+        show janos idle at right
+        janos "Please refrain from toying with me."
+        hide janos
+
     show janos idle at right
     janos """
-    Please refrain from toying with me.
-
     Followed by the kine. Specifically hired blades in the dark.
     """
     hide janos
 
     show pc idle at right
-    pc "{i}Hired blades in the dark?"
+    pc "{i}Hired blades in the dark?{/i}"
     hide pc
 
     show janos idle at right
@@ -244,9 +293,9 @@ label interogation_1:
     janos """
     What the fuck do you know then?!
 
-    If such a trifle of cognitive effort mars on the verge of your intellect
+    If such a trifle of cognitive effort mars the limits of your intellect
 
-    till and plough and leave the nob'ler art of sacrefice to the worthy and the leaned.
+    till and plough and leave the nob'ler art of sacrifice to the worthy and the learned.
     """
     hide janos
 
@@ -278,8 +327,9 @@ label interogation_1:
             """
             hide janos
 
-        # USE: Dominate 1 - Compell
-        "Compell him to talk plainly {image=dice}" if pc_sheet.DOMINATE > 0:
+        # USE: Dominate 1 - Compel
+        "Compel him to talk plainly {image=dice}" if pc_sheet.DOMINATE > 0:
+            $ janos_suspicion_meter += 1
             centered "You try to catch his gaze"
 
             # Simple Roll
@@ -311,7 +361,7 @@ label interogation_1:
 
                             I advise you do not waste more energy on such attempts.
 
-                            I might not be so forgiving, next time. Strike number [janos_strikes]
+                            I might not be so forgiving next time. Strike number [janos_strikes]
                             """
                             hide janos
 
@@ -320,16 +370,16 @@ label interogation_1:
                             pc "Silence"
                             hide pc 
 
-                            centered "Janos immediately stops talking, whilest staring deeply in your eyes."
+                            centered "Janos immediately stops talking, while staring deeply in your eyes."
 
                             show janos idle
 
                             centered """
                             Yet slowly you grow uneasy, as his unyielding eyes are fixed on you.
                             
-                            You begin to worry about the many repurcussions your actions might have.
+                            You begin to worry about the many repercussions your actions might have.
                             
-                            And finally you find an apologetic tone.
+                            And finally, you find an apologetic tone.
                             """                         
 
                             show pc idle at right
@@ -354,7 +404,7 @@ label interogation_1:
                     play sound outside_alarm fadein 1.0
                     centered "You feel your words missing their aim mid-air."
 
-                    centered "Perhaps its noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment"
+                    centered "Perhaps it's the noise comming in, or simply you lack the charisma to stand up to the sheriff at the moment"
 
                     show pc idle at right
                     pc "Talk to me plainly!"
@@ -368,20 +418,23 @@ label interogation_1:
 
                     That's strike [janos_strikes].
 
-                    Let's continue
+                    Let's continue.
                     """
                     hide janos  
 
-                    centered "You feel a world of shame creaping in your mind."
+                    centered "You feel a world of shame creeping in your mind."
             else:
                 centered "This is not the Nosferatu's first rodeo."
 
                 centered "He moves his eyes quickly just enough to make any further attempts impossible."
 
         # USE: Prsence 3 - Dread Gaze
-        "Present your fangs to mmake a point {image=dice}" if pc_sheet.PRESENCE >= 3:
+        "Present your fangs to make a point {image=dice}" if pc_sheet.PRESENCE >= 3:
+            $ janos_suspicion_meter += 1
+            play sound hiss
             centered """
-            You open wide and put on an intimigating display of your fangs,
+            You open wide and put on an intimidating display of your fangs,
+            
             while focusing all your supernatural effect on Janos.
             """
 
@@ -404,7 +457,7 @@ label interogation_1:
                 janos """
                 Maybe there is more to you than what meets the eye.
 
-                I am big enough to admit, that we might have started this little tete-at-tete on the wrong foot.
+                I am big enough to admit that we might have started this little tete-at-tete on the wrong foot.
 
                 Let us assume a tone more fit for civilized creatures.
                 """
@@ -438,15 +491,13 @@ label interogation_1:
     hide janos
 
     menu august_20:
-        "Where were you on the 20th of August?"
-
         "Tell a lie {image=dice}":
             $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
             $ roll_janos.roll()
             $ roll_pc = Roll(pc_sheet.WITS + pc_sheet.PERSUASION, pc_sheet.hunger, difficulty=roll_janos.margin_of_success)
             $ roll_pc.roll()
 
-            if roll_pc.margin_of_success > 0:
+            if roll_pc.is_success:
                 # Succesful lie
                 play sound fireworks fadein 1.0
 
@@ -454,7 +505,7 @@ label interogation_1:
                 pc """
                 It was a particulary bright evening, I remember it well.
                 
-                I was atop a corporate tower - forgive me, I forget which money-hungry conglomerate was it this time.
+                I was atop a corporate tower - forgive me, I forget which money-hungry conglomerate it was this time.
                 
                 But I tell you something, you cannot beat the view these fat cats afford their underlings.
                 
@@ -462,13 +513,24 @@ label interogation_1:
                 """            
                 hide pc
 
-                show janos idle at right
-                janos "Knowing your kind, I am surprised that you do not put in a word for a national holiday every day."
-                hide janos
+                if pc_sheet.CLAN == "Toreador":
+                    show janos idle at right
+                    janos "Knowing your kind, I am surprised that you do not put in a word for a national holiday every day."
+                    hide janos
 
-                show pc idle at right            
-                pc "What a dismal idea. Nothing could devalue the experience anymore."
-                hide pc
+                    show pc idle at right            
+                    pc "What a dismal idea. Nothing could devalue the experience anymore."
+                    hide pc
+
+                show janos ide at right
+                janos """
+                Politics and debates on aesthetics aside, my sources report 
+
+                your presence in the hospital in the past few days.
+
+                Let's talk about that instead, shall we?
+                """
+                hide janos
 
                 call end_interrogation_1
 
@@ -483,13 +545,15 @@ label interogation_1:
                 
                 show pc idle at right
                 pc """
-                It was a particulary bright evening, I remember it well. As if it was yesturday.
+                It was a particulary bright evening, I remember it well. 
+                
+                As if it was yesterday.
                 
                 I was atop a corporate tower - forgive me, I forget which money-hungry conglomerate was it this time.
                 
                 But I tell you something, you cannot beat the view these fat cats afford their underlings.
                 
-                There I was, taking in the night sky, and the sparkling dimonds on it.
+                There I was, taking in the night sky, and the sparkling diamonds on it.
                 """            
                 hide pc
 
@@ -508,6 +572,8 @@ label interogation_1:
                 show janos idle at right
                 janos "Curious. What would an underpaid nurse do atop a Fortune 500 company's private party?"
                 hide janos
+                
+                $ janos_suspicion_meter += 1
 
                 centered "Shit."
                 $ pc_sheet.lose_willpower(1)

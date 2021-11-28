@@ -40,6 +40,8 @@ define audio.smoke_bomb = "sounds/smoke_bomb.mp3"
 define audio.wall_breaking = "sounds/wall_breaking.mp3"
 define audio.widget_gain_stat = "sounds/widget_gain_stat.mp3"
 define audio.widget_lose_stat = "sounds/widget_lose_stat.mp3"
+define audio.pulse = "sounds/pulse.mp3"
+define audio.hiss = "sounds/hiss.mp3"
 
 # dialogue settings
 define gui.dialogue_xpos = 250
@@ -60,6 +62,7 @@ image background_video_black_wheel_empty = Movie(play = "video/moive_character_s
 image backgorund_video_hospital = Movie(play = "video/movie_hospital.webm", mask = None)
 image background_video_carpark = Movie(play = "video/movie_carpark.webm", mask = None)
 image background_video_haven = Movie(play = "video/movie_haven.webm", mask = None)
+image background_ekg = Movie(play = "video/movie_ekg_title.webm", loop = False)
 image white = "#ffff"
 
 # Props
@@ -105,7 +108,7 @@ label variables:
     $ janos_strikes = 0
     $ janos_strikes_limit = 4
     $ janos_sheet = Janos()
-    $ janos_suspicion_score = 0
+    $ janos_suspicion_meter = 0
 
     # Story events:
     # False by default and only switched if chosen
