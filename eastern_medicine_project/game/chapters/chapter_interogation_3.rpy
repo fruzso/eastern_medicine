@@ -13,6 +13,7 @@ label interogation_3:
     call show_dynamic_stats
 
     show janos idle at right
+    with Dissolve(1.0)
     janos "Did you wonder?"
     hide janos
 

@@ -13,6 +13,7 @@ label interogation_2:
     call show_dynamic_stats
 
     show janos idle at right
+    with Dissolve(1.0)
     janos """
     So, the big one.
     

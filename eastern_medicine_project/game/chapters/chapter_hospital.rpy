@@ -14,12 +14,13 @@ label hospital:
     scene backgorund_video_hospital
     with Dissolve(2.0)
 
-    centered "The memory of St. Laszlo's hospital comes back, maybe even more clearly than you would like"
+    centered "The memory of St. Laszlo's hospital comes back, maybe even more clearly than you would like."
 
     call show_dynamic_stats
 
     show pc idle at right
-    pc "The hospital was particulary quiet that evening."
+    with Dissolve(1.0)
+    pc "The hospital was particulary busy that evening."
     hide pc
 
     show janos idle at right
@@ -39,14 +40,14 @@ label hospital:
     hide janos
 
     show pc idle at right
-    pc "illuminates the salient points..."
+    pc "{i}Illuminates the salient points...{/i}"
     
     centered "Janos' imapatient voice interupts you."
     hide pc
 
     show janos idle at right
     janos """
-    Yes. It illuminates.
+    Yes. It {i}illuminates{/i}.
     
     So, illuminate,
 
@@ -75,17 +76,17 @@ label hospital:
 
         Quite frequent, indeed, for someone who has no need of medical attention.
 
-        Unless you carry only the weakest of remnants of the dark father's blood in you,
+        Unless you carry only the weakest remnants of the dark father's blood in you
         """
 
         $ sire_generation = pc_sheet.GENERATION - 1
 
         janos """
-        But you are only removed [sire_generation] times from him.
+        but you are only removed [sire_generation] times from him.
 
         So no danger of that.
 
-        That leaves us with an inquery to the reason behind the frequency of your visits.
+        That leaves us with an inquiry as to the reason behind the frequency of your visits.
         """
         hide janos
 
@@ -107,22 +108,17 @@ label hospital:
         centered "You lay back confidently, knowing that the secret to every good lie is in the details."
 
         show pc idle at right
-        pc """
-        The hospital's location and function were not improtant to me.
+        pc """The hospital's location and function were not improtant to me.
 
         I mean, maybe they were.
 
         I like to visit places where people are in their purest form and hide less from all the bullshit of the world.
 
-        There is a morbid tranquility to them.  
-        """
+        There is a morbid tranquility to them."""
         hide pc
 
         show janos idle at right
-        """
-        Curious.
-        """
-        hide janos 
+        janos "Curious."
 
         centered """
         The Nosferatu suddenly stops talking.
@@ -137,29 +133,33 @@ label hospital:
 
         It's like he can see inside your mind.
 
-        Although at this point you have no idea if he actually does so.
+        Although at this point you have no idea if he actually does.
 
         He must have learnt this technique back in the party-loyal secret police. 
         """
+        hide janos
 
-        menu optional_name:
-            "Do you do something?"
-            "Try to hold onto your lie {image:dice}":
+        menu:
+            "Try to hold onto your lie {image=dice}":
                 $ roll_pc = Roll(pc_sheet.willpower, n_hunger_dice=0, difficulty=4)
                 $ roll_pc.roll()
 
                 if roll_pc.is_success:
-                    centered "You keep the eyecontact for 10 seconds more when he finally starts talking."
+                    centered """You keep eyecontact for 10 more seconds
+                    
+                    when he finally starts talking."""
 
                     show janos idle at right
                     janos """
                     Interesting. 
 
-                    Interesting how it all makes sense, yet my notes says otherwise. 
+                    Interesting, how it all makes sense, yet my notes say otherwise. 
 
-                    I'm givig you a last chance to tell me more details. 
+                    I'm givig you a last chance to fill in the blanks. 
                     """
                     hide janos
+
+                    $ janos_suspicion_meter +=1
 
                     centered """
                     You suddenly realize - you have no way of knowing what pieces of information he has on your case.
@@ -167,7 +167,7 @@ label hospital:
 
                     if story_pc_guilty:
                         centered """
-                        Maybe coming clean would lower his suspicion. Afterall, you could have sold the blood cluelessly.
+                        Maybe coming clean would counter his suspicion. Afterall, you could have sold the blood cluelessly.
                         """
                     else:
                         centered """
@@ -180,29 +180,34 @@ label hospital:
                     centered """
                     You try to keep up the confident act. 
 
-                    But you're too intimidated. 
+                    But even the best actors need to look at the script sometimes. 
                     """
+
                     show pc idle at right
                     pc "It's the... You know, it's... It's like..."
                     hide pc
 
+                    show janos idle at right
                     centered """
                     He hold his notebook up. 
                     
-                    Afterall you know that you have no way of knowing what information he has. 
+                    You have no way of knowing what information he has. 
 
                     It's not worth it.
                     """
+                    hide janos
 
                     show pc idle at right
-                    pc "Alright, alright. No need to use your bloody torturing techniques."
+                    pc "Alright, alright. No need to result to communist torture techniques."
                     hide pc
 
                     call increase_janos_strikes
+                    $ janos_suspicion_meter +=1
 
                     show janos idle at right
-                    janos "Unfortunately this would be strike number {janos_strikes}. When will you learn?"
-                    hide Janos
+                    janos "Unfortunately this would be strike number {janos_strikes}."
+                    janos "When will you learn?"
+                    hide janos
                     
                     jump blood_selling_1
 
@@ -213,7 +218,7 @@ label hospital:
 
                 show janos idle at right
                 janos """
-                Don't be ridiculous. I have not put in any torturing efforts yet.
+                Don't be ridiculous. I have not put in any such efforts yet.
 
                 But if I were you I would be careful.
                 """
@@ -227,17 +232,15 @@ label hospital:
         centered "You try to act confidently, but you it's hard to lie to your own sheriff."
 
         show pc idle at right
-        pc """
-        I wouldn't say I visited the hospital often.
+        pc """I wouldn't say I visited the hospital often.
 
-        I would go there a bit more than the others.
-        """
+        I would go there a bit more than the others."""
 
-        centered "You feel that the right words escape you."
+        centered """You feel that the right words escape you.
+        
+        Why does he let this drag on.
 
-        centered "Why does he let this drag on."
-
-        centered "Maybe he is buying it."
+        Maybe he is buying it."""
 
         pc "You know there is a certain beauty to a place like that."
 
@@ -274,6 +277,7 @@ label hospital:
         hide janos
 
         centered "Burn."
+        $ janos_suspicion_meter += 1
         call increase_janos_strikes
 
         show janos idle at right
@@ -281,7 +285,7 @@ label hospital:
 
         I wonder why. 
 
-        I can't even take this one seriously.
+        I can't even take this one seriously, nevertheless, that's strike number [janos_strikes].
 
         Maybe you were visiting someone on a regular basis.
 
@@ -304,7 +308,7 @@ label hospital:
             # Malkavian
             show pc idle at right
             pc """
-            Sometimes it was spontanoues, sometimes not,
+            Sometimes it was spontaneous, sometimes not,
 
             you know, I am here and I am there,
 
@@ -390,21 +394,23 @@ label hospital:
         centered """
         Even now, under these circumstances you remember Cecilia fondly.
     
-        Ther was always something elating about her presence that could shake up you up,
+        There has always been something elating about her presence that could shake you up,
 
         even having been dead for over a century.
 
-        You would just catch her walking on the corridors of the hospital, tending to someone's needs.
+        It would be just enough to catch her walking on the corridors, tending to someone's needs.
         """
 
         show cecilia idle at right
         cecilia "How is my dark [pc_sheet.ASSUMED_GENDER]?"
         hide cecilia
-
-        centered "I never really liked that she adressed me so. But I couldn't bring myself to chide her."
-
+        
         show pc idle at right
-        pc "Not very well. I cannot stay long"
+        centered """I never really liked that she addressed me so.
+        
+        But I couldn't bring myself to chide her."""
+
+        pc "Not very well. I cannot stay long."
         hide pc
 
         show cecilia idle at right
@@ -427,20 +433,27 @@ label hospital:
                 cecilia """
                 Just a few bags.
                 
-                I'm sure, with all the blood you're taking to those in need this will be enough now.
+                I'm sure, with all the blood you've been taking to those in need this will be enough now,
+                
+                so kind.
                 """
                 hide cecilia
                     
             "Say a few kind words":
                 show pc idle at right
-                pc "You are an angel, How do you keep such a happy face among these dire circumstances?"
+                pc """You are an angel.
+                
+                How do you keep such a happy face among these dire circumstances?"""
                 hide pc
 
                 show cecilia idle at right
-                cecilia """
-                I just try to look where do they need my help, and go there.
-                
-                It brings its own reward.
+                cecilia """The secret is not to look for what brings you comfort
+
+                but where you can bring it to others.
+
+                If everyone cared just half as much as you and I do
+
+                the world would be a better place.
 
                 But I'm sure, darling you know this. With all the blood you're taking to those in need.
                 """
@@ -448,14 +461,16 @@ label hospital:
 
                 show pc idle at right
                 pc """
-                You are an angel, but I have to run.
+                You are truly an angel
+                
+                but I have to run.
 
                 How much do you have for me tonight?
                 """
                 hide pc
 
                 show cecilia idle at right
-                cecilia "Just a few bags"
+                cecilia "Just a few bags."
                 hide cecilia
 
         show pc idle at right
@@ -482,7 +497,7 @@ label hospital:
         
         stop music_nostalgia fadeout 1.0
 
-        show janos idle at right
+        show janos idle at center
         janos "Was your relationship with Cecilia purely about business?"
         hide janos
 
@@ -498,7 +513,7 @@ label hospital:
 
                 In all honesty though, and what should I be in front of my sheriiff if not completely honest,
 
-                There is a kind of sentiment, that only the living, can inspire in us.
+                there is a kind of sentiment, that only the living can inspire in us.
 
                 That lived in me - Ironic as that may sound.
                 """
@@ -525,7 +540,7 @@ label hospital:
         hide janos
 
         show pc idle at right
-        pc "Sure, you look like that kind of guy."
+        pc "{i}Sure{/i}, you look like that kind of guy."
         hide pc
 
         show janos idle at right
@@ -537,12 +552,14 @@ label hospital:
         hide janos
 
         menu:
+            "Did you meet anyone besides her at the hospital?"
             "Tell the truth":
                 show pc idle at right
                 pc "I also saw Emilio for a brief moment. He looked lost deep in thoughts, so I decided not to bother him."
                 hide pc
 
                 $ story_mention_emilio = True
+                $ janos_suspicion_meter -= 1
 
             "Tell a lie {image=dice}":
                 $ roll_janos = Roll(janos_sheet.INTELLIGENCE + janos_sheet.MANIPULATION, janos_sheet.hunger, difficulty=0)
@@ -565,10 +582,16 @@ label hospital:
                     You're happy you could keep Emilio out of this.""" 
 
                 else:
-                    centered """It is begining to be difficult to keep track of what's what and all the lies.
-                    
-                    You find yourself confused.
-                    """
+                    if janos_suspicion_meter >= 2:
+                        centered """It is begining to be difficult to keep track of what's what and all the lies.
+
+                        You find yourself confused."""
+                    else:
+                        centered """Every lie has its own challanges.
+
+                        This one in particular.
+
+                        What hasn't a former counter-intelligence officer before?""" 
 
                     show pc idle at right
                     pc "I meet a few people."
@@ -580,8 +603,10 @@ label hospital:
 
                     centered """
                     You try to hide the only important name in a never ending stream of lies
+
+                    ...
                     
-                    but he cathes is.
+                    but he catches is.
                     """
 
                     show janos idle at right
@@ -598,7 +623,7 @@ label hospital:
                     hide pc
 
         show janos idle at right
-        janos "Noted."
+        janos "Let me jsut quickly make a note of that."
         hide janos
                 
     stop music fadeout 1.0

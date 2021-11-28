@@ -75,6 +75,7 @@ label bossfight_intro:
 
 label bossfight_ask_for_judgement:
     show pc idle at right
+    with Dissolve(1.0)
     pc "Well, I think maybe it is time."
     hide pc
 

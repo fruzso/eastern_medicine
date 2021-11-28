@@ -12,6 +12,7 @@ label carpark:
     play noise_carpark background_noise_carpark fadein 1.0 volume 0.5 loop
     
     show pc idle at right
+    with Dissolve(1.0)
     pc """ I needed a place to stay where they couldn't find me.
 
     And I couldn't have risked going to any of my friends. 
