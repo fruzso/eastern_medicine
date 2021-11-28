@@ -224,9 +224,13 @@ label closure:
         call check_janos_alive # calls victory always
 
     else:
-        centered """For all your effort, the clever and tactical moves and everything you can bring to the table
+        centered """For all your efforts, the clever and tactical moves
         
-        nothing seems to counter the fact that he is stroner and more importantly older than you.
+        and everything you can bring to the table
+        
+        nothing seems to counter the fact 
+        
+        that he is stronger and more importantly, older than you.
        
         It was a mistake to fight him.
         

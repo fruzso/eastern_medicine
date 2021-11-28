@@ -30,7 +30,7 @@ label rakpart:
     Someone must have invited them."""
     hide janos
 
-    play sound rakpart_footsteps fadein 1.0 volume 1.0 # TODO : thi sshould be much louder
+    play sound rakpart_footsteps fadein 1.0 volume 1.0
     centered """
     Footsteps approach in the mist, 
     thumping the ground with a growing determination of volume.

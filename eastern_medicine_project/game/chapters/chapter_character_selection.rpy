@@ -8,8 +8,6 @@ label character_selection:
     pause(3.0)
 
     menu choose_character:
-        # TODO Names ypos 
-        # TODO Hover color
         "Choose your character"
         "Almos":
             $ pc_sheet = Almos()

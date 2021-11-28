@@ -48,13 +48,13 @@ label willpower_defeat:
 
     Anyone around might think it is a sign of weekness,
 
-    but inside you that it is the strength of the beast that makes your undying heart beat.
+    but inside, you know, that it is the strength of the beast that makes your undying heart beat.
 
     Yet, you cannot control it anymore.
 
-    Knowing that there is no comming back from here you give all control over to him,
+    Knowing that there is no comming back from here you give all control over to it,
 
-    having finally lost your to hold it at bay."""
+    having finally lost your will to hold it at bay."""
     hide pc
     with Dissolve(3.0)
 
@@ -87,17 +87,17 @@ label hunger_defeat:
     show pc idle at center
     centered """There is a noise rattling inside your skull,
 
-    nothing can silence it evermore,
+    nothing can silence it, nevermore,
 
-    nothign can hold it back evermore.
+    nothign can hold it back, nevermore.
 
     The smell of blood fills your nostrils.
 
     The beast takes over you.
     
-    There're flashes of rampaging around in the room.
+    There're flashes of rampaging around.
     
-    And Janos' word cathes the artificial light."""
+    You have lost yourself."""
     hide pc
     with Dissolve(3.0)
 

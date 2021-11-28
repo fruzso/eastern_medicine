@@ -6,7 +6,7 @@ label increase_janos_strikes:
         janos "That was your last strike."
         hide janos
         
-        call janos_hits_1 # TODO: CODE add janos strike check everywher
+        call janos_hits_1
     return
 
 label check_janos_alive:

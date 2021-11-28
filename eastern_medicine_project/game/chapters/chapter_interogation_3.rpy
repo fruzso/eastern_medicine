@@ -133,7 +133,7 @@ label interogation_3:
                 "Stop talking":
                     centered "You stop talking."
                 "Cast the shadow of doubt on someone else":
-                    pc "It must have been Elemér." #TODO: STORY Zsarol with cecilia
+                    pc "It must have been Elemér."
                     hide pc
 
                     show janos idle at right
