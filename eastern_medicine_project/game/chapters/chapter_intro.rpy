@@ -8,7 +8,7 @@ label intro:
     centered """This game was created as a part of Vampire: The Masquerade game jam, November, 2021. 
     Events portrayed in this game are not canon within World of Darkness universe.
     """
-    play sound heal volume 1.0
+    
     centered """This game is a work of fiction. Any resemblence to real life persons, events, institutions, etc. is coincidental.
     It contains curse langauge and violent sounds."""
 
