@@ -1,6 +1,11 @@
 label increase_janos_strikes:
     $ janos_strikes += 1
     if janos_strikes >= janos_strikes_limit:
+        hide pc
+        show janos idle at right
+        janos "That was your last strike."
+        hide janos
+        
         call janos_hits_1 # TODO: CODE add janos strike check everywher
     return
 

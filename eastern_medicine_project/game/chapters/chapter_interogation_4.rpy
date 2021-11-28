@@ -15,12 +15,12 @@ label interogation_4:
     call bossfight_intro
 
     menu: # Ultimately every option leads to fight / run / victory
-        "Ask him if he belives you."
+        "Ask him if he believes you."
         "Yes, It's time it ended, pop the question.":
             call bossfight_ask_for_judgement #
             call bossfight_intermission_1 #
             menu:
-                "Figure out what Janos thinks?"
+                "Do you want to figure out what Janos thinks?"
                 "Yes, I want to know with every fiber of my being {image=dice}":
                     call bossfight_read_janos #
                     call bossfight_intermission_2 #
@@ -31,7 +31,9 @@ label interogation_4:
                     menu:
                         "Do you try to run for it?"
                         "No, I'll take it":
-                            centered "You wait his judgement anxiously. Every moment feels like eternity."
+                            centered """You wait his judgement anxiously. 
+                            
+                            Every moment feels like an eternity."""
                             call bossfight_judgement #
                         "Run, run, run!":
                             call run #
@@ -42,7 +44,7 @@ label interogation_4:
             call bossfight_wait #
             call bossfight_intermission_1 #
             menu:
-                "Figure out what Janos thinks?"
+                "Do you want to figure out what Janos thinks?"
                 "Yes, I want to know with every fiber of my being {image=dice}":
                     call bossfight_read_janos #
                     call bossfight_intermission_2 #
@@ -53,7 +55,7 @@ label interogation_4:
                     menu:
                         "Do you try to run for it?"
                         "No, I'll take it":
-                            centered "You wait his judgement anxiously. Every moment feels like eternity."
+                            centered "You wait his judgement anxiously. Every moment feels like an eternity."
                             call bossfight_judgement #
                         "Run, run, run!":
                             call run # Goes to run -> bossfight
@@ -87,15 +89,15 @@ label bossfight_ask_for_judgement:
     pc """
     Yes, time. It's time you told me what you think.
     
-    Am I found guilty? Do YOU find me guilty?
+    Am I found guilty? Do {i}you{/i} find me guilty?
     """
     hide pc
     return
 
 label bossfight_wait:
-    centered "It's better to let things run their natural cousrse. He will tell me when he wants. Best remain silent"
-
-    centered "You remain silent."
+    centered """It's better to let things run their natural course. He will tell me when he wants to. 
+    
+    I best remain silent."""
 
     show janos idle at right
     janos "Have you enumerated all the points, arguments and circumstance that might play in your favour?"
@@ -103,12 +105,14 @@ label bossfight_wait:
 
     if pc_sheet.CLAN == "Malkavian":
         show pc idle at right
-        pc """
-        Nothing else comes to mind.
+        pc """Nothing else comes to mind.
+
         The only other sound's the break
+
         Of distant waves and birds awake.
-        To see you had better be blind.
-        """
+
+        To see you had better be blind."""
+        hide pc
     else:
         show pc idle at right
         pc "Yes."
@@ -165,7 +169,9 @@ label bossfight_judgement:
     show janos idle at right
     janos """
     As it happens, the prince gave me full jurisdiction over this matter.
+
     So we can cut all the bullshit, etiquette and courtly diplomacy.
+    
     The hour is nigh, and you are:
     """
 
