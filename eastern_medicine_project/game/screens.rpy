@@ -624,6 +624,8 @@ screen about():
 
             text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
+            text _("The game was made using the rules, rolls and character sheet design of Vampire: The Masquerade 5th edition.")
+
 
 style about_label is gui_label
 style about_label_text is gui_label_text
@@ -652,7 +654,8 @@ screen credits():
 
             text _("CREDITS\n\n")
 
-            text _("This game was created for the November, 2021 Vampire: the Masquerade Game jam\n")
+            text _("This game was created for the November, 2021 Vampire: the Masquerade Game jam\n\n")
+
             text _("CREATORS\n")
             text _("Bence Levente Bodó: visual art, story, coding")
             text _("Fruzsina Zsólyomi: sound design, story, coding\n")
@@ -660,13 +663,15 @@ screen credits():
             text _("CONTACT US AT:\n")
             text _("bodo.bence.levente@gmail.com and zsfruzsi@gmail.com\n")
 
-            text _("Special thanks to our friends who helped with testing: Bence Szenderák, Tamás Baricz, Márton Csirik, Tamás Reinicke, \n")
+            text _("Special thanks to our friends who helped with the testing: \nBence Szenderák, Tamás Baricz, Márton Csirik, Tamás Reinicke, \n")
 
-            text _("The codebase is available as a public GitHub repository: {a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n")
+            text _("The codebase is available as a public GitHub repository: \n{a=https://github.com/fruzso/eastern_medicine} https://github.com/fruzso/eastern_medicine {/a}\n\n")
             text _("SOURCES\n")
-            text _("The base of some visual were obtained from {a=https://www.pexels.com/}https://www.pexels.com/{/a} as free stopck images and heavily modified later")
-            text _("Sound effects were obtained from {a=https://freesound.org/}https://freesound.org/{/a}")
-            text _("Backrgound music loops were obtained from {a=https:/https://www.looperman.com//}https://www.looperman.com/{/a}")
+            text _("The base of some visual were obtained from {a=https://www.pexels.com/}https://www.pexels.com/{/a} as free stock images and heavily modified later")
+            text _("Sound effects were obtained from {a=https://freesound.org/}https://freesound.org/{/a} and {a=https://quicksounds.com/}https://quicksounds.com/{/a}")
+            text _("Background loops were obtained from {a=https:/https://www.looperman.com//}https://www.looperman.com/{/a}")
+            text _("Special thanks to the following artists who have uploaded their amazing work to Looperman:")
+            text _("prodslyce, easthills, 2nick8, BananAlice89, ProdMars, SabaLagrange, flsouto, frankiejazzit")
 
 
 style about_label is gui_label
